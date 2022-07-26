@@ -7,27 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		934D673A288F807A0011661F /* AllGroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D6739288F807A0011661F /* AllGroupListView.swift */; };
-		934D673C288F80950011661F /* DiscussionPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934D673B288F80950011661F /* DiscussionPost.storyboard */; };
-		934D6740288F80AF0011661F /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D673F288F80AF0011661F /* Groups.swift */; };
-		934D6742288F80B40011661F /* MainGroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D6741288F80B40011661F /* MainGroupListView.swift */; };
-		934D6744288F80B70011661F /* MyGroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D6743288F80B70011661F /* MyGroupListView.swift */; };
-		934D6746288F80C00011661F /* DiscussionPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D6745288F80C00011661F /* DiscussionPostViewController.swift */; };
-		934D6748288F80C50011661F /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D6747288F80C50011661F /* GroupViewController.swift */; };
-		934D674A288F80D60011661F /* JoinGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D6749288F80D60011661F /* JoinGroupView.swift */; };
-		934D674C288F80D90011661F /* GroupDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D674B288F80D90011661F /* GroupDetailView.swift */; };
-		934D674E288F80DE0011661F /* ComposeGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D674D288F80DE0011661F /* ComposeGroupView.swift */; };
-		934D6750288F80E30011661F /* ConvertDayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D674F288F80E30011661F /* ConvertDayList.swift */; };
-		934D6752288F80F30011661F /* GroupMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D6751288F80F30011661F /* GroupMember.swift */; };
-		934D6754288F80FD0011661F /* DiscussionComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D6753288F80FD0011661F /* DiscussionComment.swift */; };
-		934D6756288F81020011661F /* DiscussionPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D6755288F81020011661F /* DiscussionPost.swift */; };
-		934D6758288F81090011661F /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D6757288F81090011661F /* GroupCell.swift */; };
-		934D675A288F81120011661F /* GroupStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D6759288F81120011661F /* GroupStore.swift */; };
-		934D675C288F811D0011661F /* SideOfTheForce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D675B288F811D0011661F /* SideOfTheForce.swift */; };
-		934D675E288F81260011661F /* TextLimiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D675D288F81260011661F /* TextLimiter.swift */; };
-		934D6760288F812F0011661F /* ConvertTrashList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D675F288F812F0011661F /* ConvertTrashList.swift */; };
-		934D6762288F81410011661F /* ChosenGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934D6761288F81410011661F /* ChosenGroup.swift */; };
-		934D6765288F84C00011661F /* GroupListView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934D6763288F84C00011661F /* GroupListView.storyboard */; };
+		9314222F288FA51A00134564 /* DiscussionPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9314222E288FA51A00134564 /* DiscussionPost.storyboard */; };
+		93142231288FA55200134564 /* DiscussionPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93142230288FA55200134564 /* DiscussionPostViewController.swift */; };
+		93142233288FA59A00134564 /* DiscussionPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93142232288FA59A00134564 /* DiscussionPost.swift */; };
+		93142238288FC7C800134564 /* GroupListView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93142236288FC7C800134564 /* GroupListView.storyboard */; };
+		9314223A288FC8C400134564 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93142239288FC8C400134564 /* Groups.swift */; };
+		9314223C288FCBE700134564 /* GroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9314223B288FCBE700134564 /* GroupListViewController.swift */; };
+		9314223E288FD00100134564 /* GroupCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9314223D288FD00100134564 /* GroupCustomCell.swift */; };
+		937C8F8E288FF28B00E0D145 /* MainGroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F8D288FF28B00E0D145 /* MainGroupListView.swift */; };
+		937C8F90288FF2B500E0D145 /* AllGroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F8F288FF2B500E0D145 /* AllGroupListView.swift */; };
+		937C8F92288FF30900E0D145 /* MyGroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F91288FF30900E0D145 /* MyGroupListView.swift */; };
+		937C8F94288FF31D00E0D145 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F93288FF31D00E0D145 /* GroupCell.swift */; };
+		937C8F96288FF32B00E0D145 /* ComposeGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F95288FF32B00E0D145 /* ComposeGroupView.swift */; };
+		937C8F98288FF33700E0D145 /* JoinGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F97288FF33700E0D145 /* JoinGroupView.swift */; };
+		937C8F9A288FF34600E0D145 /* GroupDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F99288FF34600E0D145 /* GroupDetailView.swift */; };
+		937C8F9C288FF46B00E0D145 /* SideOfTheForce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F9B288FF46B00E0D145 /* SideOfTheForce.swift */; };
+		937C8F9E288FF49600E0D145 /* TextLimiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F9D288FF49600E0D145 /* TextLimiter.swift */; };
+		937C8FA0288FF4A700E0D145 /* ConvertDayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F9F288FF4A700E0D145 /* ConvertDayList.swift */; };
+		937C8FA2288FF4B300E0D145 /* ConvertTrashList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8FA1288FF4B300E0D145 /* ConvertTrashList.swift */; };
+		937C8FA4288FF53000E0D145 /* ChosenGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8FA3288FF53000E0D145 /* ChosenGroup.swift */; };
+		937C8FA828900E7B00E0D145 /* MainGroupListScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 937C8FA628900E7B00E0D145 /* MainGroupListScreen.storyboard */; };
 		DA8AD6742885ADC8005D6CDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8AD6732885ADC8005D6CDB /* AppDelegate.swift */; };
 		DA8AD6762885ADC8005D6CDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8AD6752885ADC8005D6CDB /* SceneDelegate.swift */; };
 		DA8AD6782885ADC8005D6CDB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8AD6772885ADC8005D6CDB /* ViewController.swift */; };
@@ -57,27 +56,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		934D6739288F807A0011661F /* AllGroupListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllGroupListView.swift; path = ../../../Desktop/Plog/Plog/AllGroupListView.swift; sourceTree = "<group>"; };
-		934D673B288F80950011661F /* DiscussionPost.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = DiscussionPost.storyboard; path = ../../../Desktop/Plog/Plog/DiscussionPost.storyboard; sourceTree = "<group>"; };
-		934D673F288F80AF0011661F /* Groups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Groups.swift; path = ../../../Desktop/Plog/Plog/Groups.swift; sourceTree = "<group>"; };
-		934D6741288F80B40011661F /* MainGroupListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainGroupListView.swift; path = ../../../Desktop/Plog/Plog/MainGroupListView.swift; sourceTree = "<group>"; };
-		934D6743288F80B70011661F /* MyGroupListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyGroupListView.swift; path = ../../../Desktop/Plog/Plog/MyGroupListView.swift; sourceTree = "<group>"; };
-		934D6745288F80C00011661F /* DiscussionPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiscussionPostViewController.swift; path = ../../../Desktop/Plog/Plog/DiscussionPostViewController.swift; sourceTree = "<group>"; };
-		934D6747288F80C50011661F /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupViewController.swift; path = ../../../Desktop/Plog/Plog/GroupViewController.swift; sourceTree = "<group>"; };
-		934D6749288F80D60011661F /* JoinGroupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JoinGroupView.swift; path = ../../../Desktop/Plog/Plog/JoinGroupView.swift; sourceTree = "<group>"; };
-		934D674B288F80D90011661F /* GroupDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupDetailView.swift; path = ../../../Desktop/Plog/Plog/GroupDetailView.swift; sourceTree = "<group>"; };
-		934D674D288F80DE0011661F /* ComposeGroupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComposeGroupView.swift; path = ../../../Desktop/Plog/Plog/ComposeGroupView.swift; sourceTree = "<group>"; };
-		934D674F288F80E30011661F /* ConvertDayList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConvertDayList.swift; path = ../../../Desktop/Plog/Plog/ConvertDayList.swift; sourceTree = "<group>"; };
-		934D6751288F80F30011661F /* GroupMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupMember.swift; path = ../../../Desktop/Plog/Plog/GroupMember.swift; sourceTree = "<group>"; };
-		934D6753288F80FD0011661F /* DiscussionComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiscussionComment.swift; path = ../../../Desktop/Plog/Plog/DiscussionComment.swift; sourceTree = "<group>"; };
-		934D6755288F81020011661F /* DiscussionPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiscussionPost.swift; path = ../../../Desktop/Plog/Plog/DiscussionPost.swift; sourceTree = "<group>"; };
-		934D6757288F81090011661F /* GroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupCell.swift; path = ../../../Desktop/Plog/Plog/GroupCell.swift; sourceTree = "<group>"; };
-		934D6759288F81120011661F /* GroupStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupStore.swift; path = ../../../Desktop/Plog/Plog/GroupStore.swift; sourceTree = "<group>"; };
-		934D675B288F811D0011661F /* SideOfTheForce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideOfTheForce.swift; path = ../../../Desktop/Plog/Plog/SideOfTheForce.swift; sourceTree = "<group>"; };
-		934D675D288F81260011661F /* TextLimiter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextLimiter.swift; path = ../../../Desktop/Plog/Plog/TextLimiter.swift; sourceTree = "<group>"; };
-		934D675F288F812F0011661F /* ConvertTrashList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConvertTrashList.swift; path = ../../../Desktop/Plog/Plog/ConvertTrashList.swift; sourceTree = "<group>"; };
-		934D6761288F81410011661F /* ChosenGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChosenGroup.swift; path = ../../../Desktop/Plog/Plog/ChosenGroup.swift; sourceTree = "<group>"; };
-		934D6764288F84C00011661F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Plog/Base.lproj/GroupListView.storyboard; sourceTree = "<group>"; };
+		9314222E288FA51A00134564 /* DiscussionPost.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = DiscussionPost.storyboard; path = ../../../Desktop/Plog2/Plog/DiscussionPost.storyboard; sourceTree = "<group>"; };
+		93142230288FA55200134564 /* DiscussionPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionPostViewController.swift; sourceTree = "<group>"; };
+		93142232288FA59A00134564 /* DiscussionPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionPost.swift; sourceTree = "<group>"; };
+		93142237288FC7C800134564 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Plog/Base.lproj/GroupListView.storyboard; sourceTree = "<group>"; };
+		93142239288FC8C400134564 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
+		9314223B288FCBE700134564 /* GroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListViewController.swift; sourceTree = "<group>"; };
+		9314223D288FD00100134564 /* GroupCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCustomCell.swift; sourceTree = "<group>"; };
+		937C8F8D288FF28B00E0D145 /* MainGroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGroupListView.swift; sourceTree = "<group>"; };
+		937C8F8F288FF2B500E0D145 /* AllGroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupListView.swift; sourceTree = "<group>"; };
+		937C8F91288FF30900E0D145 /* MyGroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupListView.swift; sourceTree = "<group>"; };
+		937C8F93288FF31D00E0D145 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
+		937C8F95288FF32B00E0D145 /* ComposeGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeGroupView.swift; sourceTree = "<group>"; };
+		937C8F97288FF33700E0D145 /* JoinGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroupView.swift; sourceTree = "<group>"; };
+		937C8F99288FF34600E0D145 /* GroupDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailView.swift; sourceTree = "<group>"; };
+		937C8F9B288FF46B00E0D145 /* SideOfTheForce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideOfTheForce.swift; sourceTree = "<group>"; };
+		937C8F9D288FF49600E0D145 /* TextLimiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLimiter.swift; sourceTree = "<group>"; };
+		937C8F9F288FF4A700E0D145 /* ConvertDayList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertDayList.swift; sourceTree = "<group>"; };
+		937C8FA1288FF4B300E0D145 /* ConvertTrashList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertTrashList.swift; sourceTree = "<group>"; };
+		937C8FA3288FF53000E0D145 /* ChosenGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenGroup.swift; sourceTree = "<group>"; };
+		937C8FA728900E7B00E0D145 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Plog/Base.lproj/MainGroupListScreen.storyboard; sourceTree = "<group>"; };
 		DA8AD6702885ADC8005D6CDB /* Plog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8AD6732885ADC8005D6CDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA8AD6752885ADC8005D6CDB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +116,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		937C8FA528900D8500E0D145 /* UiToKit */ = {
+			isa = PBXGroup;
+			children = (
+				93142236288FC7C800134564 /* GroupListView.storyboard */,
+				9314223D288FD00100134564 /* GroupCustomCell.swift */,
+				9314223B288FCBE700134564 /* GroupListViewController.swift */,
+			);
+			path = UiToKit;
+			sourceTree = "<group>";
+		};
 		DA8AD6672885ADC8005D6CDB = {
 			isa = PBXGroup;
 			children = (
@@ -141,34 +149,31 @@
 		DA8AD6722885ADC8005D6CDB /* Plog */ = {
 			isa = PBXGroup;
 			children = (
+				937C8FA528900D8500E0D145 /* UiToKit */,
 				DA8AD6732885ADC8005D6CDB /* AppDelegate.swift */,
 				DA8AD6752885ADC8005D6CDB /* SceneDelegate.swift */,
 				DA8AD6772885ADC8005D6CDB /* ViewController.swift */,
-				934D6747288F80C50011661F /* GroupViewController.swift */,
-				934D6755288F81020011661F /* DiscussionPost.swift */,
-				934D6753288F80FD0011661F /* DiscussionComment.swift */,
-				934D6745288F80C00011661F /* DiscussionPostViewController.swift */,
-				DA8AD6792885ADC8005D6CDB /* Main.storyboard */,
-				934D673B288F80950011661F /* DiscussionPost.storyboard */,
-				934D6763288F84C00011661F /* GroupListView.storyboard */,
 				DA8AD67C2885ADC9005D6CDB /* Assets.xcassets */,
 				DA8AD67E2885ADC9005D6CDB /* LaunchScreen.storyboard */,
+				DA8AD6792885ADC8005D6CDB /* Main.storyboard */,
+				9314222E288FA51A00134564 /* DiscussionPost.storyboard */,
+				93142232288FA59A00134564 /* DiscussionPost.swift */,
+				93142230288FA55200134564 /* DiscussionPostViewController.swift */,
+				937C8FA628900E7B00E0D145 /* MainGroupListScreen.storyboard */,
+				93142239288FC8C400134564 /* Groups.swift */,
+				937C8F9D288FF49600E0D145 /* TextLimiter.swift */,
+				937C8F9F288FF4A700E0D145 /* ConvertDayList.swift */,
+				937C8FA1288FF4B300E0D145 /* ConvertTrashList.swift */,
+				937C8F9B288FF46B00E0D145 /* SideOfTheForce.swift */,
+				937C8FA3288FF53000E0D145 /* ChosenGroup.swift */,
+				937C8F8D288FF28B00E0D145 /* MainGroupListView.swift */,
+				937C8F8F288FF2B500E0D145 /* AllGroupListView.swift */,
+				937C8F91288FF30900E0D145 /* MyGroupListView.swift */,
+				937C8F93288FF31D00E0D145 /* GroupCell.swift */,
+				937C8F95288FF32B00E0D145 /* ComposeGroupView.swift */,
+				937C8F97288FF33700E0D145 /* JoinGroupView.swift */,
+				937C8F99288FF34600E0D145 /* GroupDetailView.swift */,
 				DA8AD6812885ADC9005D6CDB /* Info.plist */,
-				934D675D288F81260011661F /* TextLimiter.swift */,
-				934D674F288F80E30011661F /* ConvertDayList.swift */,
-				934D675F288F812F0011661F /* ConvertTrashList.swift */,
-				934D673F288F80AF0011661F /* Groups.swift */,
-				934D6751288F80F30011661F /* GroupMember.swift */,
-				934D6759288F81120011661F /* GroupStore.swift */,
-				934D675B288F811D0011661F /* SideOfTheForce.swift */,
-				934D6761288F81410011661F /* ChosenGroup.swift */,
-				934D6741288F80B40011661F /* MainGroupListView.swift */,
-				934D6739288F807A0011661F /* AllGroupListView.swift */,
-				934D6743288F80B70011661F /* MyGroupListView.swift */,
-				934D6757288F81090011661F /* GroupCell.swift */,
-				934D674D288F80DE0011661F /* ComposeGroupView.swift */,
-				934D6749288F80D60011661F /* JoinGroupView.swift */,
-				934D674B288F80D90011661F /* GroupDetailView.swift */,
 			);
 			path = Plog;
 			sourceTree = "<group>";
@@ -296,9 +301,10 @@
 			files = (
 				DA8AD6802885ADC9005D6CDB /* LaunchScreen.storyboard in Resources */,
 				DA8AD67D2885ADC9005D6CDB /* Assets.xcassets in Resources */,
-				934D6765288F84C00011661F /* GroupListView.storyboard in Resources */,
-				934D673C288F80950011661F /* DiscussionPost.storyboard in Resources */,
+				93142238288FC7C800134564 /* GroupListView.storyboard in Resources */,
+				9314222F288FA51A00134564 /* DiscussionPost.storyboard in Resources */,
 				DA8AD67B2885ADC8005D6CDB /* Main.storyboard in Resources */,
+				937C8FA828900E7B00E0D145 /* MainGroupListScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,28 +329,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				934D6748288F80C50011661F /* GroupViewController.swift in Sources */,
-				934D675C288F811D0011661F /* SideOfTheForce.swift in Sources */,
+				937C8F90288FF2B500E0D145 /* AllGroupListView.swift in Sources */,
+				937C8FA4288FF53000E0D145 /* ChosenGroup.swift in Sources */,
+				937C8F96288FF32B00E0D145 /* ComposeGroupView.swift in Sources */,
+				937C8FA2288FF4B300E0D145 /* ConvertTrashList.swift in Sources */,
+				937C8F9A288FF34600E0D145 /* GroupDetailView.swift in Sources */,
+				9314223E288FD00100134564 /* GroupCustomCell.swift in Sources */,
+				937C8F8E288FF28B00E0D145 /* MainGroupListView.swift in Sources */,
+				937C8F98288FF33700E0D145 /* JoinGroupView.swift in Sources */,
+				937C8F94288FF31D00E0D145 /* GroupCell.swift in Sources */,
+				937C8F9E288FF49600E0D145 /* TextLimiter.swift in Sources */,
+				937C8FA0288FF4A700E0D145 /* ConvertDayList.swift in Sources */,
+				9314223C288FCBE700134564 /* GroupListViewController.swift in Sources */,
+				937C8F92288FF30900E0D145 /* MyGroupListView.swift in Sources */,
+				937C8F9C288FF46B00E0D145 /* SideOfTheForce.swift in Sources */,
 				DA8AD6782885ADC8005D6CDB /* ViewController.swift in Sources */,
-				934D6742288F80B40011661F /* MainGroupListView.swift in Sources */,
-				934D675A288F81120011661F /* GroupStore.swift in Sources */,
-				934D6758288F81090011661F /* GroupCell.swift in Sources */,
-				934D6750288F80E30011661F /* ConvertDayList.swift in Sources */,
-				934D6754288F80FD0011661F /* DiscussionComment.swift in Sources */,
 				DA8AD6742885ADC8005D6CDB /* AppDelegate.swift in Sources */,
-				934D6752288F80F30011661F /* GroupMember.swift in Sources */,
-				934D6760288F812F0011661F /* ConvertTrashList.swift in Sources */,
-				934D673A288F807A0011661F /* AllGroupListView.swift in Sources */,
-				934D6740288F80AF0011661F /* Groups.swift in Sources */,
-				934D6756288F81020011661F /* DiscussionPost.swift in Sources */,
-				934D674A288F80D60011661F /* JoinGroupView.swift in Sources */,
+				93142231288FA55200134564 /* DiscussionPostViewController.swift in Sources */,
 				DA8AD6762885ADC8005D6CDB /* SceneDelegate.swift in Sources */,
-				934D675E288F81260011661F /* TextLimiter.swift in Sources */,
-				934D6762288F81410011661F /* ChosenGroup.swift in Sources */,
-				934D674C288F80D90011661F /* GroupDetailView.swift in Sources */,
-				934D6746288F80C00011661F /* DiscussionPostViewController.swift in Sources */,
-				934D6744288F80B70011661F /* MyGroupListView.swift in Sources */,
-				934D674E288F80DE0011661F /* ComposeGroupView.swift in Sources */,
+				93142233288FA59A00134564 /* DiscussionPost.swift in Sources */,
+				9314223A288FC8C400134564 /* Groups.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,12 +385,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		934D6763288F84C00011661F /* GroupListView.storyboard */ = {
+		93142236288FC7C800134564 /* GroupListView.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				934D6764288F84C00011661F /* Base */,
+				93142237288FC7C800134564 /* Base */,
 			);
 			name = GroupListView.storyboard;
+			sourceTree = "<group>";
+		};
+		937C8FA628900E7B00E0D145 /* MainGroupListScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				937C8FA728900E7B00E0D145 /* Base */,
+			);
+			name = MainGroupListScreen.storyboard;
 			sourceTree = "<group>";
 		};
 		DA8AD6792885ADC8005D6CDB /* Main.storyboard */ = {
@@ -531,6 +543,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 342784LH83;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Plog/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -558,6 +571,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 342784LH83;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Plog/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

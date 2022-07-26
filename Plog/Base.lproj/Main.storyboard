@@ -16,15 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ook-bW-1Ha">
-                                <rect key="frame" x="121" y="698" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="그룹"/>
-                                <connections>
-                                    <segue destination="G8j-H5-00M" kind="show" id="uu1-30-1XF"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0v0-Pc-4KD">
                                 <rect key="frame" x="248" y="698" width="61" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -32,6 +23,15 @@
                                 <buttonConfiguration key="configuration" style="plain" title="게시글"/>
                                 <connections>
                                     <segue destination="AUc-EO-mZM" kind="show" id="8Lg-Bg-Lq5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UhM-7e-YyE">
+                                <rect key="frame" x="78" y="698" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="그룹"/>
+                                <connections>
+                                    <segue destination="rLO-oT-dgD" kind="show" id="I3W-Ac-9yl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -51,17 +51,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pB9-LP-Tui" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="808" y="309"/>
+            <point key="canvasLocation" x="751" y="352"/>
         </scene>
-        <!--GroupListView-->
-        <scene sceneID="B7y-QH-xtA">
+        <!--MainGroupListScreen-->
+        <scene sceneID="Nbx-ry-9EE">
             <objects>
-                <viewControllerPlaceholder storyboardName="GroupListView" id="G8j-H5-00M" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Upf-Qd-9Rj"/>
+                <viewControllerPlaceholder storyboardName="MainGroupListScreen" id="rLO-oT-dgD" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="7Y2-je-JvM"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9oh-t0-eha" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZvN-JB-eWG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-825" y="490"/>
+            <point key="canvasLocation" x="751" y="-157"/>
         </scene>
     </scenes>
     <resources>
