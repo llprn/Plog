@@ -11,7 +11,9 @@ struct MainGroupListView: View {
     
     @State private var selectedSide: SideOfTheForce = .allG
     @State private var showComposer: Bool = false
-    
+    @State private var sheetPresented = false
+    @State private var theId = 0
+
     var body: some View {
         NavigationView {
             VStack {
@@ -27,29 +29,34 @@ struct MainGroupListView: View {
                 ZStack {
                     //그룹 목록
                     ChosenGroup(selectedSide: selectedSide)
+                        .id(theId)
                     
                     //버튼: 그룹 추가 페이지로 이동
                     VStack {
                         Spacer()
                         HStack {
                             Spacer()
-                            NavigationLink{
-                                ComposeGroupView()
-                                    .navigationBarHidden(true)
+                            Button {
+                                sheetPresented.toggle()
                             } label: {
                                 Image(systemName: "plus.circle.fill")
                                     .font(.largeTitle)
                                     .foregroundColor(.green)
+                            }.fullScreenCover(isPresented: $sheetPresented) {
+                                ComposeGroupView()
+                                    .navigationBarHidden(true)
+                                    .onDisappear{
+                                        self.theId += 1
+                                    }
                             }
-                            .padding()
                         }
                         .padding()
                     }
                 }
             }
             .navigationBarHidden(true)
+            .onAppear{self.theId += 1}
         }
-        .refreshable{}
     }
 }
 

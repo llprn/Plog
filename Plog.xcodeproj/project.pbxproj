@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9314222F288FA51A00134564 /* DiscussionPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9314222E288FA51A00134564 /* DiscussionPost.storyboard */; };
 		93142231288FA55200134564 /* DiscussionPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93142230288FA55200134564 /* DiscussionPostViewController.swift */; };
 		93142233288FA59A00134564 /* DiscussionPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93142232288FA59A00134564 /* DiscussionPost.swift */; };
 		93142238288FC7C800134564 /* GroupListView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93142236288FC7C800134564 /* GroupListView.storyboard */; };
 		9314223A288FC8C400134564 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93142239288FC8C400134564 /* Groups.swift */; };
 		9314223C288FCBE700134564 /* GroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9314223B288FCBE700134564 /* GroupListViewController.swift */; };
 		9314223E288FD00100134564 /* GroupCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9314223D288FD00100134564 /* GroupCustomCell.swift */; };
+		931DDE3E2890DF5700E3A565 /* customCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931DDE3D2890DF5700E3A565 /* customCommentCell.swift */; };
 		937C8F8E288FF28B00E0D145 /* MainGroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F8D288FF28B00E0D145 /* MainGroupListView.swift */; };
 		937C8F90288FF2B500E0D145 /* AllGroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F8F288FF2B500E0D145 /* AllGroupListView.swift */; };
 		937C8F92288FF30900E0D145 /* MyGroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F91288FF30900E0D145 /* MyGroupListView.swift */; };
@@ -27,6 +27,8 @@
 		937C8FA2288FF4B300E0D145 /* ConvertTrashList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8FA1288FF4B300E0D145 /* ConvertTrashList.swift */; };
 		937C8FA4288FF53000E0D145 /* ChosenGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8FA3288FF53000E0D145 /* ChosenGroup.swift */; };
 		937C8FA828900E7B00E0D145 /* MainGroupListScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 937C8FA628900E7B00E0D145 /* MainGroupListScreen.storyboard */; };
+		937C8FAD289018BC00E0D145 /* DiscussionPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 937C8FAB289018BC00E0D145 /* DiscussionPost.storyboard */; };
+		93C8B1D5289372DF00B196F7 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C8B1D4289372DF00B196F7 /* KeyboardHandler.swift */; };
 		DA8AD6742885ADC8005D6CDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8AD6732885ADC8005D6CDB /* AppDelegate.swift */; };
 		DA8AD6762885ADC8005D6CDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8AD6752885ADC8005D6CDB /* SceneDelegate.swift */; };
 		DA8AD6782885ADC8005D6CDB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8AD6772885ADC8005D6CDB /* ViewController.swift */; };
@@ -56,13 +58,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9314222E288FA51A00134564 /* DiscussionPost.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = DiscussionPost.storyboard; path = ../../../Desktop/Plog2/Plog/DiscussionPost.storyboard; sourceTree = "<group>"; };
 		93142230288FA55200134564 /* DiscussionPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionPostViewController.swift; sourceTree = "<group>"; };
 		93142232288FA59A00134564 /* DiscussionPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionPost.swift; sourceTree = "<group>"; };
 		93142237288FC7C800134564 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Plog/Base.lproj/GroupListView.storyboard; sourceTree = "<group>"; };
 		93142239288FC8C400134564 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
 		9314223B288FCBE700134564 /* GroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListViewController.swift; sourceTree = "<group>"; };
 		9314223D288FD00100134564 /* GroupCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCustomCell.swift; sourceTree = "<group>"; };
+		931DDE3D2890DF5700E3A565 /* customCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customCommentCell.swift; sourceTree = "<group>"; };
 		937C8F8D288FF28B00E0D145 /* MainGroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGroupListView.swift; sourceTree = "<group>"; };
 		937C8F8F288FF2B500E0D145 /* AllGroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupListView.swift; sourceTree = "<group>"; };
 		937C8F91288FF30900E0D145 /* MyGroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupListView.swift; sourceTree = "<group>"; };
@@ -76,6 +78,8 @@
 		937C8FA1288FF4B300E0D145 /* ConvertTrashList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertTrashList.swift; sourceTree = "<group>"; };
 		937C8FA3288FF53000E0D145 /* ChosenGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenGroup.swift; sourceTree = "<group>"; };
 		937C8FA728900E7B00E0D145 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Plog/Base.lproj/MainGroupListScreen.storyboard; sourceTree = "<group>"; };
+		937C8FAC289018BC00E0D145 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Plog/Base.lproj/DiscussionPost.storyboard; sourceTree = "<group>"; };
+		93C8B1D4289372DF00B196F7 /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		DA8AD6702885ADC8005D6CDB /* Plog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8AD6732885ADC8005D6CDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA8AD6752885ADC8005D6CDB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,12 +160,14 @@
 				DA8AD67C2885ADC9005D6CDB /* Assets.xcassets */,
 				DA8AD67E2885ADC9005D6CDB /* LaunchScreen.storyboard */,
 				DA8AD6792885ADC8005D6CDB /* Main.storyboard */,
-				9314222E288FA51A00134564 /* DiscussionPost.storyboard */,
+				937C8FAB289018BC00E0D145 /* DiscussionPost.storyboard */,
 				93142232288FA59A00134564 /* DiscussionPost.swift */,
+				931DDE3D2890DF5700E3A565 /* customCommentCell.swift */,
 				93142230288FA55200134564 /* DiscussionPostViewController.swift */,
 				937C8FA628900E7B00E0D145 /* MainGroupListScreen.storyboard */,
 				93142239288FC8C400134564 /* Groups.swift */,
 				937C8F9D288FF49600E0D145 /* TextLimiter.swift */,
+				93C8B1D4289372DF00B196F7 /* KeyboardHandler.swift */,
 				937C8F9F288FF4A700E0D145 /* ConvertDayList.swift */,
 				937C8FA1288FF4B300E0D145 /* ConvertTrashList.swift */,
 				937C8F9B288FF46B00E0D145 /* SideOfTheForce.swift */,
@@ -301,8 +307,8 @@
 			files = (
 				DA8AD6802885ADC9005D6CDB /* LaunchScreen.storyboard in Resources */,
 				DA8AD67D2885ADC9005D6CDB /* Assets.xcassets in Resources */,
+				937C8FAD289018BC00E0D145 /* DiscussionPost.storyboard in Resources */,
 				93142238288FC7C800134564 /* GroupListView.storyboard in Resources */,
-				9314222F288FA51A00134564 /* DiscussionPost.storyboard in Resources */,
 				DA8AD67B2885ADC8005D6CDB /* Main.storyboard in Resources */,
 				937C8FA828900E7B00E0D145 /* MainGroupListScreen.storyboard in Resources */,
 			);
@@ -342,6 +348,7 @@
 				937C8FA0288FF4A700E0D145 /* ConvertDayList.swift in Sources */,
 				9314223C288FCBE700134564 /* GroupListViewController.swift in Sources */,
 				937C8F92288FF30900E0D145 /* MyGroupListView.swift in Sources */,
+				931DDE3E2890DF5700E3A565 /* customCommentCell.swift in Sources */,
 				937C8F9C288FF46B00E0D145 /* SideOfTheForce.swift in Sources */,
 				DA8AD6782885ADC8005D6CDB /* ViewController.swift in Sources */,
 				DA8AD6742885ADC8005D6CDB /* AppDelegate.swift in Sources */,
@@ -349,6 +356,7 @@
 				DA8AD6762885ADC8005D6CDB /* SceneDelegate.swift in Sources */,
 				93142233288FA59A00134564 /* DiscussionPost.swift in Sources */,
 				9314223A288FC8C400134564 /* Groups.swift in Sources */,
+				93C8B1D5289372DF00B196F7 /* KeyboardHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +407,14 @@
 				937C8FA728900E7B00E0D145 /* Base */,
 			);
 			name = MainGroupListScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		937C8FAB289018BC00E0D145 /* DiscussionPost.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				937C8FAC289018BC00E0D145 /* Base */,
+			);
+			name = DiscussionPost.storyboard;
 			sourceTree = "<group>";
 		};
 		DA8AD6792885ADC8005D6CDB /* Main.storyboard */ = {

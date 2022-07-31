@@ -22,7 +22,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="게시글"/>
                                 <connections>
-                                    <segue destination="AUc-EO-mZM" kind="show" id="8Lg-Bg-Lq5"/>
+                                    <segue destination="4VA-H5-ypp" kind="show" id="Slh-FC-N5i"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UhM-7e-YyE">
@@ -43,25 +43,25 @@
             </objects>
             <point key="canvasLocation" x="-23" y="82"/>
         </scene>
-        <!--DiscussionPost-->
-        <scene sceneID="cD1-6I-4Vo">
-            <objects>
-                <viewControllerPlaceholder storyboardName="DiscussionPost" id="AUc-EO-mZM" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="2dk-nf-fMC"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pB9-LP-Tui" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="751" y="352"/>
-        </scene>
         <!--MainGroupListScreen-->
         <scene sceneID="Nbx-ry-9EE">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZvN-JB-eWG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="MainGroupListScreen" id="rLO-oT-dgD" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="7Y2-je-JvM"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZvN-JB-eWG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="751" y="-157"/>
+        </scene>
+        <!--DiscussionPost-->
+        <scene sceneID="9eb-mf-NYY">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WKw-am-Rqg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="DiscussionPost" id="4VA-H5-ypp" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="zLb-ap-q6V"/>
+                </viewControllerPlaceholder>
+            </objects>
+            <point key="canvasLocation" x="864" y="234"/>
         </scene>
     </scenes>
     <resources>

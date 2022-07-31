@@ -1,8 +1,10 @@
-//
+//토론 게시물 상세 페이지
 
 import UIKit
 
 class DiscussionPostViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIScrollViewDelegate{
+    
+    var post : Post?
     
     //상단 네비게이션에서 창 닫기
     @IBAction func dismissVIew(_ sender: Any) {
@@ -17,21 +19,25 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var contentLabel: UILabel!
     
     //댓글 목록
-    @IBOutlet weak var commentTableView: UITableView!
+    @IBOutlet weak var CommentTableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Post.dummyPostList[0].comment.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! customCommentCell
 
+        //이전화면에서 데이터 전달 시 Post.comment[indexPath.row]
         let target = Post.dummyPostList[0].comment[indexPath.row]
-        cell.textLabel?.text = target.dUserName
-        cell.detailTextLabel?.text = target.dcomment
+        cell.cUserLabel?.text = target.dUserName
+        cell.commentLabel?.text = target.dcomment
 
         return cell
     }
+    
+    //하단 툴바
+    @IBOutlet weak var toolBar: UIToolbar!
     
     //하단 툴바 댓글 입력창
     @IBOutlet weak var commentTextView: UITextField!
@@ -49,6 +55,16 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
     
     @IBOutlet weak var addButton: UIButton!
     
+    //댓글 글자 수 제한
+    func checkMaxLength(textField: UITextField!, maxLength: Int) {
+        if (textField.text?.count ?? 0 > maxLength) {
+            textField.deleteBackward()
+        }
+    }
+    @IBAction func textDidChanged(_ sender: Any) {
+        checkMaxLength(textField: commentTextView, maxLength: 100)
+    }
+    
     //하단 툴바의 버튼으로 댓글 작성하기
     @IBAction func addComment(_ sender: Any) {
         let comment = commentTextView.text
@@ -60,12 +76,16 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
         commentTextView.resignFirstResponder()
         commentTextView.text = ""
         
-        self.commentTableView.reloadData()
+        self.CommentTableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(DiscussionPostViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(DiscussionPostViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        //이전 화면에서 데이터 전달 시 Post.title 꼴로 변경
         titleLabel.text = Post.dummyPostList[0].title
         userLabel.text = Post.dummyPostList[0].userName
         postImage.image = UIImage(named: Post.dummyPostList[0].contentImage)
@@ -73,6 +93,25 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
         
         commentTextView.text = ""
         commentTextView.delegate = self
+        
+        CommentTableView.keyboardDismissMode = .onDrag
         addButton.isEnabled = false
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+                
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+               return
+            }
+          
+        self.view.frame.origin.y = 0 - keyboardSize.height
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+          self.view.frame.origin.y = 0
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }
