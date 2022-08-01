@@ -2,7 +2,7 @@
 
 import UIKit
 
-class DiscussionPostViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIScrollViewDelegate{
+class DiscussionPostViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, UIScrollViewDelegate{
     
     var post : Post?
     
@@ -40,30 +40,25 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var toolBar: UIToolbar!
     
     //하단 툴바 댓글 입력창
-    @IBOutlet weak var commentTextView: UITextField!
+    @IBOutlet weak var commentTextView: UITextView!
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
-        if range.location == 0 && range.length != 0{
-            self.addButton.isEnabled = false
-        } else {
-            self.addButton.isEnabled = true
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        guard let str = textView.text else { return true }
+        let newLength = str.count + text.count - range.length
+        return newLength <= 100
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if commentTextView.text.isEmpty{
+            commentTextView.text = ""
+            addButton.isEnabled = false
         }
-        
-        return true
+        else {
+            addButton.isEnabled = true
+        }
     }
     
     @IBOutlet weak var addButton: UIButton!
-    
-    //댓글 글자 수 제한
-    func checkMaxLength(textField: UITextField!, maxLength: Int) {
-        if (textField.text?.count ?? 0 > maxLength) {
-            textField.deleteBackward()
-        }
-    }
-    @IBAction func textDidChanged(_ sender: Any) {
-        checkMaxLength(textField: commentTextView, maxLength: 100)
-    }
     
     //하단 툴바의 버튼으로 댓글 작성하기
     @IBAction func addComment(_ sender: Any) {
@@ -93,6 +88,11 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
         
         commentTextView.text = ""
         commentTextView.delegate = self
+        
+        commentTextView.autocapitalizationType = .none
+        commentTextView.layer.cornerRadius = 5
+        commentTextView.layer.borderWidth = 1
+        commentTextView.layer.borderColor = UIColor.gray.cgColor
         
         CommentTableView.keyboardDismissMode = .onDrag
         addButton.isEnabled = false

@@ -15,26 +15,6 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0v0-Pc-4KD">
-                                <rect key="frame" x="248" y="698" width="61" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="게시글"/>
-                                <connections>
-                                    <segue destination="4VA-H5-ypp" kind="show" id="Slh-FC-N5i"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UhM-7e-YyE">
-                                <rect key="frame" x="78" y="698" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="그룹"/>
-                                <connections>
-                                    <segue destination="rLO-oT-dgD" kind="show" id="I3W-Ac-9yl"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -42,26 +22,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-23" y="82"/>
-        </scene>
-        <!--MainGroupListScreen-->
-        <scene sceneID="Nbx-ry-9EE">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZvN-JB-eWG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewControllerPlaceholder storyboardName="MainGroupListScreen" id="rLO-oT-dgD" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="7Y2-je-JvM"/>
-                </viewControllerPlaceholder>
-            </objects>
-            <point key="canvasLocation" x="751" y="-157"/>
-        </scene>
-        <!--DiscussionPost-->
-        <scene sceneID="9eb-mf-NYY">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WKw-am-Rqg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewControllerPlaceholder storyboardName="DiscussionPost" id="4VA-H5-ypp" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="zLb-ap-q6V"/>
-                </viewControllerPlaceholder>
-            </objects>
-            <point key="canvasLocation" x="864" y="234"/>
         </scene>
     </scenes>
     <resources>
