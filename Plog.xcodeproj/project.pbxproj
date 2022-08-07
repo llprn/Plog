@@ -7,14 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DA336421288C4F6500166C6C /* Community.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA336420288C4F6500166C6C /* Community.storyboard */; };
-		DA336423288C4FFA00166C6C /* ApostDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA336422288C4FFA00166C6C /* ApostDetail.storyboard */; };
-		DA336425288C502900166C6C /* BpostRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA336424288C502900166C6C /* BpostRegister.storyboard */; };
-		DA336427288C506100166C6C /* CourseBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA336426288C506100166C6C /* CourseBoard.storyboard */; };
-		DA33642C288C56A000166C6C /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33642B288C56A000166C6C /* CommunityViewController.swift */; };
-		DA33642E288C56D300166C6C /* ApostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33642D288C56D300166C6C /* ApostDetailViewController.swift */; };
-		DA336430288C56E700166C6C /* BpostRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33642F288C56E700166C6C /* BpostRegisterViewController.swift */; };
-		DA336432288C56F800166C6C /* CourseBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA336431288C56F800166C6C /* CourseBoardViewController.swift */; };
 		93045253289F945F0094FE7E /* MainGroupListScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93045252289F945F0094FE7E /* MainGroupListScreen.storyboard */; };
 		93142231288FA55200134564 /* DiscussionPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93142230288FA55200134564 /* DiscussionPostViewController.swift */; };
 		93142233288FA59A00134564 /* DiscussionPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93142232288FA59A00134564 /* DiscussionPost.swift */; };
@@ -34,6 +26,12 @@
 		937C8FA4288FF53000E0D145 /* ChosenGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8FA3288FF53000E0D145 /* ChosenGroup.swift */; };
 		93B4903828980126009BAFED /* DiscussionPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93B4903728980126009BAFED /* DiscussionPost.storyboard */; };
 		93C8B1D5289372DF00B196F7 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C8B1D4289372DF00B196F7 /* KeyboardHandler.swift */; };
+		DA336421288C4F6500166C6C /* Community.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA336420288C4F6500166C6C /* Community.storyboard */; };
+		DA336423288C4FFA00166C6C /* ApostDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA336422288C4FFA00166C6C /* ApostDetail.storyboard */; };
+		DA336427288C506100166C6C /* CourseBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA336426288C506100166C6C /* CourseBoard.storyboard */; };
+		DA33642C288C56A000166C6C /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33642B288C56A000166C6C /* CommunityViewController.swift */; };
+		DA33642E288C56D300166C6C /* ApostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33642D288C56D300166C6C /* ApostDetailViewController.swift */; };
+		DA336432288C56F800166C6C /* CourseBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA336431288C56F800166C6C /* CourseBoardViewController.swift */; };
 		DA8AD6742885ADC8005D6CDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8AD6732885ADC8005D6CDB /* AppDelegate.swift */; };
 		DA8AD6762885ADC8005D6CDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8AD6752885ADC8005D6CDB /* SceneDelegate.swift */; };
 		DA8AD6782885ADC8005D6CDB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8AD6772885ADC8005D6CDB /* ViewController.swift */; };
@@ -67,14 +65,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DA336420288C4F6500166C6C /* Community.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Community.storyboard; sourceTree = "<group>"; };
-		DA336422288C4FFA00166C6C /* ApostDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ApostDetail.storyboard; sourceTree = "<group>"; };
-		DA336424288C502900166C6C /* BpostRegister.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BpostRegister.storyboard; sourceTree = "<group>"; };
-		DA336426288C506100166C6C /* CourseBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CourseBoard.storyboard; sourceTree = "<group>"; };
-		DA33642B288C56A000166C6C /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CommunityViewController.swift; path = Plog/CommunityViewController.swift; sourceTree = SOURCE_ROOT; };
-		DA33642D288C56D300166C6C /* ApostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApostDetailViewController.swift; sourceTree = "<group>"; };
-		DA33642F288C56E700166C6C /* BpostRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BpostRegisterViewController.swift; sourceTree = "<group>"; };
-		DA336431288C56F800166C6C /* CourseBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseBoardViewController.swift; sourceTree = "<group>"; };
 		93045252289F945F0094FE7E /* MainGroupListScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainGroupListScreen.storyboard; sourceTree = "<group>"; };
 		93142230288FA55200134564 /* DiscussionPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionPostViewController.swift; sourceTree = "<group>"; };
 		93142232288FA59A00134564 /* DiscussionPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionPost.swift; sourceTree = "<group>"; };
@@ -94,6 +84,12 @@
 		937C8FA3288FF53000E0D145 /* ChosenGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenGroup.swift; sourceTree = "<group>"; };
 		93B4903728980126009BAFED /* DiscussionPost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiscussionPost.storyboard; sourceTree = "<group>"; };
 		93C8B1D4289372DF00B196F7 /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
+		DA336420288C4F6500166C6C /* Community.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Community.storyboard; sourceTree = "<group>"; };
+		DA336422288C4FFA00166C6C /* ApostDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ApostDetail.storyboard; sourceTree = "<group>"; };
+		DA336426288C506100166C6C /* CourseBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CourseBoard.storyboard; sourceTree = "<group>"; };
+		DA33642B288C56A000166C6C /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CommunityViewController.swift; path = Plog/CommunityViewController.swift; sourceTree = SOURCE_ROOT; };
+		DA33642D288C56D300166C6C /* ApostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApostDetailViewController.swift; sourceTree = "<group>"; };
+		DA336431288C56F800166C6C /* CourseBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseBoardViewController.swift; sourceTree = "<group>"; };
 		DA8AD6702885ADC8005D6CDB /* Plog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8AD6732885ADC8005D6CDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA8AD6752885ADC8005D6CDB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,9 +137,7 @@
 		DA33642A288C558100166C6C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DA8AD6792885ADC8005D6CDB /* Main.storyboard */,
 				DA336422288C4FFA00166C6C /* ApostDetail.storyboard */,
-				DA336424288C502900166C6C /* BpostRegister.storyboard */,
 				DA336420288C4F6500166C6C /* Community.storyboard */,
 				DA336426288C506100166C6C /* CourseBoard.storyboard */,
 				DAA139BA28958AD4007D03F8 /* DiscussionBoardStoryboard.storyboard */,
@@ -181,7 +175,6 @@
 				DA33642B288C56A000166C6C /* CommunityViewController.swift */,
 				DAA139BC28958AF6007D03F8 /* DiscussionBoardViewController.swift */,
 				DA33642D288C56D300166C6C /* ApostDetailViewController.swift */,
-				DA33642F288C56E700166C6C /* BpostRegisterViewController.swift */,
 				DA336431288C56F800166C6C /* CourseBoardViewController.swift */,
 				DAA139C028959684007D03F8 /* DiscussionRegisterViewController.swift */,
 				DA33642A288C558100166C6C /* View */,
@@ -335,7 +328,6 @@
 			files = (
 				DAA139BB28958AD4007D03F8 /* DiscussionBoardStoryboard.storyboard in Resources */,
 				DAA139BF28959672007D03F8 /* DiscussionRegister.storyboard in Resources */,
-				DA336425288C502900166C6C /* BpostRegister.storyboard in Resources */,
 				DA8AD6802885ADC9005D6CDB /* LaunchScreen.storyboard in Resources */,
 				DA8AD67D2885ADC9005D6CDB /* Assets.xcassets in Resources */,
 				DA336423288C4FFA00166C6C /* ApostDetail.storyboard in Resources */,
@@ -372,7 +364,6 @@
 				DAA139BD28958AF6007D03F8 /* DiscussionBoardViewController.swift in Sources */,
 				DA33642E288C56D300166C6C /* ApostDetailViewController.swift in Sources */,
 				DA33642C288C56A000166C6C /* CommunityViewController.swift in Sources */,
-				DA336430288C56E700166C6C /* BpostRegisterViewController.swift in Sources */,
 				DA8AD6782885ADC8005D6CDB /* ViewController.swift in Sources */,
 				DA8AD6742885ADC8005D6CDB /* AppDelegate.swift in Sources */,
 				DAA139C128959684007D03F8 /* DiscussionRegisterViewController.swift in Sources */,
