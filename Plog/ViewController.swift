@@ -1,12 +1,10 @@
-
 //  ViewController.swift
 
 
 import UIKit
 import CoreLocation
 import MapKit //지도
-
-
+import SwiftUI
 
 class ViewController: UIViewController {
  //   var locationManager = CLLocationManager()

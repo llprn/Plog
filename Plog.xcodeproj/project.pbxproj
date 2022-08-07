@@ -15,6 +15,25 @@
 		DA33642E288C56D300166C6C /* ApostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33642D288C56D300166C6C /* ApostDetailViewController.swift */; };
 		DA336430288C56E700166C6C /* BpostRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33642F288C56E700166C6C /* BpostRegisterViewController.swift */; };
 		DA336432288C56F800166C6C /* CourseBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA336431288C56F800166C6C /* CourseBoardViewController.swift */; };
+		93045253289F945F0094FE7E /* MainGroupListScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93045252289F945F0094FE7E /* MainGroupListScreen.storyboard */; };
+		93142231288FA55200134564 /* DiscussionPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93142230288FA55200134564 /* DiscussionPostViewController.swift */; };
+		93142233288FA59A00134564 /* DiscussionPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93142232288FA59A00134564 /* DiscussionPost.swift */; };
+		9314223A288FC8C400134564 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93142239288FC8C400134564 /* Groups.swift */; };
+		931DDE3E2890DF5700E3A565 /* customCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931DDE3D2890DF5700E3A565 /* customCommentCell.swift */; };
+		937C8F8E288FF28B00E0D145 /* MainGroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F8D288FF28B00E0D145 /* MainGroupListView.swift */; };
+		937C8F90288FF2B500E0D145 /* AllGroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F8F288FF2B500E0D145 /* AllGroupListView.swift */; };
+		937C8F92288FF30900E0D145 /* MyGroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F91288FF30900E0D145 /* MyGroupListView.swift */; };
+		937C8F94288FF31D00E0D145 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F93288FF31D00E0D145 /* GroupCell.swift */; };
+		937C8F96288FF32B00E0D145 /* ComposeGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F95288FF32B00E0D145 /* ComposeGroupView.swift */; };
+		937C8F98288FF33700E0D145 /* JoinGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F97288FF33700E0D145 /* JoinGroupView.swift */; };
+		937C8F9A288FF34600E0D145 /* GroupDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F99288FF34600E0D145 /* GroupDetailView.swift */; };
+		937C8F9C288FF46B00E0D145 /* SideOfTheForce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F9B288FF46B00E0D145 /* SideOfTheForce.swift */; };
+		937C8F9E288FF49600E0D145 /* TextLimiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F9D288FF49600E0D145 /* TextLimiter.swift */; };
+		937C8FA0288FF4A700E0D145 /* ConvertDayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F9F288FF4A700E0D145 /* ConvertDayList.swift */; };
+		937C8FA2288FF4B300E0D145 /* ConvertTrashList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8FA1288FF4B300E0D145 /* ConvertTrashList.swift */; };
+		937C8FA4288FF53000E0D145 /* ChosenGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8FA3288FF53000E0D145 /* ChosenGroup.swift */; };
+		93B4903828980126009BAFED /* DiscussionPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93B4903728980126009BAFED /* DiscussionPost.storyboard */; };
+		93C8B1D5289372DF00B196F7 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C8B1D4289372DF00B196F7 /* KeyboardHandler.swift */; };
 		DA8AD6742885ADC8005D6CDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8AD6732885ADC8005D6CDB /* AppDelegate.swift */; };
 		DA8AD6762885ADC8005D6CDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8AD6752885ADC8005D6CDB /* SceneDelegate.swift */; };
 		DA8AD6782885ADC8005D6CDB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8AD6772885ADC8005D6CDB /* ViewController.swift */; };
@@ -56,6 +75,25 @@
 		DA33642D288C56D300166C6C /* ApostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApostDetailViewController.swift; sourceTree = "<group>"; };
 		DA33642F288C56E700166C6C /* BpostRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BpostRegisterViewController.swift; sourceTree = "<group>"; };
 		DA336431288C56F800166C6C /* CourseBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseBoardViewController.swift; sourceTree = "<group>"; };
+		93045252289F945F0094FE7E /* MainGroupListScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainGroupListScreen.storyboard; sourceTree = "<group>"; };
+		93142230288FA55200134564 /* DiscussionPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionPostViewController.swift; sourceTree = "<group>"; };
+		93142232288FA59A00134564 /* DiscussionPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionPost.swift; sourceTree = "<group>"; };
+		93142239288FC8C400134564 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
+		931DDE3D2890DF5700E3A565 /* customCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customCommentCell.swift; sourceTree = "<group>"; };
+		937C8F8D288FF28B00E0D145 /* MainGroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGroupListView.swift; sourceTree = "<group>"; };
+		937C8F8F288FF2B500E0D145 /* AllGroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupListView.swift; sourceTree = "<group>"; };
+		937C8F91288FF30900E0D145 /* MyGroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupListView.swift; sourceTree = "<group>"; };
+		937C8F93288FF31D00E0D145 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
+		937C8F95288FF32B00E0D145 /* ComposeGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeGroupView.swift; sourceTree = "<group>"; };
+		937C8F97288FF33700E0D145 /* JoinGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroupView.swift; sourceTree = "<group>"; };
+		937C8F99288FF34600E0D145 /* GroupDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailView.swift; sourceTree = "<group>"; };
+		937C8F9B288FF46B00E0D145 /* SideOfTheForce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideOfTheForce.swift; sourceTree = "<group>"; };
+		937C8F9D288FF49600E0D145 /* TextLimiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLimiter.swift; sourceTree = "<group>"; };
+		937C8F9F288FF4A700E0D145 /* ConvertDayList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertDayList.swift; sourceTree = "<group>"; };
+		937C8FA1288FF4B300E0D145 /* ConvertTrashList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertTrashList.swift; sourceTree = "<group>"; };
+		937C8FA3288FF53000E0D145 /* ChosenGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenGroup.swift; sourceTree = "<group>"; };
+		93B4903728980126009BAFED /* DiscussionPost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiscussionPost.storyboard; sourceTree = "<group>"; };
+		93C8B1D4289372DF00B196F7 /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		DA8AD6702885ADC8005D6CDB /* Plog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8AD6732885ADC8005D6CDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA8AD6752885ADC8005D6CDB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +187,26 @@
 				DA33642A288C558100166C6C /* View */,
 				DA8AD67C2885ADC9005D6CDB /* Assets.xcassets */,
 				DA8AD67E2885ADC9005D6CDB /* LaunchScreen.storyboard */,
+				DA8AD6792885ADC8005D6CDB /* Main.storyboard */,
+				93B4903728980126009BAFED /* DiscussionPost.storyboard */,
+				93142232288FA59A00134564 /* DiscussionPost.swift */,
+				931DDE3D2890DF5700E3A565 /* customCommentCell.swift */,
+				93142230288FA55200134564 /* DiscussionPostViewController.swift */,
+				93045252289F945F0094FE7E /* MainGroupListScreen.storyboard */,
+				93142239288FC8C400134564 /* Groups.swift */,
+				937C8F9D288FF49600E0D145 /* TextLimiter.swift */,
+				93C8B1D4289372DF00B196F7 /* KeyboardHandler.swift */,
+				937C8F9F288FF4A700E0D145 /* ConvertDayList.swift */,
+				937C8FA1288FF4B300E0D145 /* ConvertTrashList.swift */,
+				937C8F9B288FF46B00E0D145 /* SideOfTheForce.swift */,
+				937C8FA3288FF53000E0D145 /* ChosenGroup.swift */,
+				937C8F8D288FF28B00E0D145 /* MainGroupListView.swift */,
+				937C8F8F288FF2B500E0D145 /* AllGroupListView.swift */,
+				937C8F91288FF30900E0D145 /* MyGroupListView.swift */,
+				937C8F93288FF31D00E0D145 /* GroupCell.swift */,
+				937C8F95288FF32B00E0D145 /* ComposeGroupView.swift */,
+				937C8F97288FF33700E0D145 /* JoinGroupView.swift */,
+				937C8F99288FF34600E0D145 /* GroupDetailView.swift */,
 				DA8AD6812885ADC9005D6CDB /* Info.plist */,
 			);
 			path = Plog;
@@ -282,6 +340,8 @@
 				DA8AD67D2885ADC9005D6CDB /* Assets.xcassets in Resources */,
 				DA336423288C4FFA00166C6C /* ApostDetail.storyboard in Resources */,
 				DA336427288C506100166C6C /* CourseBoard.storyboard in Resources */,
+				93B4903828980126009BAFED /* DiscussionPost.storyboard in Resources */,
+				93045253289F945F0094FE7E /* MainGroupListScreen.storyboard in Resources */,
 				DA8AD67B2885ADC8005D6CDB /* Main.storyboard in Resources */,
 				DA336421288C4F6500166C6C /* Community.storyboard in Resources */,
 			);
@@ -316,7 +376,26 @@
 				DA8AD6782885ADC8005D6CDB /* ViewController.swift in Sources */,
 				DA8AD6742885ADC8005D6CDB /* AppDelegate.swift in Sources */,
 				DAA139C128959684007D03F8 /* DiscussionRegisterViewController.swift in Sources */,
+				937C8F90288FF2B500E0D145 /* AllGroupListView.swift in Sources */,
+				937C8FA4288FF53000E0D145 /* ChosenGroup.swift in Sources */,
+				937C8F96288FF32B00E0D145 /* ComposeGroupView.swift in Sources */,
+				937C8FA2288FF4B300E0D145 /* ConvertTrashList.swift in Sources */,
+				937C8F9A288FF34600E0D145 /* GroupDetailView.swift in Sources */,
+				937C8F8E288FF28B00E0D145 /* MainGroupListView.swift in Sources */,
+				937C8F98288FF33700E0D145 /* JoinGroupView.swift in Sources */,
+				937C8F94288FF31D00E0D145 /* GroupCell.swift in Sources */,
+				937C8F9E288FF49600E0D145 /* TextLimiter.swift in Sources */,
+				937C8FA0288FF4A700E0D145 /* ConvertDayList.swift in Sources */,
+				937C8F92288FF30900E0D145 /* MyGroupListView.swift in Sources */,
+				931DDE3E2890DF5700E3A565 /* customCommentCell.swift in Sources */,
+				937C8F9C288FF46B00E0D145 /* SideOfTheForce.swift in Sources */,
+				DA8AD6782885ADC8005D6CDB /* ViewController.swift in Sources */,
+				DA8AD6742885ADC8005D6CDB /* AppDelegate.swift in Sources */,
+				93142231288FA55200134564 /* DiscussionPostViewController.swift in Sources */,
 				DA8AD6762885ADC8005D6CDB /* SceneDelegate.swift in Sources */,
+				93142233288FA59A00134564 /* DiscussionPost.swift in Sources */,
+				9314223A288FC8C400134564 /* Groups.swift in Sources */,
+				93C8B1D5289372DF00B196F7 /* KeyboardHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
