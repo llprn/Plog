@@ -8,6 +8,7 @@ import CoreLocation
 import MapKit
 
 class MainPageViewController: UIViewController, CLLocationManagerDelegate{
+    
     //위치 권한
     var locationManager: CLLocationManager!
 //    var latitude: Double?

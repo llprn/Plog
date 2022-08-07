@@ -28,8 +28,6 @@
 		DAA139BD28958AF6007D03F8 /* DiscussionBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA139BC28958AF6007D03F8 /* DiscussionBoardViewController.swift */; };
 		DAA139BF28959672007D03F8 /* DiscussionRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAA139BE28959672007D03F8 /* DiscussionRegister.storyboard */; };
 		DAA139C128959684007D03F8 /* DiscussionRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA139C028959684007D03F8 /* DiscussionRegisterViewController.swift */; };
-		DAE4932C2897BEF600A6F8A2 /* MainPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAE4932B2897BEF600A6F8A2 /* MainPage.storyboard */; };
-		DAE4932E2897BF2200A6F8A2 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4932D2897BF2200A6F8A2 /* MainPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,8 +73,6 @@
 		DAA139BC28958AF6007D03F8 /* DiscussionBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionBoardViewController.swift; sourceTree = "<group>"; };
 		DAA139BE28959672007D03F8 /* DiscussionRegister.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiscussionRegister.storyboard; sourceTree = "<group>"; };
 		DAA139C028959684007D03F8 /* DiscussionRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionRegisterViewController.swift; sourceTree = "<group>"; };
-		DAE4932B2897BEF600A6F8A2 /* MainPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainPage.storyboard; sourceTree = "<group>"; };
-		DAE4932D2897BF2200A6F8A2 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +110,6 @@
 				DA336426288C506100166C6C /* CourseBoard.storyboard */,
 				DAA139BA28958AD4007D03F8 /* DiscussionBoardStoryboard.storyboard */,
 				DAA139BE28959672007D03F8 /* DiscussionRegister.storyboard */,
-				DAE4932B2897BEF600A6F8A2 /* MainPage.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -151,7 +146,6 @@
 				DA33642F288C56E700166C6C /* BpostRegisterViewController.swift */,
 				DA336431288C56F800166C6C /* CourseBoardViewController.swift */,
 				DAA139C028959684007D03F8 /* DiscussionRegisterViewController.swift */,
-				DAE4932D2897BF2200A6F8A2 /* MainPageViewController.swift */,
 				DA33642A288C558100166C6C /* View */,
 				DA8AD67C2885ADC9005D6CDB /* Assets.xcassets */,
 				DA8AD67E2885ADC9005D6CDB /* LaunchScreen.storyboard */,
@@ -283,7 +277,6 @@
 			files = (
 				DAA139BB28958AD4007D03F8 /* DiscussionBoardStoryboard.storyboard in Resources */,
 				DAA139BF28959672007D03F8 /* DiscussionRegister.storyboard in Resources */,
-				DAE4932C2897BEF600A6F8A2 /* MainPage.storyboard in Resources */,
 				DA336425288C502900166C6C /* BpostRegister.storyboard in Resources */,
 				DA8AD6802885ADC9005D6CDB /* LaunchScreen.storyboard in Resources */,
 				DA8AD67D2885ADC9005D6CDB /* Assets.xcassets in Resources */,
@@ -315,7 +308,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAE4932E2897BF2200A6F8A2 /* MainPageViewController.swift in Sources */,
 				DA336432288C56F800166C6C /* CourseBoardViewController.swift in Sources */,
 				DAA139BD28958AF6007D03F8 /* DiscussionBoardViewController.swift in Sources */,
 				DA33642E288C56D300166C6C /* ApostDetailViewController.swift in Sources */,

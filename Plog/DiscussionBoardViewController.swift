@@ -2,8 +2,6 @@
 //  DiscussionBoardViewController.swift
 //  Plog
 //
-//  Created by 숙명 on 2022/07/31.
-//
 
 import UIKit
 
