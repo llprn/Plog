@@ -32,8 +32,13 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
         let target = Post.dummyPostList[0].comment[indexPath.row]
         cell.cUserLabel?.text = target.dUserName
         cell.commentLabel?.text = target.dcomment
+        cell.selectionStyle = .none
 
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     
     //하단 툴바

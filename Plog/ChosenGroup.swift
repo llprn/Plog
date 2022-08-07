@@ -8,7 +8,7 @@ struct ChosenGroup: View {
     var body: some View {
         switch selectedSide {
         case .allG:
-            AllGroupListView()
+            AllGroupListView(text: "")
         case .myG:
             MyGroupListView()
         }

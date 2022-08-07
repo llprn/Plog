@@ -7,6 +7,7 @@ struct MainGroupListView: View {
     init() {
         UISegmentedControl.appearance().selectedSegmentTintColor = .systemGreen
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([.font : UIFont.preferredFont(forTextStyle: .body)], for: .normal)
     }
     
     @State private var selectedSide: SideOfTheForce = .allG

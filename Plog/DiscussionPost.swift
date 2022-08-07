@@ -28,6 +28,6 @@ class Post {
     }
     
     static var dummyPostList = [
-        Post(title: "숙명여자대학교", userName: "작성자1", contentImage: "", content: "게시글 내용\n내용내용", comment: [DComment(dUserName: "작성자2", dcomment: "댓글1")])
+        Post(title: "숙명여자대학교", userName: "작성자1", contentImage: "", content: "게시글 내용\n내용내용 토론 게시글 내용 입니다. 어쩌구저쩌구", comment: [DComment(dUserName: "작성자2", dcomment: "댓글1")])
     ]
 }

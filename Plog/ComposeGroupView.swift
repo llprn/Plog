@@ -68,7 +68,7 @@ struct ComposeGroupView: View {
                 }
             }
             .padding(.trailing)
-            .padding(.top, placeIsFocused ? keyboardHandler.keyboardHeight : 10.0)
+            .padding(.top, placeIsFocused ? keyboardHandler.keyboardHeight : 0.0)
             .onTapGesture {
                 UIApplication.shared.endEditing()
             }
