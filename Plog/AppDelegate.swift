@@ -1,4 +1,9 @@
 //
+//  AppDelegate.swift
+//  Plog
+//
+//  Created by 숙명 on 2022/07/19.
+//
 
 import UIKit
 
