@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93045253289F945F0094FE7E /* MainGroupListScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93045252289F945F0094FE7E /* MainGroupListScreen.storyboard */; };
 		93142231288FA55200134564 /* DiscussionPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93142230288FA55200134564 /* DiscussionPostViewController.swift */; };
 		93142233288FA59A00134564 /* DiscussionPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93142232288FA59A00134564 /* DiscussionPost.swift */; };
 		9314223A288FC8C400134564 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93142239288FC8C400134564 /* Groups.swift */; };
@@ -23,7 +24,6 @@
 		937C8FA0288FF4A700E0D145 /* ConvertDayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F9F288FF4A700E0D145 /* ConvertDayList.swift */; };
 		937C8FA2288FF4B300E0D145 /* ConvertTrashList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8FA1288FF4B300E0D145 /* ConvertTrashList.swift */; };
 		937C8FA4288FF53000E0D145 /* ChosenGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8FA3288FF53000E0D145 /* ChosenGroup.swift */; };
-		937C8FA828900E7B00E0D145 /* MainGroupListScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 937C8FA628900E7B00E0D145 /* MainGroupListScreen.storyboard */; };
 		93B4903828980126009BAFED /* DiscussionPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93B4903728980126009BAFED /* DiscussionPost.storyboard */; };
 		93C8B1D5289372DF00B196F7 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C8B1D4289372DF00B196F7 /* KeyboardHandler.swift */; };
 		DA8AD6742885ADC8005D6CDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8AD6732885ADC8005D6CDB /* AppDelegate.swift */; };
@@ -55,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		93045252289F945F0094FE7E /* MainGroupListScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainGroupListScreen.storyboard; sourceTree = "<group>"; };
 		93142230288FA55200134564 /* DiscussionPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionPostViewController.swift; sourceTree = "<group>"; };
 		93142232288FA59A00134564 /* DiscussionPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionPost.swift; sourceTree = "<group>"; };
 		93142239288FC8C400134564 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
@@ -71,7 +72,6 @@
 		937C8F9F288FF4A700E0D145 /* ConvertDayList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertDayList.swift; sourceTree = "<group>"; };
 		937C8FA1288FF4B300E0D145 /* ConvertTrashList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertTrashList.swift; sourceTree = "<group>"; };
 		937C8FA3288FF53000E0D145 /* ChosenGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenGroup.swift; sourceTree = "<group>"; };
-		937C8FA728900E7B00E0D145 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Plog/Base.lproj/MainGroupListScreen.storyboard; sourceTree = "<group>"; };
 		93B4903728980126009BAFED /* DiscussionPost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiscussionPost.storyboard; sourceTree = "<group>"; };
 		93C8B1D4289372DF00B196F7 /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		DA8AD6702885ADC8005D6CDB /* Plog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plog.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,7 +147,7 @@
 				93142232288FA59A00134564 /* DiscussionPost.swift */,
 				931DDE3D2890DF5700E3A565 /* customCommentCell.swift */,
 				93142230288FA55200134564 /* DiscussionPostViewController.swift */,
-				937C8FA628900E7B00E0D145 /* MainGroupListScreen.storyboard */,
+				93045252289F945F0094FE7E /* MainGroupListScreen.storyboard */,
 				93142239288FC8C400134564 /* Groups.swift */,
 				937C8F9D288FF49600E0D145 /* TextLimiter.swift */,
 				93C8B1D4289372DF00B196F7 /* KeyboardHandler.swift */,
@@ -291,8 +291,8 @@
 				DA8AD6802885ADC9005D6CDB /* LaunchScreen.storyboard in Resources */,
 				DA8AD67D2885ADC9005D6CDB /* Assets.xcassets in Resources */,
 				93B4903828980126009BAFED /* DiscussionPost.storyboard in Resources */,
+				93045253289F945F0094FE7E /* MainGroupListScreen.storyboard in Resources */,
 				DA8AD67B2885ADC8005D6CDB /* Main.storyboard in Resources */,
-				937C8FA828900E7B00E0D145 /* MainGroupListScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,14 +373,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		937C8FA628900E7B00E0D145 /* MainGroupListScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				937C8FA728900E7B00E0D145 /* Base */,
-			);
-			name = MainGroupListScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		DA8AD6792885ADC8005D6CDB /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
