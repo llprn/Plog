@@ -23,6 +23,10 @@ class ViewController: UIViewController {
             }
             else {
                 print("로그아웃 성공")
+                let newVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                newVC.modalPresentationStyle = .fullScreen // 전체화면으로 보이게
+                newVC.modalTransitionStyle = .crossDissolve // 전환 애니메이션 설정
+                self.present(newVC, animated: true, completion: nil)
             }
         }
     }
