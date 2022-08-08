@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gav-jO-d9z">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -8,19 +8,75 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="EHf-IW-A2E">
+        <scene sceneID="bM7-jN-cMu">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <viewController id="gav-jO-d9z" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xUO-qe-0Bo">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plog" translatesAutoresizingMaskIntoConstraints="NO" id="u01-AP-l7c">
+                                <rect key="frame" x="0.0" y="171" width="390" height="291"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="390" id="TAN-dS-8H0"/>
+                                    <constraint firstAttribute="height" constant="291" id="ewX-Km-EgW"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tree (1)" translatesAutoresizingMaskIntoConstraints="NO" id="rim-9Y-lbN">
+                                <rect key="frame" x="132" y="425" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="3Zc-QJ-bBY"/>
+                                    <constraint firstAttribute="height" constant="60" id="ZIc-bo-i69"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="planet-earth (1)" translatesAutoresizingMaskIntoConstraints="NO" id="3f1-rm-Or5">
+                                <rect key="frame" x="197" y="425" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Ijr-4A-pBp"/>
+                                    <constraint firstAttribute="height" constant="60" id="yg7-t1-bqr"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="running" translatesAutoresizingMaskIntoConstraints="NO" id="ZCY-CR-lvO">
+                                <rect key="frame" x="132" y="490" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="T1W-Ns-Ori"/>
+                                    <constraint firstAttribute="width" constant="60" id="lbr-1t-eIx"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil" translatesAutoresizingMaskIntoConstraints="NO" id="rfp-OX-Ofh">
+                                <rect key="frame" x="197" y="490" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="ULA-H0-D9d"/>
+                                    <constraint firstAttribute="height" constant="60" id="ysu-AI-vqw"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="PiW-2r-VAl"/>
                         <color key="backgroundColor" red="0.7843137255" green="0.89019607840000003" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="rim-9Y-lbN" firstAttribute="leading" secondItem="PiW-2r-VAl" secondAttribute="leading" constant="132" id="8KI-gi-dot"/>
+                            <constraint firstItem="3f1-rm-Or5" firstAttribute="top" secondItem="PiW-2r-VAl" secondAttribute="top" constant="381" id="Dak-kL-tpG"/>
+                            <constraint firstItem="ZCY-CR-lvO" firstAttribute="leading" secondItem="PiW-2r-VAl" secondAttribute="leading" constant="132" id="aLw-98-tvI"/>
+                            <constraint firstItem="ZCY-CR-lvO" firstAttribute="top" secondItem="rim-9Y-lbN" secondAttribute="bottom" constant="5" id="byb-US-mFS"/>
+                            <constraint firstItem="rim-9Y-lbN" firstAttribute="top" secondItem="PiW-2r-VAl" secondAttribute="top" constant="381" id="fGg-kz-JGn"/>
+                            <constraint firstItem="u01-AP-l7c" firstAttribute="top" secondItem="PiW-2r-VAl" secondAttribute="top" constant="127" id="gGw-6t-9nn"/>
+                            <constraint firstItem="u01-AP-l7c" firstAttribute="centerX" secondItem="xUO-qe-0Bo" secondAttribute="centerX" id="hQj-yY-kC7"/>
+                            <constraint firstItem="rfp-OX-Ofh" firstAttribute="leading" secondItem="ZCY-CR-lvO" secondAttribute="trailing" constant="5" id="qoQ-55-ctC"/>
+                            <constraint firstItem="3f1-rm-Or5" firstAttribute="leading" secondItem="rim-9Y-lbN" secondAttribute="trailing" constant="5" id="tjr-l9-JzE"/>
+                            <constraint firstItem="rfp-OX-Ofh" firstAttribute="top" secondItem="3f1-rm-Or5" secondAttribute="bottom" constant="5" id="u2y-yK-iq8"/>
+                        </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nCK-q3-tH7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="148" y="385"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pencil" width="512" height="512"/>
+        <image name="planet-earth (1)" width="512" height="512"/>
+        <image name="plog" width="97.333335876464844" height="97.333335876464844"/>
+        <image name="running" width="512" height="512"/>
+        <image name="tree (1)" width="512" height="512"/>
+    </resources>
 </document>
