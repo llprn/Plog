@@ -6,12 +6,26 @@ import CoreLocation
 import MapKit //지도
 import SwiftUI
 
+import KakaoSDKAuth
+import KakaoSDKUser
+
 class ViewController: UIViewController {
  //   var locationManager = CLLocationManager()
     var locationManager: CLLocationManager!
     var currentLocation: String?
    
 
+    
+    @IBAction func logout(_ sender: Any) {
+        UserApi.shared.logout {(error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                print("로그아웃 성공")
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
