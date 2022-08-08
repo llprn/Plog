@@ -104,9 +104,12 @@ class PloggingViewController: UIViewController {
            let option: MKMapSnapshotter.Options = MKMapSnapshotter.Options()
            
            //###################영역 값 받아오는 부분 수정 필요######################
- /* 에러 체크          option.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: pointss[0].latitude, longitude: pointss[0].longitude), span: MKCoordinateSpan())*/
+           if pointss.isEmpty {
+               option.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.546475, longitude: 126.9646916), span: MKCoordinateSpan())
+           } else {
+               option.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: pointss[0].latitude, longitude: pointss[0].longitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+           }
            option.size = CGSize(width: 374, height: 200)
-                   option.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.7152577, longitude: 126.754461), span: MKCoordinateSpan()) //현재 위치 받아올 줄 알아야 함 - 지금은 가온호수유치원
            //        option.size = snapshotImage.bounds.size
            MKMapSnapshotter(options: option).start() { snapshot, error in
                guard let snapshot = snapshot else { return }
