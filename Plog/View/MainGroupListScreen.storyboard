@@ -9,11 +9,16 @@
         <scene sceneID="9F4-06-oZ5">
             <objects>
                 <hostingController storyboardIdentifier="MainGroupListView" modalPresentationStyle="fullScreen" id="Hfx-PW-NEc" customClass="MainGroupListVHC" customModule="Plog" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="group-2" id="YIC-Av-0JY"/>
                     <navigationItem key="navigationItem" id="cRL-bn-v2d"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </hostingController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YNy-tu-lLb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="751" y="-157"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="group-2" width="25" height="25"/>
+    </resources>
 </document>
