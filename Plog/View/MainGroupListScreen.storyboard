@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hfx-PW-NEc">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+    </dependencies>
+    <scenes>
+        <!--Main Group ListVHC-->
+        <scene sceneID="9F4-06-oZ5">
+            <objects>
+                <hostingController storyboardIdentifier="MainGroupListView" modalPresentationStyle="fullScreen" id="Hfx-PW-NEc" customClass="MainGroupListVHC" customModule="Plog" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="cRL-bn-v2d"/>
+                </hostingController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YNy-tu-lLb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="751" y="-157"/>
+        </scene>
+    </scenes>
+</document>

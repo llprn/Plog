@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Recycling Station View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="RecyclingStationViewController" id="Y6W-OH-hqX" customClass="RecyclingStationViewController" customModule="Plog" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="분리수거함 위치 추가" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3X-Ul-vfX">
+                                <rect key="frame" x="116" y="64" width="158" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="z0a-dx-gHD">
+                                <rect key="frame" x="16" y="117" width="358" height="520"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="358" id="Qz8-5M-Fge"/>
+                                    <constraint firstAttribute="height" constant="520" id="gv7-0z-U1d"/>
+                                </constraints>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8f0-2z-YqU">
+                                <rect key="frame" x="148" y="710" width="94" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94" id="27q-2Z-HOq"/>
+                                    <constraint firstAttribute="height" constant="31" id="P3v-uU-Exu"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="추가" cornerStyle="medium">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="0.20784313730000001" green="0.40784313729999999" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="addRecyclingStationBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7IB-fM-L0w"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjt-qU-g5p">
+                                <rect key="frame" x="333" y="592" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="AsD-X5-TVH"/>
+                                    <constraint firstAttribute="width" constant="30" id="ofi-Eg-iZY"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button" image="blue_gps"/>
+                                <connections>
+                                    <action selector="backToCurrentLocBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="SCn-Ef-44v"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="z0a-dx-gHD" firstAttribute="top" secondItem="s3X-Ul-vfX" secondAttribute="bottom" constant="30" id="2Rf-KW-UpN"/>
+                            <constraint firstItem="s3X-Ul-vfX" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="3Er-0X-Ovv"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="8f0-2z-YqU" secondAttribute="bottom" constant="20" id="9rj-Pa-AOr"/>
+                            <constraint firstItem="s3X-Ul-vfX" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="AuQ-nE-ZVf"/>
+                            <constraint firstItem="8f0-2z-YqU" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="PQn-5x-uKk"/>
+                            <constraint firstItem="z0a-dx-gHD" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="dbX-7V-9lD"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="zjt-qU-g5p" secondAttribute="trailing" constant="27" id="eCF-dN-j9g"/>
+                            <constraint firstItem="zjt-qU-g5p" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="548" id="jsW-9L-Zed"/>
+                        </constraints>
+                    </view>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="myMap2" destination="z0a-dx-gHD" id="2s1-ab-cOs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="289" y="-5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="blue_gps" width="512" height="512"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
