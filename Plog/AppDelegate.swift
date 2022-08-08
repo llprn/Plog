@@ -1,6 +1,8 @@
 //
 
 import UIKit
+import KakaoSDKCommon
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -9,6 +11,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        KakaoSDK.initSDK(appKey: "f8a489767837ec3f6f47aa00cd97a352")
+        IQKeyboardManager.shared.enable = true
         return true
     }
 

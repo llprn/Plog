@@ -8,7 +8,7 @@
         <!--Main Group ListVHC-->
         <scene sceneID="9F4-06-oZ5">
             <objects>
-                <hostingController modalPresentationStyle="fullScreen" id="Hfx-PW-NEc" customClass="MainGroupListVHC" customModule="Plog" customModuleProvider="target" sceneMemberID="viewController">
+                <hostingController storyboardIdentifier="MainGroupListView" modalPresentationStyle="fullScreen" id="Hfx-PW-NEc" customClass="MainGroupListVHC" customModule="Plog" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="cRL-bn-v2d"/>
                 </hostingController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YNy-tu-lLb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
