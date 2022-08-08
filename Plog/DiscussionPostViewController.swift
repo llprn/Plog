@@ -11,25 +11,37 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
         dismiss(animated: true, completion: nil)
     }
     
-    //글 내용
-    @IBOutlet weak var postView: UIView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var userLabel: UILabel!
-    @IBOutlet weak var postImage: UIImageView!
-    @IBOutlet weak var contentLabel: UILabel!
-    
-    //댓글 목록
+    //글, 댓글
     @IBOutlet weak var CommentTableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Post.dummyPostList[0].comment.count
+        return Post.dummyPostList[0].comment.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //글
+        if indexPath.row < 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! customDPostCell
+            
+            let target = Post.dummyPostList[0]
+            cell.dTitleLabel?.text = target.title
+            cell.dUserLabel?.text = target.userName
+            cell.dPostImage?.image = UIImage(systemName: "square")
+            cell.dContentLabel?.text = target.content
+            
+            cell.countIcon?.image = UIImage(systemName: "bubble.right")
+            cell.countLabel?.text = String(target.comment.count)
+            
+            cell.selectionStyle = .none
+            
+            return cell
+        }
+        
+        //댓글
         let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! customCommentCell
 
         //이전화면에서 데이터 전달 시 Post.comment[indexPath.row]
-        let target = Post.dummyPostList[0].comment[indexPath.row]
+        let target = Post.dummyPostList[0].comment[indexPath.row - 1]
         cell.cUserLabel?.text = target.dUserName
         cell.commentLabel?.text = target.dcomment
         cell.selectionStyle = .none
@@ -84,12 +96,6 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
         
         NotificationCenter.default.addObserver(self, selector: #selector(DiscussionPostViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(DiscussionPostViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-        //이전 화면에서 데이터 전달 시 Post.title 꼴로 변경
-        titleLabel.text = Post.dummyPostList[0].title
-        userLabel.text = Post.dummyPostList[0].userName
-        postImage.image = UIImage(named: Post.dummyPostList[0].contentImage)
-        contentLabel.text = Post.dummyPostList[0].content
         
         commentTextView.text = ""
         commentTextView.delegate = self
