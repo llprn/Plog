@@ -1,0 +1,6 @@
+framework module Pods_Plog {
+  umbrella header "Pods-Plog-umbrella.h"
+
+  export *
+  module * { export * }
+}
