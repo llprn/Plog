@@ -26,6 +26,7 @@
 		937C8FA0288FF4A700E0D145 /* ConvertDayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F9F288FF4A700E0D145 /* ConvertDayList.swift */; };
 		937C8FA2288FF4B300E0D145 /* ConvertTrashList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8FA1288FF4B300E0D145 /* ConvertTrashList.swift */; };
 		937C8FA4288FF53000E0D145 /* ChosenGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8FA3288FF53000E0D145 /* ChosenGroup.swift */; };
+		937CDB7428A1408800716FB0 /* customDPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937CDB7328A1408800716FB0 /* customDPostCell.swift */; };
 		93B4903828980126009BAFED /* DiscussionPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93B4903728980126009BAFED /* DiscussionPost.storyboard */; };
 		93C8B1D5289372DF00B196F7 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C8B1D4289372DF00B196F7 /* KeyboardHandler.swift */; };
 		D91B22C628A0C03D00E96664 /* RecyclingStation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D91B22C528A0C03D00E96664 /* RecyclingStation.storyboard */; };
@@ -102,6 +103,7 @@
 		937C8F9F288FF4A700E0D145 /* ConvertDayList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertDayList.swift; sourceTree = "<group>"; };
 		937C8FA1288FF4B300E0D145 /* ConvertTrashList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertTrashList.swift; sourceTree = "<group>"; };
 		937C8FA3288FF53000E0D145 /* ChosenGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenGroup.swift; sourceTree = "<group>"; };
+		937CDB7328A1408800716FB0 /* customDPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customDPostCell.swift; sourceTree = "<group>"; };
 		93B4903728980126009BAFED /* DiscussionPost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiscussionPost.storyboard; sourceTree = "<group>"; };
 		93C8B1D4289372DF00B196F7 /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		9C96160A7619FAD32B3252CB /* Pods-Plog-PlogUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plog-PlogUITests.debug.xcconfig"; path = "Target Support Files/Pods-Plog-PlogUITests/Pods-Plog-PlogUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				DA8AD67C2885ADC9005D6CDB /* Assets.xcassets */,
 				93142232288FA59A00134564 /* DiscussionPost.swift */,
 				931DDE3D2890DF5700E3A565 /* customCommentCell.swift */,
+				937CDB7328A1408800716FB0 /* customDPostCell.swift */,
 				93142230288FA55200134564 /* DiscussionPostViewController.swift */,
 				93142239288FC8C400134564 /* Groups.swift */,
 				937C8F9D288FF49600E0D145 /* TextLimiter.swift */,
@@ -561,6 +564,7 @@
 				D9A073E828A09DFD00A2E023 /* PloggingViewController.swift in Sources */,
 				937C8F9E288FF49600E0D145 /* TextLimiter.swift in Sources */,
 				937C8FA0288FF4A700E0D145 /* ConvertDayList.swift in Sources */,
+				937CDB7428A1408800716FB0 /* customDPostCell.swift in Sources */,
 				937C8F92288FF30900E0D145 /* MyGroupListView.swift in Sources */,
 				931DDE3E2890DF5700E3A565 /* customCommentCell.swift in Sources */,
 				937C8F9C288FF46B00E0D145 /* SideOfTheForce.swift in Sources */,
