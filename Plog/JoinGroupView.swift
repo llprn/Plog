@@ -1,9 +1,11 @@
 //그룹 참여 페이지
 
 import SwiftUI
+import KakaoSDKUser
 
 struct JoinGroupView: View {
     var group: Groups
+    var userId: Int64
     @Environment(\.dismiss) var dismiss
     
     //분리수거 목록
@@ -141,8 +143,19 @@ struct JoinGroupView: View {
                     if(group.capacity == group.peopleList.count){
                         showingAlert = true
                     } else {
-                        group.peopleList.append(GroupMember(name: "개설자", trash: [cans, papers, bags, plastics, etcs]))
-                        dismiss()
+                        //카카오계정 아이디 불러옴
+                        UserApi.shared.me() {(user, error) in
+                            if let error = error {
+                                print(error)
+                            }
+                            else {
+                                _ = user
+                                let nickname = user?.kakaoAccount?.profile?.nickname
+                                
+                                group.peopleList.append(GroupMember(id: userId, name: String(nickname ?? ""), trash: [cans, papers, bags, plastics, etcs]))
+                                dismiss()
+                            }
+                        }
                     }
                 } label: {
                     Text("참여")
@@ -198,7 +211,7 @@ struct JoinGroupView: View {
 
 struct JoinGroupView_Previews: PreviewProvider {
     static var previews: some View {
-        JoinGroupView(group: Groups(place: "장소 정보", cycle: "주기 정보", days: [true,true,true,true,true,true,true], startTime: "시작 시간", endTime: "종료 시간", capacity: 1, peopleList: [GroupMember(name: "닉네임1", trash: [false, false, false, false, true])], trashList: [true, true, true, true, false], comment: "그룹 설명"))
+        JoinGroupView(group: Groups(place: "장소 정보", cycle: "주기 정보", days: [true,true,true,true,true,true,true], startTime: "시작 시간", endTime: "종료 시간", capacity: 1, peopleList: [GroupMember(id: 1, name: "닉네임1", trash: [false, false, false, false, true])], trashList: [true, true, true, true, false], comment: "그룹 설명"), userId: 0)
             .previewInterfaceOrientation(.portrait)
     }
 }

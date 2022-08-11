@@ -4,6 +4,8 @@ import SwiftUI
 
 struct GroupDetailView: View {
     var group: Groups
+    var userId: Int64
+    
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
@@ -11,7 +13,7 @@ struct GroupDetailView: View {
             HStack {
                 Spacer()
                 Button{
-                    group.peopleList.removeAll{ String($0.name) == "개설자" }
+                    group.peopleList.removeAll{ $0.id == userId }
                     if (group.peopleList.isEmpty) {
                         Groups.dummyGroupList.removeAll { $0.id == group.id }
                     }
@@ -112,9 +114,9 @@ struct GroupDetailView: View {
     }
     
     var myTrashList: GroupMember {
-        var member = group.peopleList.first{$0.name == "개설자"}
+        var member = group.peopleList.first{$0.id == userId}
         if (member == nil) {
-            member = GroupMember(name: "없음", trash: [false,false,false,false,false])
+            member = GroupMember(id: 0, name: "없음", trash: [false,false,false,false,false])
         }
         return member!
     }
@@ -122,6 +124,6 @@ struct GroupDetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        GroupDetailView(group: Groups(place: "장소 정보", cycle: "주기 정보", days: [true, true, true, true, true, true, true], startTime: "시작 시간", endTime: "종료 시간", capacity: 5, peopleList: [GroupMember(name: "멤버 정보", trash: [true, true, true, false, false])], trashList: [true, true, true, true, true], comment: "그룹 설명"))
+        GroupDetailView(group: Groups(place: "장소 정보", cycle: "주기 정보", days: [true, true, true, true, true, true, true], startTime: "시작 시간", endTime: "종료 시간", capacity: 5, peopleList: [GroupMember(id: 1, name: "멤버 정보", trash: [true, true, true, false, false])], trashList: [true, true, true, true, true], comment: "그룹 설명"), userId: 0)
     }
 }

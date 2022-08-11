@@ -1,6 +1,7 @@
 //토론 게시물 상세 페이지
 
 import UIKit
+import KakaoSDKUser
 
 class DiscussionPostViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, UIScrollViewDelegate{
     
@@ -81,8 +82,19 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
     @IBAction func addComment(_ sender: Any) {
         let comment = commentTextView.text
         
-        let newComment = DComment(dUserName: "작성자", dcomment: comment ?? "")
-        Post.dummyPostList[0].comment.append(newComment)
+        //카카오계정 아이디 불러옴
+        UserApi.shared.me() {(user, error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                _ = user
+                let nickname = user?.kakaoAccount?.profile?.nickname ?? ""
+                let newComment = DComment(dUserName: String(nickname), dcomment: comment ?? "")
+                //댓글 작성: db연동 시 변경
+                Post.dummyPostList[0].comment.append(newComment)
+            }
+        }
         
         addButton.isEnabled = false
         commentTextView.resignFirstResponder()

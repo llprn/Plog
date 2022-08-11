@@ -3,13 +3,15 @@
 import SwiftUI
 
 struct MyGroupListView: View {
+    var userId: Int64
+    
     var body: some View {
         //그룹 목록
         List {
             ForEach(Groups.dummyGroupList, id: \.id) { group in
-                if (group.peopleList.contains{$0.name == "개설자"}) {
+                if (group.peopleList.contains{$0.id == userId}) {
                     NavigationLink {
-                        GroupDetailView(group: group)
+                        GroupDetailView(group: group, userId: userId)
                             .navigationBarHidden(true)
                     } label: {
                         GroupCell(group: group)
@@ -22,7 +24,7 @@ struct MyGroupListView: View {
 
 struct JoinListView_Previews: PreviewProvider {
     static var previews: some View {
-        MyGroupListView()
+        MyGroupListView(userId: 0)
             .previewInterfaceOrientation(.portrait)
     }
 }

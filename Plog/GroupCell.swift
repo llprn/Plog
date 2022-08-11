@@ -32,6 +32,6 @@ struct GroupCell: View {
 
 struct GroupCell_Previews: PreviewProvider {
     static var previews: some View {
-        GroupCell(group: Groups(place: "장소 정보", cycle: "주기 정보", days: [true, true, true, true, true, true, true], startTime: "시작 시간", endTime: "종료 시간", capacity: 5, peopleList: [GroupMember(name: "멤버 정보", trash: [false, false,false,false,true])], trashList: [true, true, true, true, false], comment: "그룹 설명"))
+        GroupCell(group: Groups(place: "장소 정보", cycle: "주기 정보", days: [true, true, true, true, true, true, true], startTime: "시작 시간", endTime: "종료 시간", capacity: 5, peopleList: [GroupMember(id: 0, name: "멤버 정보", trash: [false, false,false,false,true])], trashList: [true, true, true, true, false], comment: "그룹 설명"))
     }
 }

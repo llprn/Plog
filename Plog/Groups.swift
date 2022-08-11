@@ -3,12 +3,12 @@
 import Foundation
 
 class GroupMember {
-    var id: UUID
+    var id: Int64
     var name: String
     var trash: Array<Bool>
     
-    init(name: String, trash: Array<Bool>){
-        id = UUID()
+    init(id: Int64, name: String, trash: Array<Bool>){
+        self.id = id
         self.name = name
         self.trash = trash
     }
@@ -51,17 +51,7 @@ class Groups {
         Groups(place: "숙명여자대학교",
                cycle: "매주", days: [false, true, false, true, false, false, false],
                startTime: "12:30", endTime: "13:30",
-               capacity: 5, peopleList: [GroupMember(name: "닉네임1", trash: [false,false,true,true,true]), GroupMember(name: "닉네임2", trash: [true,false,false,false,false])],
+               capacity: 5, peopleList: [GroupMember(id: 0, name: "김눈송", trash: [false,false,true,true,true]), GroupMember(id: 1, name: "이숙명", trash: [true,false,false,false,false])],
                trashList: [true, true, false, false, false], comment: "7월 25일부터 활동 시작합니다. 학교 정문 앞에서 만나요"),
-        Groups(place: "효창공원",
-               cycle: "격주", days: [true, false, false, false, false, false, false],
-               startTime: "17:30", endTime: "18:30",
-               capacity: 4, peopleList: [GroupMember(name: "개설자", trash: [true,false,false,false,false]), GroupMember(name: "닉네임3", trash: [false,true,false,false,true]), GroupMember(name: "닉네임4", trash: [false, false, true, true, false])],
-               trashList: [false, true, true, true, true], comment: "역 앞에서 시작합니다. 각자 쓰레기 종류 2개씩 선택해주세요"),
-        Groups(place: "공덕역",
-               cycle: "매달", days: [false, false, true, false, true, false, false],
-               startTime: "15:00", endTime: "16:30",
-               capacity: 3, peopleList: [GroupMember(name: "닉네임5", trash: [true,false,false,false,false]), GroupMember(name: "닉네임6", trash: [false,true,false,false,true]), GroupMember(name: "닉네임7", trash: [false, false, true, true, false])],
-               trashList: [false, true, true, true, true], comment: "각자 활동 후 역 앞에서 만납시다")
     ]
 }
