@@ -36,7 +36,7 @@ class RecyclingStationViewController: UIViewController, CLLocationManagerDelegat
                 
                 let myPin = MKPointAnnotation()
                 myPin.coordinate = locationCoordinate
-                myPin.title = "Latitude: \(locationCoordinate.latitude), Longitude: \(locationCoordinate.longitude)"
+//                myPin.title = "Latitude: \(locationCoordinate.latitude), Longitude: \(locationCoordinate.longitude)"
                 myMap2.addAnnotation(myPin)
             }
             //
