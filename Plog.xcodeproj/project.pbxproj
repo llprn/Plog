@@ -11,9 +11,7 @@
 		88AA055A7226715DE4F3220C /* Pods_Plog_PlogUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 426F5EAEB1EA8E3A67A04D11 /* Pods_Plog_PlogUITests.framework */; };
 		93045253289F945F0094FE7E /* MainGroupListScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93045252289F945F0094FE7E /* MainGroupListScreen.storyboard */; };
 		93142231288FA55200134564 /* DiscussionPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93142230288FA55200134564 /* DiscussionPostViewController.swift */; };
-		93142233288FA59A00134564 /* DiscussionPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93142232288FA59A00134564 /* DiscussionPost.swift */; };
 		9314223A288FC8C400134564 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93142239288FC8C400134564 /* Groups.swift */; };
-		931DDE3E2890DF5700E3A565 /* customCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931DDE3D2890DF5700E3A565 /* customCommentCell.swift */; };
 		937C8F8E288FF28B00E0D145 /* MainGroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F8D288FF28B00E0D145 /* MainGroupListView.swift */; };
 		937C8F90288FF2B500E0D145 /* AllGroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F8F288FF2B500E0D145 /* AllGroupListView.swift */; };
 		937C8F92288FF30900E0D145 /* MyGroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F91288FF30900E0D145 /* MyGroupListView.swift */; };
@@ -26,7 +24,10 @@
 		937C8FA0288FF4A700E0D145 /* ConvertDayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8F9F288FF4A700E0D145 /* ConvertDayList.swift */; };
 		937C8FA2288FF4B300E0D145 /* ConvertTrashList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8FA1288FF4B300E0D145 /* ConvertTrashList.swift */; };
 		937C8FA4288FF53000E0D145 /* ChosenGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C8FA3288FF53000E0D145 /* ChosenGroup.swift */; };
-		937CDB7428A1408800716FB0 /* customDPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937CDB7328A1408800716FB0 /* customDPostCell.swift */; };
+		937CDB8528A4A1EA00716FB0 /* recyclingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937CDB8428A4A1EA00716FB0 /* recyclingData.swift */; };
+		937CDB9728A9360F00716FB0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 937CDB9628A9360F00716FB0 /* FirebaseFirestore */; };
+		937CDB9928A9360F00716FB0 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 937CDB9828A9360F00716FB0 /* FirebaseFirestoreSwift */; };
+		937CDB9B28A9362F00716FB0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 937CDB9A28A9362F00716FB0 /* GoogleService-Info.plist */; };
 		93B4903828980126009BAFED /* DiscussionPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93B4903728980126009BAFED /* DiscussionPost.storyboard */; };
 		93C8B1D5289372DF00B196F7 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C8B1D4289372DF00B196F7 /* KeyboardHandler.swift */; };
 		D91B22C628A0C03D00E96664 /* RecyclingStation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D91B22C528A0C03D00E96664 /* RecyclingStation.storyboard */; };
@@ -88,9 +89,7 @@
 		844E62F16F32CC113DCC5D28 /* Pods-PlogTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlogTests.debug.xcconfig"; path = "Target Support Files/Pods-PlogTests/Pods-PlogTests.debug.xcconfig"; sourceTree = "<group>"; };
 		93045252289F945F0094FE7E /* MainGroupListScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainGroupListScreen.storyboard; sourceTree = "<group>"; };
 		93142230288FA55200134564 /* DiscussionPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionPostViewController.swift; sourceTree = "<group>"; };
-		93142232288FA59A00134564 /* DiscussionPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionPost.swift; sourceTree = "<group>"; };
 		93142239288FC8C400134564 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
-		931DDE3D2890DF5700E3A565 /* customCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customCommentCell.swift; sourceTree = "<group>"; };
 		937C8F8D288FF28B00E0D145 /* MainGroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGroupListView.swift; sourceTree = "<group>"; };
 		937C8F8F288FF2B500E0D145 /* AllGroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupListView.swift; sourceTree = "<group>"; };
 		937C8F91288FF30900E0D145 /* MyGroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupListView.swift; sourceTree = "<group>"; };
@@ -103,7 +102,8 @@
 		937C8F9F288FF4A700E0D145 /* ConvertDayList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertDayList.swift; sourceTree = "<group>"; };
 		937C8FA1288FF4B300E0D145 /* ConvertTrashList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertTrashList.swift; sourceTree = "<group>"; };
 		937C8FA3288FF53000E0D145 /* ChosenGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenGroup.swift; sourceTree = "<group>"; };
-		937CDB7328A1408800716FB0 /* customDPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customDPostCell.swift; sourceTree = "<group>"; };
+		937CDB8428A4A1EA00716FB0 /* recyclingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recyclingData.swift; sourceTree = "<group>"; };
+		937CDB9A28A9362F00716FB0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		93B4903728980126009BAFED /* DiscussionPost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiscussionPost.storyboard; sourceTree = "<group>"; };
 		93C8B1D4289372DF00B196F7 /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		9C96160A7619FAD32B3252CB /* Pods-Plog-PlogUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plog-PlogUITests.debug.xcconfig"; path = "Target Support Files/Pods-Plog-PlogUITests/Pods-Plog-PlogUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -147,6 +147,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9AF9627418F6254EC6028BE /* Pods_Plog.framework in Frameworks */,
+				937CDB9728A9360F00716FB0 /* FirebaseFirestore in Frameworks */,
+				937CDB9928A9360F00716FB0 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,9 +250,6 @@
 				DAA139C028959684007D03F8 /* DiscussionRegisterViewController.swift */,
 				DA33642A288C558100166C6C /* View */,
 				DA8AD67C2885ADC9005D6CDB /* Assets.xcassets */,
-				93142232288FA59A00134564 /* DiscussionPost.swift */,
-				931DDE3D2890DF5700E3A565 /* customCommentCell.swift */,
-				937CDB7328A1408800716FB0 /* customDPostCell.swift */,
 				93142230288FA55200134564 /* DiscussionPostViewController.swift */,
 				93142239288FC8C400134564 /* Groups.swift */,
 				937C8F9D288FF49600E0D145 /* TextLimiter.swift */,
@@ -267,7 +266,9 @@
 				937C8F97288FF33700E0D145 /* JoinGroupView.swift */,
 				937C8F99288FF34600E0D145 /* GroupDetailView.swift */,
 				DA8AD6812885ADC9005D6CDB /* Info.plist */,
+				937CDB9A28A9362F00716FB0 /* GoogleService-Info.plist */,
 				D9A073E128A0915500A2E023 /* LoginViewController.swift */,
+				937CDB8428A4A1EA00716FB0 /* recyclingData.swift */,
 				D9A073E728A09DFD00A2E023 /* PloggingViewController.swift */,
 				D91B22C728A0C06100E96664 /* RecyclingStationViewController.swift */,
 				D91B22CB28A0CD7B00E96664 /* CourseReviewViewController.swift */,
@@ -310,6 +311,10 @@
 			dependencies = (
 			);
 			name = Plog;
+			packageProductDependencies = (
+				937CDB9628A9360F00716FB0 /* FirebaseFirestore */,
+				937CDB9828A9360F00716FB0 /* FirebaseFirestoreSwift */,
+			);
 			productName = Plog;
 			productReference = DA8AD6702885ADC8005D6CDB /* Plog.app */;
 			productType = "com.apple.product-type.application";
@@ -385,6 +390,9 @@
 				Base,
 			);
 			mainGroup = DA8AD6672885ADC8005D6CDB;
+			packageReferences = (
+				937CDB9528A9360F00716FB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = DA8AD6712885ADC8005D6CDB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -410,6 +418,7 @@
 				DA336427288C506100166C6C /* CourseBoard.storyboard in Resources */,
 				93B4903828980126009BAFED /* DiscussionPost.storyboard in Resources */,
 				D91B22CA28A0CD4900E96664 /* CourseReview.storyboard in Resources */,
+				937CDB9B28A9362F00716FB0 /* GoogleService-Info.plist in Resources */,
 				D9A073EC28A0A60E00A2E023 /* TabBar.storyboard in Resources */,
 				D9822B3A28A0F1A7002CB5EB /* Main.storyboard in Resources */,
 				93045253289F945F0094FE7E /* MainGroupListScreen.storyboard in Resources */,
@@ -564,15 +573,13 @@
 				D9A073E828A09DFD00A2E023 /* PloggingViewController.swift in Sources */,
 				937C8F9E288FF49600E0D145 /* TextLimiter.swift in Sources */,
 				937C8FA0288FF4A700E0D145 /* ConvertDayList.swift in Sources */,
-				937CDB7428A1408800716FB0 /* customDPostCell.swift in Sources */,
 				937C8F92288FF30900E0D145 /* MyGroupListView.swift in Sources */,
-				931DDE3E2890DF5700E3A565 /* customCommentCell.swift in Sources */,
 				937C8F9C288FF46B00E0D145 /* SideOfTheForce.swift in Sources */,
+				937CDB8528A4A1EA00716FB0 /* recyclingData.swift in Sources */,
 				DA8AD6782885ADC8005D6CDB /* ViewController.swift in Sources */,
 				DA8AD6742885ADC8005D6CDB /* AppDelegate.swift in Sources */,
 				93142231288FA55200134564 /* DiscussionPostViewController.swift in Sources */,
 				DA8AD6762885ADC8005D6CDB /* SceneDelegate.swift in Sources */,
-				93142233288FA59A00134564 /* DiscussionPost.swift in Sources */,
 				9314223A288FC8C400134564 /* Groups.swift in Sources */,
 				93C8B1D5289372DF00B196F7 /* KeyboardHandler.swift in Sources */,
 			);
@@ -934,6 +941,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		937CDB9528A9360F00716FB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		937CDB9628A9360F00716FB0 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 937CDB9528A9360F00716FB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		937CDB9828A9360F00716FB0 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 937CDB9528A9360F00716FB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DA8AD6682885ADC8005D6CDB /* Project object */;
 }

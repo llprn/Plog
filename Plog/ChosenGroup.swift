@@ -4,19 +4,22 @@ import SwiftUI
 
 struct ChosenGroup: View {
     var selectedSide: SideOfTheForce
+    var userId: Int64
+    
+    @ObservedObject var groupViewModel: GroupViewModel
     
     var body: some View {
         switch selectedSide {
         case .allG:
-            AllGroupListView(text: "")
+            AllGroupListView(text: "", groupViewModel: groupViewModel, userId: userId)
         case .myG:
-            MyGroupListView()
+            MyGroupListView(userId: userId, groupViewModel: groupViewModel)
         }
     }
 }
 
 struct ChosenHereView_Previews: PreviewProvider {
     static var previews: some View {
-        ChosenGroup(selectedSide: .allG)
+        ChosenGroup(selectedSide: .allG, userId: 0, groupViewModel: GroupViewModel())
     }
 }
