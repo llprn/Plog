@@ -1,6 +1,8 @@
 //그룹 생성 페이지
 
 import SwiftUI
+import KakaoSDKUser
+import FirebaseFirestore
 
 struct ComposeGroupView: View {
     @Environment(\.dismiss) var dismiss
@@ -34,6 +36,8 @@ struct ComposeGroupView: View {
     @State var etcs = false
     //그룹 설명
     @ObservedObject var comment = TextLimiter(limit: 100)
+    
+    var userId: Int64
     
     var dateFormatter: DateFormatter {
         let df = DateFormatter()
@@ -282,8 +286,29 @@ struct ComposeGroupView: View {
             HStack {
                 Spacer()
                 Button (action: {
-                    Groups.dummyGroupList.insert(Groups(place: place.value.replacingOccurrences(of: "\n", with: " "), cycle: cycle, days: [sunday, monday, tuesday, wednesday, thusday, friday, saturday], startTime: dateFormatter.string(from: startT), endTime: dateFormatter.string(from: endT), capacity: capacity, peopleList: [GroupMember(name: "개설자", trash: [!cans, !papers, !bags, !plastics, !etcs])], trashList: [cans, papers, bags, plastics, etcs], comment: comment.value), at: 0)
-                    dismiss()
+                    //카카오계정 아이디 불러옴
+                    UserApi.shared.me() {(user, error) in
+                        if let error = error {
+                            print(error)
+                        }
+                        else {
+                            _ = user
+                            let userid = user?.id ?? 0
+                            let nickname = user?.kakaoAccount?.profile?.nickname
+                            
+                            if userid != 0 && nickname != nil {
+                                let newId = UUID().uuidString
+                                //그룹 생성
+                                Firestore.firestore().collection("group").document(newId).setData(["place" : place.value.replacingOccurrences(of: "\n", with: " "), "cycle" : cycle, "days" : [sunday, monday, tuesday, wednesday, thusday, friday, saturday], "startTime" : dateFormatter.string(from: startT), "endTime" : dateFormatter.string(from: endT), "capacity" : capacity, "trashList" : [cans, papers, bags, plastics, etcs], "comment": comment.value])
+                                //그룹에 개설자 참여
+                                Firestore.firestore().collection("group").document(newId).collection("member").document(String(userid)).setData(["id" : userid, "name" : String(nickname ?? "닉네임"), "trashList" : [!cans, !papers, !bags, !plastics, !etcs]])
+                                dismiss()
+                            }
+                            else {
+                                print("생성불가")
+                            }
+                        }
+                    }
                 }) {
                     Text("생성")
                 }
@@ -333,7 +358,7 @@ extension UIApplication {
 //프리뷰
 struct ComposeView_Previews: PreviewProvider {
     static var previews: some View {
-        ComposeGroupView()
+        ComposeGroupView(userId: 1)
             .previewInterfaceOrientation(.portrait)
     }
 }

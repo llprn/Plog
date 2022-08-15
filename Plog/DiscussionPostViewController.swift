@@ -1,37 +1,118 @@
 //토론 게시물 상세 페이지
 
 import UIKit
+import KakaoSDKUser
+import FirebaseFirestore
+
+struct DComment: Codable, Hashable {
+    var name: String
+    var comment: String
+    
+    var firestoreData: [String: Any] {
+        return [
+            "name": name,
+            "comment": comment
+        ]
+    }
+}
+
+struct DPost: Codable {
+    var title: String
+    var name: String
+    var image: String
+    var content: String
+    var comments: Array<DComment>
+}
 
 class DiscussionPostViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, UIScrollViewDelegate{
     
-    var post : Post?
+    let db: Firestore = Firestore.firestore()
+    var receiveId = ""
+    var post: DPost = DPost(title: "", name: "", image: "", content: "", comments: [])
+    
+    func setData(){
+        db.collection("discussion").document(self.receiveId).addSnapshotListener { documentSnapshot, error in
+            guard let document = documentSnapshot else {
+                print("Error fetching document: \(error!)")
+                return
+            }
+            
+            do {
+                let dPost = try document.data(as: DPost.self)
+                
+                self.post.title = dPost.title
+                self.post.name = dPost.name
+                self.post.image = dPost.image
+                self.post.content = dPost.content
+                self.post.comments = dPost.comments
+            }
+            catch {
+              print(error)
+            }
+            
+            self.CommentTableView.reloadData()
+        }
+    }
     
     //상단 네비게이션에서 창 닫기
     @IBAction func dismissVIew(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
-    //글 내용
-    @IBOutlet weak var postView: UIView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var userLabel: UILabel!
-    @IBOutlet weak var postImage: UIImageView!
-    @IBOutlet weak var contentLabel: UILabel!
-    
-    //댓글 목록
+    //글, 댓글
     @IBOutlet weak var CommentTableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Post.dummyPostList[0].comment.count
+        return post.comments.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //글
+        if indexPath.row < 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! customDPostCell
+            
+            let target = post
+            cell.dTitleLabel?.text = target.title
+            cell.dUserLabel?.text = target.name
+            
+            let url = URL(string: target.image)
+            if url == nil {
+                cell.dPostImage?.image = UIImage(systemName: "x.square")
+            } else {
+                do {
+                    let data = try Data(contentsOf: url!)
+                    let image = UIImage(data: data)!
+                    
+                    let scale = 350 / image.size.width
+                    let height = image.size.height * scale
+                    UIGraphicsBeginImageContext(CGSize(width: 350, height: height))
+                    image.draw(in: CGRect(x: 0, y: 0, width: 350, height: height))
+                    let newImage = UIGraphicsGetImageFromCurrentImageContext()
+                    UIGraphicsEndImageContext()
+                    
+                    cell.dPostImage?.image = newImage
+                } catch {
+                    //로드 실패 시 x모양 아이콘 띄움
+                    cell.dPostImage?.image = UIImage(systemName: "x.square")
+                }
+            }
+            
+            cell.dContentLabel?.text = target.content
+            
+            cell.countIcon?.image = UIImage(systemName: "bubble.right")
+            cell.countLabel?.text = String(target.comments.count)
+            
+            cell.selectionStyle = .none
+            
+            return cell
+        }
+        
+        //댓글
         let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! customCommentCell
 
-        //이전화면에서 데이터 전달 시 Post.comment[indexPath.row]
-        let target = Post.dummyPostList[0].comment[indexPath.row]
-        cell.cUserLabel?.text = target.dUserName
-        cell.commentLabel?.text = target.dcomment
+        let target = post.comments[indexPath.row - 1]
+        cell.cUserLabel?.text = target.name
+        cell.commentLabel?.text = target.comment
         cell.selectionStyle = .none
 
         return cell
@@ -69,8 +150,18 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
     @IBAction func addComment(_ sender: Any) {
         let comment = commentTextView.text
         
-        let newComment = DComment(dUserName: "작성자", dcomment: comment ?? "")
-        Post.dummyPostList[0].comment.append(newComment)
+        //카카오계정 아이디 불러옴
+        UserApi.shared.me() {(user, error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                _ = user
+                let nickname = user?.kakaoAccount?.profile?.nickname ?? ""
+                let newComment = DComment(name: String(nickname), comment: comment ?? "")
+                self.db.collection("discussion").document(self.receiveId).updateData(["comments" : FieldValue.arrayUnion([newComment.firestoreData])])
+            }
+        }
         
         addButton.isEnabled = false
         commentTextView.resignFirstResponder()
@@ -82,14 +173,10 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setData()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(DiscussionPostViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(DiscussionPostViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-        //이전 화면에서 데이터 전달 시 Post.title 꼴로 변경
-        titleLabel.text = Post.dummyPostList[0].title
-        userLabel.text = Post.dummyPostList[0].userName
-        postImage.image = UIImage(named: Post.dummyPostList[0].contentImage)
-        contentLabel.text = Post.dummyPostList[0].content
         
         commentTextView.text = ""
         commentTextView.delegate = self
@@ -113,10 +200,51 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
     }
 
     @objc func keyboardWillHide(notification: NSNotification) {
-          self.view.frame.origin.y = 0
+        self.view.frame.origin.y = 0
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+}
+
+//커스텀 셀: 댓글
+class customCommentCell: UITableViewCell {
+
+    @IBOutlet weak var cUserLabel: UILabel!
+    @IBOutlet weak var commentLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+}
+//커스텀 셀: 게시글
+class customDPostCell: UITableViewCell {
+    
+    @IBOutlet weak var dTitleLabel: UILabel!
+    @IBOutlet weak var dUserLabel: UILabel!
+    @IBOutlet weak var dPostImage: UIImageView!
+    @IBOutlet weak var dContentLabel: UILabel!
+    
+    @IBOutlet weak var countIcon: UIImageView!
+    @IBOutlet weak var countLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+
 }

@@ -3,6 +3,7 @@
 import UIKit
 import KakaoSDKCommon
 import IQKeyboardManagerSwift
+import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         KakaoSDK.initSDK(appKey: "f8a489767837ec3f6f47aa00cd97a352")
         IQKeyboardManager.shared.enable = true
+        FirebaseApp.configure()
         return true
     }
 

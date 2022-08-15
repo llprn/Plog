@@ -185,6 +185,37 @@ class PloggingViewController: UIViewController {
         // myMap.isRotateEnabled = false
         // 각도 가능 여부
         // myMap.isPitchEnabled = false
+        
+        //분리수거함 api 받아오기: 인증키 포함된 주소 받아옴.
+        //주소에서 page로 페이지 인덱스, perPage로 한 페이지당 불러 올 데이터 수 변경 가능. serviceKey는 변경하면 안됨.
+        if let rUrl = URL(string: "https://api.odcloud.kr/api/15087773/v1/uddi:d9bdf233-ee41-46fe-8e08-bb74980f1155?page=1&perPage=30&serviceKey=l%2B5asdjnJYLJ%2BAnxKZZKq6WNkSByzdaGRAfY7qEOlK%2F959Aky%2BjWXTe%2B5OEoTY27Qsb2qD8Q%2Fin8RBS02qk3XA%3D%3D") {
+            let request = URLRequest.init(url: rUrl)
+            
+            URLSession.shared.dataTask(with: request) {
+                (data, response, error) in guard let data = data else {return}
+                let decoder = JSONDecoder()
+                print(response as Any)
+                
+                do{ let rJson = try decoder.decode(recyclingData.self , from: data)
+                    //가져온 정보 출력(확인용)
+                    //print(rJson)
+                    
+                    //재활용인 것만 지도에 마커 표시
+                    //for recycleSpot in rJson.data {
+                    rJson.data?.forEach{ recycleSpot in
+                        //위도, 경도 값이 있음을 먼저 확인
+                        if recycleSpot.수거쓰레기종류 == "재활용" && recycleSpot.위도 != nil && recycleSpot.경도 != nil {
+                            //확인한 뒤이므로 nil값이 없음. 따라서 !로 강제함
+                            let mark = rMarker(coordinate: CLLocationCoordinate2D(latitude: Double(recycleSpot.위도!)!, longitude: Double(recycleSpot.경도!)!), subtitle: recycleSpot.소재지도로명주소)
+                            self.myMap.addAnnotation(mark)
+                        }
+                    }
+                }
+                catch{
+                    print(error)
+                }
+            }.resume()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -329,4 +360,18 @@ extension CLLocationCoordinate2D {
             let to = CLLocation(latitude: self.latitude, longitude: self.longitude)
             return from.distance(from: to)
         }
+}
+
+//재활용 표시할 마커 클래스
+class rMarker: NSObject, MKAnnotation {
+    let coordinate: CLLocationCoordinate2D
+    let subtitle: String?
+
+    init(coordinate: CLLocationCoordinate2D, subtitle: String) {
+        self.coordinate = coordinate
+        self.subtitle = subtitle
+
+        super.init()
+    }
+
 }

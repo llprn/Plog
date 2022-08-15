@@ -1,6 +1,7 @@
 //그룹 목록 페이지
 
 import SwiftUI
+import KakaoSDKUser
 
 struct MainGroupListView: View {
     //상단 메뉴 스타일
@@ -14,6 +15,10 @@ struct MainGroupListView: View {
     @State private var showComposer: Bool = false
     @State private var sheetPresented = false
     @State private var theId = 0
+    
+    @State private var userId: Int64 = 0
+    
+    @ObservedObject var groupViewModel = GroupViewModel()
 
     var body: some View {
         NavigationView {
@@ -29,7 +34,7 @@ struct MainGroupListView: View {
                 
                 ZStack {
                     //그룹 목록
-                    ChosenGroup(selectedSide: selectedSide)
+                    ChosenGroup(selectedSide: selectedSide, userId: userId, groupViewModel: groupViewModel)
                         .id(theId)
                     
                     //버튼: 그룹 추가 페이지로 이동
@@ -44,7 +49,7 @@ struct MainGroupListView: View {
                                     .font(.largeTitle)
                                     .foregroundColor(.green)
                             }.fullScreenCover(isPresented: $sheetPresented) {
-                                ComposeGroupView()
+                                ComposeGroupView(userId: userId)
                                     .navigationBarHidden(true)
                                     .onDisappear{
                                         self.theId += 1
@@ -56,7 +61,19 @@ struct MainGroupListView: View {
                 }
             }
             .navigationBarHidden(true)
-            .onAppear{self.theId += 1}
+            .task {
+                //뷰가 나타날 때 사용자의 아이디를 불러온다. 아이디는 필요한 각 그룹 페이지에 전달된다.
+                UserApi.shared.me() {(user, error) in
+                    if let error = error {
+                        print(error)
+                    }
+                    else {
+                        _ = user
+                        self.userId = user?.id ?? 0
+                    }
+                }
+                self.theId += 1
+            }
         }
     }
 }
