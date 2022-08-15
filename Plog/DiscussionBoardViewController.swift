@@ -27,7 +27,17 @@ class DiscussionBoardViewController: UIViewController,UITableViewDataSource,UITa
      
     }
     
-
+    //상세 페이지로 이동
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showDetail", sender: nil)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            let vc = segue.destination as! DiscussionPostViewController
+            //문서 아이디 전달: 변경 필요
+            vc.receiveId = "qPKLJSL6swUUzdrHGlPC"
+        }
+    }
 }
 class MyCell:UITableViewCell{
     @IBOutlet weak var labelTitle:UILabel!

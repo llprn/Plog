@@ -2,6 +2,7 @@
 
 import SwiftUI
 import KakaoSDKUser
+import FirebaseFirestore
 
 struct ComposeGroupView: View {
     @Environment(\.dismiss) var dismiss
@@ -292,11 +293,15 @@ struct ComposeGroupView: View {
                         }
                         else {
                             _ = user
-                            let id = user?.id
+                            let userid = user?.id ?? 0
                             let nickname = user?.kakaoAccount?.profile?.nickname
                             
-                            if id != nil && nickname != nil {
-                                Groups.dummyGroupList.insert(Groups(place: place.value.replacingOccurrences(of: "\n", with: " "), cycle: cycle, days: [sunday, monday, tuesday, wednesday, thusday, friday, saturday], startTime: dateFormatter.string(from: startT), endTime: dateFormatter.string(from: endT), capacity: capacity, peopleList: [GroupMember(id: id ?? 0, name: String(nickname ?? "닉네임"), trash: [!cans, !papers, !bags, !plastics, !etcs])], trashList: [cans, papers, bags, plastics, etcs], comment: comment.value), at: 0)
+                            if userid != 0 && nickname != nil {
+                                let newId = UUID().uuidString
+                                //그룹 생성
+                                Firestore.firestore().collection("group").document(newId).setData(["place" : place.value.replacingOccurrences(of: "\n", with: " "), "cycle" : cycle, "days" : [sunday, monday, tuesday, wednesday, thusday, friday, saturday], "startTime" : dateFormatter.string(from: startT), "endTime" : dateFormatter.string(from: endT), "capacity" : capacity, "trashList" : [cans, papers, bags, plastics, etcs], "comment": comment.value])
+                                //그룹에 개설자 참여
+                                Firestore.firestore().collection("group").document(newId).collection("member").document(String(userid)).setData(["id" : userid, "name" : String(nickname ?? "닉네임"), "trashList" : [!cans, !papers, !bags, !plastics, !etcs]])
                                 dismiss()
                             }
                             else {

@@ -1,11 +1,14 @@
 //그룹 목록을 띄우는 화면
 
 import SwiftUI
+import FirebaseFirestoreSwift
 
 struct AllGroupListView: View {
     @State var text : String
     @State var editText : Bool = false
     
+    @ObservedObject var groupViewModel: GroupViewModel
+
     var userId: Int64
     
     var body: some View {
@@ -42,9 +45,9 @@ struct AllGroupListView: View {
                 .padding(.top, 20)
         
             //그룹 목록
-            List(Groups.dummyGroupList.filter({"\($0.place)".contains(self.text) || self.text.isEmpty}), id: \.id) { group in
+            List(groupViewModel.groups.filter({"\($0.place)".contains(self.text) || self.text.isEmpty}), id: \.id) { group in
                 NavigationLink {
-                    if(group.peopleList.contains{$0.id == userId}) {
+                    if(group.member.contains{$0.id == userId}) {
                         GroupDetailView(group: group, userId: userId)
                             .navigationBarHidden(true)
                     } else {
@@ -62,7 +65,7 @@ struct AllGroupListView: View {
 
 struct AllGroupListView_Previews: PreviewProvider {
     static var previews: some View {
-        AllGroupListView(text: "", userId: 0)
+        AllGroupListView(text: "", groupViewModel: GroupViewModel(), userId: 0)
             .previewInterfaceOrientation(.portrait)
     }
 }

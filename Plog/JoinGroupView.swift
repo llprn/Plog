@@ -2,6 +2,7 @@
 
 import SwiftUI
 import KakaoSDKUser
+import FirebaseFirestore
 
 struct JoinGroupView: View {
     var group: Groups
@@ -41,9 +42,9 @@ struct JoinGroupView: View {
                             Text("참여인원")
                                 .font(.headline)
                                 .padding([.top, .leading, .trailing])
-                            Text(String(group.peopleList.count)+"/"+String(group.capacity))
+                            Text(String(group.member.count)+"/"+String(group.capacity))
                                 .padding([.top, .leading])
-                                .foregroundColor((group.peopleList.count == group.capacity) ? .red : .black)
+                                .foregroundColor((group.member.count == group.capacity) ? .red : .black)
                             Spacer()
                         }
                         
@@ -140,7 +141,7 @@ struct JoinGroupView: View {
                 Spacer()
                 
                 Button{
-                    if(group.capacity == group.peopleList.count){
+                    if(group.capacity == group.member.count){
                         showingAlert = true
                     } else {
                         //카카오계정 아이디 불러옴
@@ -151,8 +152,7 @@ struct JoinGroupView: View {
                             else {
                                 _ = user
                                 let nickname = user?.kakaoAccount?.profile?.nickname
-                                
-                                group.peopleList.append(GroupMember(id: userId, name: String(nickname ?? ""), trash: [cans, papers, bags, plastics, etcs]))
+                                Firestore.firestore().collection("group").document(group.id).collection("member").document(String(userId)).setData(["id" : userId, "name" : String(nickname ?? "닉네임"), "trashList" : [cans, papers, bags, plastics, etcs]])
                                 dismiss()
                             }
                         }
@@ -199,7 +199,7 @@ struct JoinGroupView: View {
     
     var people: String {
         var peopleListString = ""
-        group.peopleList.forEach {
+        group.member.forEach {
             if (peopleListString != "") {
                 peopleListString += ", "
             }
@@ -211,7 +211,7 @@ struct JoinGroupView: View {
 
 struct JoinGroupView_Previews: PreviewProvider {
     static var previews: some View {
-        JoinGroupView(group: Groups(place: "장소 정보", cycle: "주기 정보", days: [true,true,true,true,true,true,true], startTime: "시작 시간", endTime: "종료 시간", capacity: 1, peopleList: [GroupMember(id: 1, name: "닉네임1", trash: [false, false, false, false, true])], trashList: [true, true, true, true, false], comment: "그룹 설명"), userId: 0)
+        JoinGroupView(group: Groups(id: UUID().uuidString, place: "장소 정보", cycle: "주기 정보", days: [true,true,true,true,true,true,true], startTime: "시작 시간", endTime: "종료 시간", capacity: 1, member: [GroupMember(id: 1, name: "닉네임1", trashList: [false, false, false, false, true])], trashList: [true, true, true, true, false], comment: "그룹 설명"), userId: 0)
             .previewInterfaceOrientation(.portrait)
     }
 }

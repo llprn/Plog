@@ -58,10 +58,23 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <segue destination="fAw-Hp-HaT" kind="show" identifier="showDetail" id="GaF-X1-Asb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-17.39130434782609" y="68.973214285714278"/>
+        </scene>
+        <!--DiscussionPost-->
+        <scene sceneID="MBY-IQ-cp6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DiscussionPost" id="fAw-Hp-HaT" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="vGr-0q-Iua"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tpA-Cx-oJN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="605" y="77"/>
         </scene>
     </scenes>
     <resources>

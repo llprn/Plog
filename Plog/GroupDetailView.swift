@@ -1,6 +1,7 @@
 //그룹 상세 페이지
 
 import SwiftUI
+import FirebaseFirestore
 
 struct GroupDetailView: View {
     var group: Groups
@@ -13,9 +14,14 @@ struct GroupDetailView: View {
             HStack {
                 Spacer()
                 Button{
-                    group.peopleList.removeAll{ $0.id == userId }
-                    if (group.peopleList.isEmpty) {
-                        Groups.dummyGroupList.removeAll { $0.id == group.id }
+                    if (group.member.count == 1) {
+                        //탈퇴: 그룹에서 사용자 정보 삭제
+                        Firestore.firestore().collection("group").document(group.id).collection("member").document(String(userId)).delete()
+                        //모든 멤버 탈퇴 시 그룹 삭제
+                        Firestore.firestore().collection("group").document(group.id).delete()
+                    } else {
+                        //탈퇴: 그룹에서 사용자 정보 삭제
+                        Firestore.firestore().collection("group").document(group.id).collection("member").document(String(userId)).delete()
                     }
                     dismiss()
                 } label: {
@@ -48,7 +54,7 @@ struct GroupDetailView: View {
                             Text("참여인원")
                                 .font(.headline)
                                 .padding([.top, .leading, .trailing])
-                            Text(String(group.peopleList.count)+"/"+String(group.capacity))
+                            Text(String(group.member.count)+"/"+String(group.capacity))
                                 .padding(.top)
                             Spacer()
                         }
@@ -68,7 +74,7 @@ struct GroupDetailView: View {
                             .font(.headline)
                         GroupBox(label: Text("")) {
                             HStack {
-                                Text(ConvertTrashList(trashArray: myTrashList.trash).convertTrash())
+                                Text(ConvertTrashList(trashArray: myTrashList.trashList).convertTrash())
                                     .multilineTextAlignment(.leading)
                                 .padding([.leading, .bottom, .trailing])
                                 Spacer()
@@ -104,7 +110,7 @@ struct GroupDetailView: View {
     
     var people: String {
         var peopleListString = ""
-        group.peopleList.forEach {
+        group.member.forEach {
             if (peopleListString != "") {
                 peopleListString += ", "
             }
@@ -114,9 +120,9 @@ struct GroupDetailView: View {
     }
     
     var myTrashList: GroupMember {
-        var member = group.peopleList.first{$0.id == userId}
+        var member = group.member.first{$0.id == userId}
         if (member == nil) {
-            member = GroupMember(id: 0, name: "없음", trash: [false,false,false,false,false])
+            member = GroupMember(id: 0, name: "없음", trashList: [false,false,false,false,false])
         }
         return member!
     }
@@ -124,6 +130,6 @@ struct GroupDetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        GroupDetailView(group: Groups(place: "장소 정보", cycle: "주기 정보", days: [true, true, true, true, true, true, true], startTime: "시작 시간", endTime: "종료 시간", capacity: 5, peopleList: [GroupMember(id: 1, name: "멤버 정보", trash: [true, true, true, false, false])], trashList: [true, true, true, true, true], comment: "그룹 설명"), userId: 0)
+        GroupDetailView(group: Groups(id: UUID().uuidString, place: "장소 정보", cycle: "주기 정보", days: [true, true, true, true, true, true, true], startTime: "시작 시간", endTime: "종료 시간", capacity: 5, member: [GroupMember(id: 1, name: "멤버 정보", trashList: [true, true, true, false, false])], trashList: [true, true, true, true, true], comment: "그룹 설명"), userId: 0)
     }
 }

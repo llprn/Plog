@@ -17,6 +17,8 @@ struct MainGroupListView: View {
     @State private var theId = 0
     
     @State private var userId: Int64 = 0
+    
+    @ObservedObject var groupViewModel = GroupViewModel()
 
     var body: some View {
         NavigationView {
@@ -32,7 +34,7 @@ struct MainGroupListView: View {
                 
                 ZStack {
                     //그룹 목록
-                    ChosenGroup(selectedSide: selectedSide, userId: userId)
+                    ChosenGroup(selectedSide: selectedSide, userId: userId, groupViewModel: groupViewModel)
                         .id(theId)
                     
                     //버튼: 그룹 추가 페이지로 이동
@@ -59,7 +61,7 @@ struct MainGroupListView: View {
                 }
             }
             .navigationBarHidden(true)
-            .onAppear{
+            .task {
                 //뷰가 나타날 때 사용자의 아이디를 불러온다. 아이디는 필요한 각 그룹 페이지에 전달된다.
                 UserApi.shared.me() {(user, error) in
                     if let error = error {

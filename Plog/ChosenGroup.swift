@@ -6,18 +6,20 @@ struct ChosenGroup: View {
     var selectedSide: SideOfTheForce
     var userId: Int64
     
+    @ObservedObject var groupViewModel: GroupViewModel
+    
     var body: some View {
         switch selectedSide {
         case .allG:
-            AllGroupListView(text: "", userId: userId)
+            AllGroupListView(text: "", groupViewModel: groupViewModel, userId: userId)
         case .myG:
-            MyGroupListView(userId: userId)
+            MyGroupListView(userId: userId, groupViewModel: groupViewModel)
         }
     }
 }
 
 struct ChosenHereView_Previews: PreviewProvider {
     static var previews: some View {
-        ChosenGroup(selectedSide: .allG, userId: 0)
+        ChosenGroup(selectedSide: .allG, userId: 0, groupViewModel: GroupViewModel())
     }
 }
