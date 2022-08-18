@@ -145,19 +145,22 @@ class PloggingViewController: UIViewController {
        // Write Review Button
        @IBAction func writeReviewBtn(_ sender: UIButton) {
            // 시작/종료 지점 좌표 db에 저장
-           let startPoint = pointss[0]
-           let endPoint = pointss[pointss.count-1]
-           db.collection("startAndEndPoints").addDocument(data: [
-            "startPoint" : GeoPoint(latitude: startPoint.latitude, longitude: startPoint.longitude),
-            "endPoint" : GeoPoint(latitude: endPoint.latitude, longitude: endPoint.longitude)
-           ]) { err in
-               if let err = err {
-                   print(err)
-               } else {
-                   print("DB Success")
+           if !(pointss.isEmpty) {
+               let startPoint = pointss[0]
+               let endPoint = pointss[pointss.count-1]
+               db.collection("startAndEndPoints").addDocument(data: [
+                "startPoint" : GeoPoint(latitude: startPoint.latitude, longitude: startPoint.longitude),
+                "endPoint" : GeoPoint(latitude: endPoint.latitude, longitude: endPoint.longitude)
+               ]) { err in
+                   if let err = err {
+                       print(err)
+                   } else {
+                       print("DB Success")
+                   }
                }
+           } else {
+               print("pointss is empty!")
            }
-           
            displayMapSnapshot {
                let newVC = UIStoryboard(name: "CourseReview", bundle: nil).instantiateViewController(withIdentifier: "CourseReviewViewController") as! CourseReviewViewController
 
