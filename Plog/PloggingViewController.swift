@@ -94,13 +94,13 @@ class PloggingViewController: UIViewController {
        
        // Snapshot Button
        var snapshotImage: UIImage?
-       @IBAction func testSnapshotBtn(_ sender: UIButton) {
-           displayMapSnapshot()
-       }
+//       @IBAction func testSnapshotBtn(_ sender: UIButton) {
+//           displayMapSnapshot()
+//       }
        
        var pointss: [CLLocationCoordinate2D] = []
        
-       func displayMapSnapshot() {
+    func displayMapSnapshot(completion: @escaping () -> Void ) {
            let option: MKMapSnapshotter.Options = MKMapSnapshotter.Options()
            
            //###################영역 값 받아오는 부분 수정 필요######################
@@ -138,27 +138,29 @@ class PloggingViewController: UIViewController {
                }
                // do something with finalImage
                self.snapshotImage = finalImage
+               completion()
            }
        }
        
        // Write Review Button
        @IBAction func writeReviewBtn(_ sender: UIButton) {
-//           guard let newVC = self.storyboard?.instantiateViewController(identifier: "CourseReviewViewController") as? CourseReviewViewController else {return}
-           let newVC = UIStoryboard(name: "CourseReview", bundle: nil).instantiateViewController(withIdentifier: "CourseReviewViewController") as! CourseReviewViewController
+           displayMapSnapshot {
+               let newVC = UIStoryboard(name: "CourseReview", bundle: nil).instantiateViewController(withIdentifier: "CourseReviewViewController") as! CourseReviewViewController
 
-           newVC.modalTransitionStyle = .coverVertical
-           newVC.modalPresentationStyle = .fullScreen
-           newVC.routeImageSent = snapshotImage
-           newVC.ploggingTimeSent = timeLabel.text
-           newVC.ploggingDistSent = distanceLabel.text
-           self.present(newVC, animated: true, completion: nil)
+               newVC.modalTransitionStyle = .coverVertical
+               newVC.modalPresentationStyle = .fullScreen
+               newVC.routeImageSent = self.snapshotImage
+               newVC.ploggingTimeSent = self.timeLabel.text
+               newVC.ploggingDistSent = self.distanceLabel.text
+               self.present(newVC, animated: true, completion: nil)
+           }
        }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         customizeButtonNotSelected()
+        
         // 정확도를 최고로 설정
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         // 위치 데이터를 추적하기 위해 사용자에게 승인 요구
@@ -178,7 +180,7 @@ class PloggingViewController: UIViewController {
         // locationManager.distanceFilter = 10 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
         
         // 줌 가능 여부
-        //myMap.isZoomEnabled = true
+        // myMap.isZoomEnabled = true
         // 스크롤 가능 여부
         // myMap.isScrollEnabled = false
         // 회전 가능 여부
