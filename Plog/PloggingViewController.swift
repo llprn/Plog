@@ -9,6 +9,9 @@ import UIKit
 import MapKit
 import CoreLocation
 import CoreMotion // 경로 난도질 방지
+import FirebaseFirestore
+import FirebaseFirestoreSwift
+
 
 class PloggingViewController: UIViewController {
     
@@ -63,19 +66,19 @@ class PloggingViewController: UIViewController {
                }
            })
            
-           //*****************************************
+           //*****************************************왜?
            locationManager.delegate = self
            myMap.delegate = self
        }
        
-       // 스톱워치 시작 전, 스톱워치 일시정지 버튼 눌렀을 때
+       // (스톱워치 시작 전,) 스톱워치 일시정지 버튼 눌렀을 때
        func customizeButtonNotSelected() {
            toggleButton.setBackgroundImage(UIImage(named: "play"), for: .normal)
            mainTimer?.invalidate()
            mainTimer = nil
            //*****************************************
            locationManager.delegate = nil
-           myMap.delegate = nil
+           // myMap.delegate = nil
            
        }
        
@@ -91,13 +94,8 @@ class PloggingViewController: UIViewController {
            return "\(hourStr):\(minStr):\(secStr)"
        }
        
-       
-       // Snapshot Button
+
        var snapshotImage: UIImage?
-//       @IBAction func testSnapshotBtn(_ sender: UIButton) {
-//           displayMapSnapshot()
-//       }
-       
        var pointss: [CLLocationCoordinate2D] = []
        
     func displayMapSnapshot(completion: @escaping () -> Void ) {
@@ -155,11 +153,14 @@ class PloggingViewController: UIViewController {
                self.present(newVC, animated: true, completion: nil)
            }
        }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        customizeButtonNotSelected()
+        toggleButton.setBackgroundImage(UIImage(named: "play"), for: .normal)
+        myMap.delegate = self
+        // customizeButtonNotSelected()
         
         // 정확도를 최고로 설정
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -229,11 +230,27 @@ class PloggingViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        // db에 있는 데이터 전부 가져와서 마커로 표시
+        let db = Firestore.firestore()
+        db.collection("recyclingStation").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print(err)
+            } else {
+                for document in querySnapshot!.documents {
+                    let dbPoint = document.data() ["point"] as! GeoPoint
+                    print(dbPoint)
+                    let annotation = MKPointAnnotation()
+                    annotation.coordinate = CLLocationCoordinate2DMake(dbPoint.latitude, dbPoint.longitude)
+                    self.myMap.addAnnotation(annotation)
+                }
+            }
+        }
     }
     
 
 }
 
+// locationManager.delegate
 extension PloggingViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
@@ -265,7 +282,7 @@ extension PloggingViewController: CLLocationManagerDelegate {
     }
 }
 
-
+// myMap.delegate
 extension PloggingViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         guard let polyLine = overlay as? MKPolyline
@@ -280,9 +297,40 @@ extension PloggingViewController: MKMapViewDelegate {
 
         return renderer
     }
+    
+    // 커스텀 핀
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        guard !annotation.isKind(of: MKUserLocation.self) else {
+            return nil
+        }
+        
+        let annotationIdentifier = "AnnotationIdentifier"
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            annotationView!.canShowCallout = false
+        }
+        else {
+            annotationView!.annotation = annotation
+        }
+        
+        // 이미지 사이즈 조절
+        let pinImage = UIImage(named: "recycle-bin.png")
+        let size = CGSize(width: 30, height: 30)
+        UIGraphicsBeginImageContext(size)
+        pinImage!.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+
+        annotationView!.image = resizedImage
+        
+        return annotationView
+    }
 }
 
-
+//경로 이미지 영역
 extension MKCoordinateRegion {
 
     init?(coordinates: [CLLocationCoordinate2D]) {
@@ -354,6 +402,7 @@ extension MKCoordinateRegion {
     }
 }
 
+// 이동 거리 계산
 extension CLLocationCoordinate2D {
     // - Parameter from: coordinate which will be used as end point.
     // - Returns: Returns distance in meters.

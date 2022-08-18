@@ -7,7 +7,6 @@
 
 import UIKit
 import FirebaseFirestore
-import KakaoSDKUser
 import FirebaseStorage
 
 class CourseReviewViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
