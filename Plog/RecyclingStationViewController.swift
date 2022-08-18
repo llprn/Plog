@@ -19,7 +19,6 @@ class RecyclingStationViewController: UIViewController, CLLocationManagerDelegat
         myMap2.setUserTrackingMode(.follow, animated: true)
     }
     
-    
     @IBAction func addRecyclingStationBtn(_ sender: Any) {
         // pass recycling station's coordinate to db
         if (myPin.coordinate.latitude != 0.0 && myPin.coordinate.longitude != 0.0) {
@@ -34,7 +33,6 @@ class RecyclingStationViewController: UIViewController, CLLocationManagerDelegat
                 }
             }
         }
-        
         _ = navigationController?.popViewController(animated: true)
     }
     

@@ -14,6 +14,7 @@ import FirebaseFirestoreSwift
 
 
 class PloggingViewController: UIViewController {
+    let db = Firestore.firestore()
     
     // Map
        @IBOutlet var myMap: MKMapView!
@@ -95,17 +96,18 @@ class PloggingViewController: UIViewController {
        }
        
 
-       var snapshotImage: UIImage?
-       var pointss: [CLLocationCoordinate2D] = []
+    var snapshotImage: UIImage?
+    var pointss: [CLLocationCoordinate2D] = []
        
     func displayMapSnapshot(completion: @escaping () -> Void ) {
            let option: MKMapSnapshotter.Options = MKMapSnapshotter.Options()
            
            //###################영역 값 받아오는 부분 수정 필요######################
            if pointss.isEmpty {
+               // 숙명여자대학교 좌표
                option.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.546475, longitude: 126.9646916), span: MKCoordinateSpan())
            } else {
-               option.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: pointss[0].latitude, longitude: pointss[0].longitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+               option.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: pointss[pointss.count-1].latitude, longitude: pointss[pointss.count-1].longitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
            }
            option.size = CGSize(width: 374, height: 200)
            //        option.size = snapshotImage.bounds.size
@@ -142,6 +144,20 @@ class PloggingViewController: UIViewController {
        
        // Write Review Button
        @IBAction func writeReviewBtn(_ sender: UIButton) {
+           // 시작/종료 지점 좌표 db에 저장
+           let startPoint = pointss[0]
+           let endPoint = pointss[pointss.count-1]
+           db.collection("startAndEndPoints").addDocument(data: [
+            "startPoint" : GeoPoint(latitude: startPoint.latitude, longitude: startPoint.longitude),
+            "endPoint" : GeoPoint(latitude: endPoint.latitude, longitude: endPoint.longitude)
+           ]) { err in
+               if let err = err {
+                   print(err)
+               } else {
+                   print("DB Success")
+               }
+           }
+           
            displayMapSnapshot {
                let newVC = UIStoryboard(name: "CourseReview", bundle: nil).instantiateViewController(withIdentifier: "CourseReviewViewController") as! CourseReviewViewController
 
@@ -231,7 +247,6 @@ class PloggingViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         // db에 있는 데이터 전부 가져와서 마커로 표시
-        let db = Firestore.firestore()
         db.collection("recyclingStation").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print(err)
