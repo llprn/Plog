@@ -38,7 +38,7 @@ class PloggingViewController: UIViewController {
        var mainTimer: Timer?
        var timeCount = 0
        var toggleButtonChecked = false
-       var distance: Double = 0.0
+       var distance: Double = 0.00
        @IBOutlet var timeLabel: UILabel!
        @IBOutlet var distanceLabel: UILabel!
        @IBOutlet var toggleButton: UIButton!
@@ -56,21 +56,26 @@ class PloggingViewController: UIViewController {
        // 스톱워치 시작 버튼 눌렀을 때
        func customizeButtonSelected() {
            toggleButton.setBackgroundImage(UIImage(named: "pause-button"), for: .normal)
+           
            mainTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: {(_) in
                self.timeCount += 1
                DispatchQueue.main.async {
                    let timeString = self.makeTimeLabel(count: self.timeCount) //시간은 여기 저장되어 있음 00:00:00 형식으로
                    self.timeLabel.text = timeString
                    
-                   let distanceString = String(format: "%.1f", self.distance)
+                   let distanceString = String(format: "%.2f", self.distance)
                    self.distanceLabel.text = "\(distanceString) KM"
+                   
+                   self.locationManager.startUpdatingLocation()
+                   self.locationManager.delegate = self
+                   self.myMap.delegate = self
                }
            })
            
-           //*****************************************왜?
-           locationManager.delegate = self
-           myMap.delegate = self
+//           locationManager.delegate = self
+//           myMap.delegate = self
        }
+    
        
        // (스톱워치 시작 전,) 스톱워치 일시정지 버튼 눌렀을 때
        func customizeButtonNotSelected() {
@@ -98,8 +103,8 @@ class PloggingViewController: UIViewController {
 
     var snapshotImage: UIImage?
     var pointss: [CLLocationCoordinate2D] = []
-       
-    func displayMapSnapshot(completion: @escaping () -> Void ) {
+    
+    func displayMapSnapshot(completion: @escaping () -> Void ) { //이미지 로드 문제 때문에
            let option: MKMapSnapshotter.Options = MKMapSnapshotter.Options()
            
            //###################영역 값 받아오는 부분 수정 필요######################
@@ -142,26 +147,40 @@ class PloggingViewController: UIViewController {
            }
        }
        
-       // Write Review Button
+       // '기록' 버튼
        @IBAction func writeReviewBtn(_ sender: UIButton) {
-           // 시작/종료 지점 좌표 db에 저장
-           if !(pointss.isEmpty) {
-               let startPoint = pointss[0]
-               let endPoint = pointss[pointss.count-1]
-               db.collection("startAndEndPoints").addDocument(data: [
-                "startPoint" : GeoPoint(latitude: startPoint.latitude, longitude: startPoint.longitude),
-                "endPoint" : GeoPoint(latitude: endPoint.latitude, longitude: endPoint.longitude)
-               ]) { err in
-                   if let err = err {
-                       print(err)
-                   } else {
-                       print("DB Success")
-                   }
-               }
-           } else {
-               print("pointss is empty!")
-           }
+           // 시간, 거리, 지도 모두 초기화 (되는지 확인 필요)
+           mainTimer?.invalidate()
+           mainTimer = nil
+//           timeLabel.text = "00:00:00"
+//           distanceLabel.text = "0.00 KM"
+//           pointss = []
+           self.locationManager.stopUpdatingLocation()
+           self.locationManager.delegate = nil
+//         self.myMap.removeOverlay(lineDraw)
+           
+           
+//           // '등록' 버튼 누른 뒤에 저장되도록 자리 변경
+//           // 시작/종료 지점 좌표 db에 저장
+//           if !(pointss.isEmpty) {
+//               let startPoint = pointss[0]
+//               let endPoint = pointss[pointss.count-1]
+//               db.collection("startAndEndPoints").addDocument(data: [
+//                "startPoint" : GeoPoint(latitude: startPoint.latitude, longitude: startPoint.longitude),
+//                "endPoint" : GeoPoint(latitude: endPoint.latitude, longitude: endPoint.longitude)
+//               ]) { err in
+//                   if let err = err {
+//                       print(err)
+//                   } else {
+//                       print("DB Success")
+//                   }
+//               }
+//           } else {
+//               print("pointss is empty! Will not pass startAndEndPoints to DB")
+//           }
+           
            displayMapSnapshot {
+               
                let newVC = UIStoryboard(name: "CourseReview", bundle: nil).instantiateViewController(withIdentifier: "CourseReviewViewController") as! CourseReviewViewController
 
                newVC.modalTransitionStyle = .coverVertical
@@ -169,7 +188,20 @@ class PloggingViewController: UIViewController {
                newVC.routeImageSent = self.snapshotImage
                newVC.ploggingTimeSent = self.timeLabel.text
                newVC.ploggingDistSent = self.distanceLabel.text
+               if !(self.pointss.isEmpty) {
+                   newVC.startPoint = self.pointss[0]
+                   newVC.endPoint = self.pointss[self.pointss.count-1]
+               }
                self.present(newVC, animated: true, completion: nil)
+               
+               self.timeLabel.text = "00:00:00"
+               self.distanceLabel.text = "0.00 KM"
+               self.pointss = []
+               if (lineDraw != nil) {
+                   self.myMap.removeOverlay(lineDraw)
+               }
+               // 초기화 여부 확인용
+               print(self.timeLabel.text!)
            }
        }
     
@@ -268,6 +300,8 @@ class PloggingViewController: UIViewController {
 
 }
 
+var lineDraw: MKPolyline!
+
 // locationManager.delegate
 extension PloggingViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -291,7 +325,7 @@ extension PloggingViewController: CLLocationManagerDelegate {
             distance = distance + (point1.getDistanceInMeters(from: point2)/1000)
             print("distance: \(distance)")
             
-            let lineDraw = MKPolyline(coordinates: pointss, count:pointss.count)
+            lineDraw = MKPolyline(coordinates: pointss, count:pointss.count)
             self.myMap.addOverlay(lineDraw)
         }
         

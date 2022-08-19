@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseStorage
+import CoreLocation
 
 class CourseReviewViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
@@ -15,6 +16,8 @@ class CourseReviewViewController: UIViewController, UITextFieldDelegate, UITextV
     var routeImageSent: UIImage!
     var ploggingTimeSent: String?
     var ploggingDistSent: String?
+    var startPoint: CLLocationCoordinate2D?
+    var endPoint: CLLocationCoordinate2D?
     
     @IBOutlet var routeImage: UIImageView!
     @IBOutlet var ploggingTime: UILabel!
@@ -274,6 +277,25 @@ class CourseReviewViewController: UIViewController, UITextFieldDelegate, UITextV
                 print("DB Success")
             }
         }
+        
+        // 시작/종료 지점 좌표 db에 저장
+        if (startPoint != nil && endPoint != nil) {
+//            self.db.collection("startAndEndPoints").addDocument(data: [  //DB Success 3번씩 돼서 이렇게 하면 3개가 들어감
+            self.db.collection("startAndEndPoints").document(self.uuid).setData([
+                "startPoint" : GeoPoint(latitude: startPoint!.latitude, longitude: startPoint!.longitude),
+                "endPoint" : GeoPoint(latitude: endPoint!.latitude, longitude: endPoint!.longitude)
+            ]) { err in
+                if let err = err {
+                    print(err)
+                } else {
+                    print("DB Success")
+                }
+            }
+        } else {
+            print("pointss is empty! Will not pass startAndEndPoints to DB")
+        }
+        
+        
     }
     
     func moveToNewVC() {
