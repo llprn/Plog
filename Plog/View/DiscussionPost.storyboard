@@ -209,6 +209,7 @@
                         <outlet property="addButton" destination="UZz-77-g2K" id="nTM-9z-hSX"/>
                         <outlet property="commentTextView" destination="8Jo-GH-27S" id="ONb-8l-6k8"/>
                         <outlet property="toolBar" destination="wCp-19-Vu2" id="gUn-kE-BmF"/>
+                        <outlet property="toolBarBottomMargin" destination="Tc5-V3-nYY" id="aDd-wP-MZh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

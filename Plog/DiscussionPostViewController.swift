@@ -123,7 +123,7 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     //하단 툴바
-    @IBOutlet weak var toolBar: UIToolbar!
+    @IBOutlet weak var toolBar: UIView!
     
     //하단 툴바 댓글 입력창
     @IBOutlet weak var commentTextView: UITextView!
@@ -186,21 +186,35 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
         commentTextView.layer.borderWidth = 1
         commentTextView.layer.borderColor = UIColor.gray.cgColor
         
-        CommentTableView.keyboardDismissMode = .onDrag
+        //CommentTableView.keyboardDismissMode = .onDrag
         addButton.isEnabled = false
     }
     
+    @IBOutlet weak var toolBarBottomMargin: NSLayoutConstraint!
+    
     @objc func keyboardWillShow(notification: NSNotification) {
-                
-        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
-               return
-            }
-          
-        self.view.frame.origin.y = 0 - keyboardSize.height
+        let notiInfo = notification.userInfo!
+        // 키보드 높이를 가져옴
+        let keyboardFrame = notiInfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+        let height = keyboardFrame.size.height - self.view.safeAreaInsets.bottom
+        toolBarBottomMargin.constant = height + 39
+
+        //애니메이션 효과를 키보드 애니메이션 시간과 동일하게
+        let animationDuration = notiInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
+        UIView.animate(withDuration: animationDuration) {
+            self.view.layoutIfNeeded()
+        }
     }
 
     @objc func keyboardWillHide(notification: NSNotification) {
-        self.view.frame.origin.y = 0
+        let notiInfo = notification.userInfo!
+        let animationDuration = notiInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
+        self.toolBarBottomMargin.constant = 39
+
+        //애니메이션 효과를 키보드 애니메이션 시간과 동일하게
+        UIView.animate(withDuration: animationDuration) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
