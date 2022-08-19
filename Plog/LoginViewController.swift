@@ -68,10 +68,10 @@ class LoginViewController: UIViewController {
                         self.nickname = user?.kakaoAccount?.profile?.nickname
                         print("nickname: \(String(describing: self.nickname))")
                         
-                        if let url = user?.kakaoAccount?.profile?.profileImageUrl,
-                            let data = try? Data(contentsOf: url) {
-                            self.profileImage = UIImage(data: data)
-                        }
+//                        if let url = user?.kakaoAccount?.profile?.profileImageUrl,
+//                            let data = try? Data(contentsOf: url) {
+//                            self.profileImage = UIImage(data: data)
+//                        }
                     }
                 }
             }

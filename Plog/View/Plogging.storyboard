@@ -74,15 +74,6 @@
                                     <action selector="writeReviewBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="y7K-eu-cmJ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0 KM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="409-io-JrV">
-                                <rect key="frame" x="142" y="647" width="106" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="106" id="CXc-t9-jLZ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0e-Uf-u0w">
                                 <rect key="frame" x="305.66666666666669" y="593" width="39" height="39"/>
                                 <constraints>
@@ -98,24 +89,20 @@
                                     <action selector="buttonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7P0-Yj-Fr3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljD-ca-TAT">
-                                <rect key="frame" x="276" y="710" width="98" height="31"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00 KM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="409-io-JrV">
+                                <rect key="frame" x="135.66666666666666" y="647" width="119" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="GId-qg-YUO"/>
-                                    <constraint firstAttribute="width" constant="98" id="S3m-MG-bHF"/>
+                                    <constraint firstAttribute="width" constant="119" id="CXc-t9-jLZ"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="snapshot"/>
-                                <connections>
-                                    <action selector="testSnapshotBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Sex-ZL-N7s"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="oHL-Um-qZg" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="444" id="2L6-N2-z0r"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ljD-ca-TAT" secondAttribute="bottom" constant="20" id="2VP-Wc-R57"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oHL-Um-qZg" secondAttribute="trailing" constant="27" id="4Cu-Md-WsZ"/>
                             <constraint firstItem="oHL-Um-qZg" firstAttribute="leading" secondItem="L5G-AW-Hoa" secondAttribute="trailing" id="AbF-VX-ulv"/>
                             <constraint firstItem="41u-kT-bqu" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="X2u-8z-qx0"/>
@@ -128,7 +115,6 @@
                             <constraint firstItem="qmg-8e-iOG" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="gdM-SB-etM"/>
                             <constraint firstItem="LPI-dR-Ge4" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="haa-VB-dKK"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="LPI-dR-Ge4" secondAttribute="bottom" constant="20" id="qeF-50-WGl"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ljD-ca-TAT" secondAttribute="trailing" constant="16" id="scP-Aq-EoP"/>
                             <constraint firstItem="qmg-8e-iOG" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="ws1-Fa-zze"/>
                         </constraints>
                     </view>
@@ -143,7 +129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1940" y="11"/>
+            <point key="canvasLocation" x="1940" y="10.663507109004739"/>
         </scene>
         <!--RecyclingStationViewController-->
         <scene sceneID="SVt-nh-ki8">
