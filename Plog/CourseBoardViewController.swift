@@ -3,10 +3,17 @@
 //  Plog
 
 import UIKit
+import FirebaseFirestore
+import FirebaseStorage
+
 
 class CourseBoardViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return boardTitle.count
+    }
+    
+    @IBAction func backBnt(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -26,9 +33,16 @@ class CourseBoardViewController: UIViewController,UITableViewDataSource,UITableV
     override func viewDidLoad() {
          super.viewDidLoad()
          self.view.backgroundColor = .systemGray6
-       
-        
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "cell"{
+                let nvc = segue.destination as! ApostDetailViewController
+                //추가
+                         
+            }
+        }
+
 }
 class CustomCell: UITableViewCell{
     @IBOutlet weak var titleLabel:UILabel!

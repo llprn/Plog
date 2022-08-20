@@ -12,14 +12,14 @@ class CommunityViewController: UIViewController {
   
     @IBOutlet weak var courseBnt: UIButton!
     @IBAction func courseBnt(_ sender: UIButton) {
-    
-        
-        
-      /*  guard let nextVC =
+      /*  guard let svc = self.storyboard?.instantiateViewController(withIdentifier: "CourseBoardViewController") else{return}
+        self.navigationController?.pushViewController(svc, animated: true)
+        */
+        guard let nextVC =
                 self.storyboard?.instantiateViewController(identifier: "CourseBoardViewController") as? CourseBoardViewController else { return }
         nextVC.modalTransitionStyle = .coverVertical
         nextVC.modalPresentationStyle = .fullScreen
-        self.present(nextVC, animated: true, completion: nil)*/
+        self.present(nextVC, animated: true, completion: nil)
         print("course review")
         
     }

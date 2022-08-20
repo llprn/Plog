@@ -10,11 +10,21 @@ import KakaoSDKAuth
 import KakaoSDKUser
 
 class ViewController: UIViewController {
+    @IBOutlet weak var location: UILabel!
+    //날씨
+    @IBOutlet weak var currentTemp: UILabel!
+    @IBOutlet weak var minTemp: UILabel!
+    @IBOutlet weak var maxTemp: UILabel!
+    
+    @IBOutlet weak var weatherImg: UIImageView!
+    
+    
+    
+    
  //   var locationManager = CLLocationManager()
     var locationManager: CLLocationManager!
     var currentLocation: String?
    
-
     
     @IBAction func logout(_ sender: Any) {
         UserApi.shared.logout {(error) in
@@ -33,6 +43,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         locationManager = CLLocationManager()
         locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
