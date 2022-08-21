@@ -120,6 +120,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="날씨 설명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUD-PG-WIx">
+                                <rect key="frame" x="32" y="345" width="161" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -131,6 +138,8 @@
                         <outlet property="location" destination="aEq-8t-WW7" id="0bt-Zd-HNn"/>
                         <outlet property="maxTemp" destination="mHM-dm-8cc" id="tR7-T9-cSJ"/>
                         <outlet property="minTemp" destination="5av-80-Imt" id="OVs-ux-WhQ"/>
+                        <outlet property="testt" destination="89h-3j-XuB" id="iCH-ru-Phm"/>
+                        <outlet property="weatherDescription" destination="PUD-PG-WIx" id="Yvd-AA-iUk"/>
                         <outlet property="weatherImg" destination="BnC-wq-jyA" id="siS-W8-m26"/>
                     </connections>
                 </viewController>

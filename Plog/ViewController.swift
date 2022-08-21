@@ -20,12 +20,16 @@ class ViewController: UIViewController {
     var weather: Weather?
     var main: Main?
     var name: String?
+    @IBOutlet weak var testt: UILabel!
+
     
-    
- //   var locationManager = CLLocationManager()
+    @IBOutlet weak var weatherDescription: UILabel!
+    //   var locationManager = CLLocationManager()
     var locationManager: CLLocationManager!
     var currentLocation: String?
-    
+
+    var longitude: Double!
+    var latitude: Double!
     @IBAction func logout(_ sender: Any) {
         UserApi.shared.logout {(error) in
             if let error = error {
@@ -43,12 +47,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         locationManager = CLLocationManager()
         locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        //
+        //위도,경도 정보
+        let coor = locationManager.location?.coordinate
+                latitude = coor?.latitude
+                longitude = coor?.longitude
+        
         switch locationManager.authorizationStatus{
             case .denied:
             print("위치 비허용")
@@ -88,29 +95,46 @@ class ViewController: UIViewController {
     }
     
 }
-
+//주석처리
+class LocationService {
+    static var shared = LocationService()
+    var longitude: Double!
+    var latitude: Double!
+}
+//
 extension ViewController: CLLocationManagerDelegate{
-    func locationManager(_ manager: CLLocationManager, didUpdatedLocations locations: [CLLocation]){
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            print("위치 업데이트!")
+            print("위도 : \(location.coordinate.latitude)")
+            print("경도 : \(location.coordinate.longitude)")
+        }
+    }
+        
+    // 위치 가져오기 실패
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("error")
+    }
+
+ /*   func locationManager(_ manager: CLLocationManager, didUpdatedLocations locations: [CLLocation]){
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         currentLocation = "\(locValue.latitude),\(locValue.longitude)"
-    }
-    
+        testt.text = currentLocation
+
+    }*/
+
     private func setWeather(){
         let url = URL(string: "https://openweathermap.org/img/wn/\(self.weather?.icon ?? "00")@2x.png")
         let data = try? Data(contentsOf: url!)
             if let data = data {
                weatherImg.image = UIImage(data: data)
            }
+        weatherDescription.text = weather?.description
         location.text = name
-           currentTemp.text = "\(Int(main!.temp-273))"
-           maxTemp.text = "\(Int(main!.temp_max-273))"
+        currentTemp.text = "\(Int(main!.temp-273))"
+        maxTemp.text = "\(Int(main!.temp_max-273))"
         minTemp.text = "\(Int(main!.temp_min-273))"
     }
 }
 
-/*class LocationService {
-    static var shared = LocationService()
-    var longitude:Double!
-    var latitude:Double!
-}
-*/
+
