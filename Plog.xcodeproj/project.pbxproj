@@ -65,6 +65,8 @@
 		DAA139BD28958AF6007D03F8 /* DiscussionBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA139BC28958AF6007D03F8 /* DiscussionBoardViewController.swift */; };
 		DAA139BF28959672007D03F8 /* DiscussionRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAA139BE28959672007D03F8 /* DiscussionRegister.storyboard */; };
 		DAA139C128959684007D03F8 /* DiscussionRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA139C028959684007D03F8 /* DiscussionRegisterViewController.swift */; };
+		DADAFC8428B1465A00016F7B /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADAFC8328B1465A00016F7B /* Weather.swift */; };
+		DADAFC8628B146F400016F7B /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADAFC8528B146F400016F7B /* WeatherService.swift */; };
 		E9AF9627418F6254EC6028BE /* Pods_Plog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E89DE3870356537BAE4474 /* Pods_Plog.framework */; };
 /* End PBXBuildFile section */
 
@@ -148,6 +150,8 @@
 		DAA139BC28958AF6007D03F8 /* DiscussionBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionBoardViewController.swift; sourceTree = "<group>"; };
 		DAA139BE28959672007D03F8 /* DiscussionRegister.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiscussionRegister.storyboard; sourceTree = "<group>"; };
 		DAA139C028959684007D03F8 /* DiscussionRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionRegisterViewController.swift; sourceTree = "<group>"; };
+		DADAFC8328B1465A00016F7B /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		DADAFC8528B146F400016F7B /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +274,7 @@
 				937C8F9D288FF49600E0D145 /* TextLimiter.swift */,
 				93C8B1D4289372DF00B196F7 /* KeyboardHandler.swift */,
 				937C8F9F288FF4A700E0D145 /* ConvertDayList.swift */,
+				DADAFC8528B146F400016F7B /* WeatherService.swift */,
 				937C8FA1288FF4B300E0D145 /* ConvertTrashList.swift */,
 				937C8F9B288FF46B00E0D145 /* SideOfTheForce.swift */,
 				937C8FA3288FF53000E0D145 /* ChosenGroup.swift */,
@@ -278,6 +283,7 @@
 				937C8F91288FF30900E0D145 /* MyGroupListView.swift */,
 				937C8F93288FF31D00E0D145 /* GroupCell.swift */,
 				937C8F95288FF32B00E0D145 /* ComposeGroupView.swift */,
+				DADAFC8328B1465A00016F7B /* Weather.swift */,
 				937C8F97288FF33700E0D145 /* JoinGroupView.swift */,
 				937C8F99288FF34600E0D145 /* GroupDetailView.swift */,
 				DA8AD6812885ADC9005D6CDB /* Info.plist */,
@@ -587,6 +593,7 @@
 				937C8F96288FF32B00E0D145 /* ComposeGroupView.swift in Sources */,
 				937C8FA2288FF4B300E0D145 /* ConvertTrashList.swift in Sources */,
 				D91B22C828A0C06100E96664 /* RecyclingStationViewController.swift in Sources */,
+				DADAFC8628B146F400016F7B /* WeatherService.swift in Sources */,
 				937C8F9A288FF34600E0D145 /* GroupDetailView.swift in Sources */,
 				937C8F8E288FF28B00E0D145 /* MainGroupListView.swift in Sources */,
 				937C8F98288FF33700E0D145 /* JoinGroupView.swift in Sources */,
@@ -598,6 +605,7 @@
 				937C8FA0288FF4A700E0D145 /* ConvertDayList.swift in Sources */,
 				937C8F92288FF30900E0D145 /* MyGroupListView.swift in Sources */,
 				937C8F9C288FF46B00E0D145 /* SideOfTheForce.swift in Sources */,
+				DADAFC8428B1465A00016F7B /* Weather.swift in Sources */,
 				937CDB8528A4A1EA00716FB0 /* recyclingData.swift in Sources */,
 				DA8AD6782885ADC8005D6CDB /* ViewController.swift in Sources */,
 				DA8AD6742885ADC8005D6CDB /* AppDelegate.swift in Sources */,

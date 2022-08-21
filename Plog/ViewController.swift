@@ -17,14 +17,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var maxTemp: UILabel!
     
     @IBOutlet weak var weatherImg: UIImageView!
-    
-    
+    var weather: Weather?
+    var main: Main?
+    var name: String?
     
     
  //   var locationManager = CLLocationManager()
     var locationManager: CLLocationManager!
     var currentLocation: String?
-   
     
     @IBAction func logout(_ sender: Any) {
         UserApi.shared.logout {(error) in
@@ -58,6 +58,23 @@ class ViewController: UIViewController {
             break
         }
         
+        //weather
+        WeatherService().getWeather{ result in
+            switch result{
+            case .success(let weatherResponse): DispatchQueue.main.async {
+                self.weather = weatherResponse.weather.first
+                self.main = weatherResponse.main
+                self.name = weatherResponse.name
+                self.setWeather()
+                
+            }
+            case .failure(_ ):
+                print("error")
+                
+            }
+           
+        }
+        
     /*    locationManager = CLLocationManager()
         locationManager.delegate = self
         switch locationManager.authorizationStatus {
@@ -69,6 +86,7 @@ class ViewController: UIViewController {
             break
         }*/
     }
+    
 }
 
 extension ViewController: CLLocationManagerDelegate{
@@ -77,7 +95,17 @@ extension ViewController: CLLocationManagerDelegate{
         currentLocation = "\(locValue.latitude),\(locValue.longitude)"
     }
     
-    
+    private func setWeather(){
+        let url = URL(string: "https://openweathermap.org/img/wn/\(self.weather?.icon ?? "00")@2x.png")
+        let data = try? Data(contentsOf: url!)
+            if let data = data {
+               weatherImg.image = UIImage(data: data)
+           }
+        location.text = name
+           currentTemp.text = "\(Int(main!.temp-273))"
+           maxTemp.text = "\(Int(main!.temp_max-273))"
+        minTemp.text = "\(Int(main!.temp_min-273))"
+    }
 }
 
 /*class LocationService {
