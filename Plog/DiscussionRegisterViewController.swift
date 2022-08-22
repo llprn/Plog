@@ -12,14 +12,14 @@ import KakaoSDKUser
 class DiscussionRegisterViewController: UIViewController, UITextFieldDelegate,UITextViewDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
     
     //db
-  /* title 이름 변경 필요
+  /* title 이름 변경 필요*/
    let db = Firestore.firestore()
 
-    var title: String? = ""
+    var ttitle: String? = ""
     var uuid: String = ""
     var name: String = ""
     var image: String = ""
-    var content: String = ""*/
+    var content: String = ""
     //
     
     let imagePickerController = UIImagePickerController()
@@ -76,9 +76,9 @@ class DiscussionRegisterViewController: UIViewController, UITextFieldDelegate,UI
     }
     
     // 데이터 전송
- /*   private func sendFireStore(){
+    private func sendFireStore(){
         db.collection("discussion").document(self.uuid).setData([
-            "title" : self.title,
+            "ttitle" : self.ttitle,
             "name" : self.name,
             "image" : self.image,
             "content" : self.content]){
@@ -89,7 +89,7 @@ class DiscussionRegisterViewController: UIViewController, UITextFieldDelegate,UI
                 print("Document successfully written")
             }
         }
-    }*/
+    }
     // textField 글자 수 제한
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 

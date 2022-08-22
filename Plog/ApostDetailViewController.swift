@@ -13,12 +13,10 @@ class ApostDetailViewController: UIViewController {
     //db
     var documentIDString: String!
     let db = Firestore.firestore()
-//    var uuid: String!
     var uuid: String = ""
 
-    
-    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var routeImage: UIImageView!
+    @IBOutlet weak var dateLabel: UILabel!
     
     @IBOutlet weak var routeText: UILabel!
     @IBOutlet weak var ploggingTime: UILabel!
@@ -27,13 +25,9 @@ class ApostDetailViewController: UIViewController {
     @IBOutlet weak var afterPlogging: UIImageView!
     
     @IBOutlet weak var trashAmount: UITextView!
-    
-    
     @IBOutlet weak var theMostTrash: UITextView!
-    
     @IBOutlet weak var joggingReview: UITextView!
  
-    
     
     @IBAction func backBnt(_ sender: Any) {
 //        print("hi")
@@ -83,7 +77,5 @@ class ApostDetailViewController: UIViewController {
         }
     }*/
 }
-
-
 
 }
