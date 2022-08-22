@@ -33,6 +33,7 @@ class CourseReviewViewController: UIViewController, UITextFieldDelegate, UITextV
     // 플로깅 전/후 사진
     @IBOutlet var beforePlogging: UIImageView!
     @IBOutlet var afterPlogging: UIImageView!
+
     
     var imgPickerController = UIImagePickerController()
     var selectedView: UIView!
