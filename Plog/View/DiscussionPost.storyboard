@@ -175,7 +175,7 @@
                                             <rect key="frame" x="299" y="9.6666666666666679" width="75" height="34.666666666666657"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="tinted" title="Button">
+                                            <buttonConfiguration key="configuration" style="tinted" title="작성">
                                                 <color key="baseForegroundColor" red="0.0026231135479999998" green="0.55609697160000005" blue="0.25225190269999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <color key="baseBackgroundColor" red="0.0026231135479999998" green="0.55609697160000005" blue="0.25225190269999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </buttonConfiguration>
@@ -209,6 +209,7 @@
                         <outlet property="addButton" destination="UZz-77-g2K" id="nTM-9z-hSX"/>
                         <outlet property="commentTextView" destination="8Jo-GH-27S" id="ONb-8l-6k8"/>
                         <outlet property="toolBar" destination="wCp-19-Vu2" id="gUn-kE-BmF"/>
+                        <outlet property="toolBarBottomMargin" destination="Tc5-V3-nYY" id="aDd-wP-MZh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
