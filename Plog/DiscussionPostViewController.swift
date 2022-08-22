@@ -3,6 +3,7 @@
 import UIKit
 import KakaoSDKUser
 import FirebaseFirestore
+import FirebaseStorage
 
 struct DComment: Codable, Hashable {
     var name: String
@@ -28,6 +29,7 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
     
     let db: Firestore = Firestore.firestore()
     var receiveId = ""
+    var downloadedImage = UIImage(systemName: "x.square")
     var post: DPost = DPost(title: "", name: "", image: "", content: "", comments: [])
     
     func setData(){
@@ -45,6 +47,15 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
                 self.post.image = dPost.image
                 self.post.content = dPost.content
                 self.post.comments = dPost.comments
+                
+                StorageManager.shared.downloadURL(for: dPost.image) { [weak self] result in
+                    switch result {
+                    case .success(let url):
+                        self?.downloadImage(url: url)
+                    case .failure(let error):
+                        print("Failed to get download url:\(error)")
+                    }
+                }
             }
             catch {
               print(error)
@@ -74,29 +85,7 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
             let target = post
             cell.dTitleLabel?.text = target.title
             cell.dUserLabel?.text = target.name
-            
-            let url = URL(string: target.image)
-            if url == nil {
-                cell.dPostImage?.image = UIImage(systemName: "x.square")
-            } else {
-                do {
-                    let data = try Data(contentsOf: url!)
-                    let image = UIImage(data: data)!
-                    
-                    let scale = 350 / image.size.width
-                    let height = image.size.height * scale
-                    UIGraphicsBeginImageContext(CGSize(width: 350, height: height))
-                    image.draw(in: CGRect(x: 0, y: 0, width: 350, height: height))
-                    let newImage = UIGraphicsGetImageFromCurrentImageContext()
-                    UIGraphicsEndImageContext()
-                    
-                    cell.dPostImage?.image = newImage
-                } catch {
-                    //로드 실패 시 x모양 아이콘 띄움
-                    cell.dPostImage?.image = UIImage(systemName: "x.square")
-                }
-            }
-            
+            cell.dPostImage?.image = self.downloadedImage
             cell.dContentLabel?.text = target.content
             
             cell.countIcon?.image = UIImage(systemName: "bubble.right")
@@ -220,6 +209,28 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
+    //이미지 설정
+    func downloadImage(url: URL) {
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            DispatchQueue.main.async {
+                let image = UIImage(data: data) ?? UIImage(systemName: "x.square")
+                
+                let scale = 350 / image!.size.width
+                let height = image!.size.height * scale
+                UIGraphicsBeginImageContext(CGSize(width: 350, height: height))
+                image!.draw(in: CGRect(x: 0, y: 0, width: 350, height: height))
+                let newImage = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext()
+                
+                self.downloadedImage = newImage
+                self.CommentTableView.reloadData()
+            }
+        }.resume()
+    }
 }
 
 //커스텀 셀: 댓글
@@ -261,4 +272,24 @@ class customDPostCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+}
+
+final class StorageManager {
+    private let storage = Storage.storage().reference()
+    static let shared = StorageManager()
+    
+    public enum StorageErrors: Error {
+        case failedToGetDownloadUrl
+    }
+
+    public func downloadURL(for path: String, completion: @escaping (Result<URL, Error>) -> Void) {
+        let reference = storage.child(path)
+        reference.downloadURL { url, error in
+            guard let url = url, error == nil else {
+                completion(.failure(StorageErrors.failedToGetDownloadUrl))
+                return
+            }
+            completion(.success(url))
+        }
+    }
 }
