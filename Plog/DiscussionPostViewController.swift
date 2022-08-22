@@ -5,32 +5,32 @@ import KakaoSDKUser
 import FirebaseFirestore
 import FirebaseStorage
 
-struct DComment: Codable, Hashable {
-    var name: String
-    var comment: String
-    
-    var firestoreData: [String: Any] {
-        return [
-            "name": name,
-            "comment": comment
-        ]
-    }
-}
-
-struct DPost: Codable {
-    var title: String
-    var name: String
-    var image: String
-    var content: String
-    var comments: Array<DComment>
-}
-
 class DiscussionPostViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, UIScrollViewDelegate{
+    
+    struct DPost: Codable {
+        var ttitle: String
+        var name: String
+        var image: String
+        var content: String
+        var comments: Array<DComment>
+    }
+    
+    struct DComment: Codable, Hashable {
+        var name: String
+        var comment: String
+        
+        var firestoreData: [String: Any] {
+            return [
+                "name": name,
+                "comment": comment
+            ]
+        }
+    }
     
     let db: Firestore = Firestore.firestore()
     var receiveId = ""
     var downloadedImage = UIImage(systemName: "x.square")
-    var post: DPost = DPost(title: "", name: "", image: "", content: "", comments: [])
+    var post: DPost = DPost(ttitle: "", name: "", image: "", content: "", comments: [])
     
     func setData(){
         db.collection("discussion").document(self.receiveId).addSnapshotListener { documentSnapshot, error in
@@ -42,7 +42,7 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
             do {
                 let dPost = try document.data(as: DPost.self)
                 
-                self.post.title = dPost.title
+                self.post.ttitle = dPost.ttitle
                 self.post.name = dPost.name
                 self.post.image = dPost.image
                 self.post.content = dPost.content
@@ -83,7 +83,7 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
             let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! customDPostCell
             
             let target = post
-            cell.dTitleLabel?.text = target.title
+            cell.dTitleLabel?.text = target.ttitle
             cell.dUserLabel?.text = target.name
             cell.dPostImage?.image = self.downloadedImage
             cell.dContentLabel?.text = target.content
