@@ -13,7 +13,13 @@ class CourseBoardViewController: UIViewController,UITableViewDataSource,UITableV
     }
     
     @IBAction func backBnt(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        let nextVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityViewController") as! CommunityViewController
+        
+     
+        nextVC.modalTransitionStyle = .coverVertical
+        nextVC.modalPresentationStyle = .fullScreen
+        self.present(nextVC, animated: true, completion: nil)
+      //  dismiss(animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

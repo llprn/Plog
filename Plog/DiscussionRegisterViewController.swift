@@ -99,13 +99,15 @@ class DiscussionRegisterViewController: UIViewController, UITextFieldDelegate,UI
     }
     func moveToNewVC() {
         print("done")
-        let newVC = UIStoryboard(name: "DiscussionPost", bundle: nil).instantiateViewController(withIdentifier: "DiscussionPostViewController") as! DiscussionPostViewController
+        let nextVC = UIStoryboard(name: "DiscussionPost", bundle: nil).instantiateViewController(withIdentifier: "DiscussionPostViewController") as! DiscussionPostViewController
+        
+        //토론 게시판으로 이동하는 코드
   //      let newVC = UIStoryboard(name: "DiscussionBoardStoryboard", bundle: nil).instantiateViewController(withIdentifier: "DiscussionBoardViewController") as! DiscussionBoardViewController
-        newVC.modalPresentationStyle = .fullScreen
-        newVC.modalTransitionStyle = .crossDissolve
+        nextVC.modalPresentationStyle = .fullScreen
+        nextVC.modalTransitionStyle = .crossDissolve
 
-        newVC.receiveId = self.uuid
-        self.present(newVC, animated: true, completion: nil)
+        nextVC.receiveId = self.uuid
+        self.present(nextVC, animated: true, completion: nil)
     }
     
     // textField 글자 수 제한

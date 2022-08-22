@@ -31,7 +31,13 @@ class ApostDetailViewController: UIViewController {
     
     @IBAction func backBnt(_ sender: Any) {
 //        print("hi")
-        dismiss(animated: true, completion: nil) //컨트롤러 닫기
+        let nextVC = UIStoryboard(name: "CourseBoard", bundle: nil).instantiateViewController(withIdentifier: "CourseBoardViewController") as! CourseBoardViewController
+        
+     
+        nextVC.modalTransitionStyle = .coverVertical
+        nextVC.modalPresentationStyle = .fullScreen
+        self.present(nextVC, animated: true, completion: nil)
+        //dismiss(animated: true, completion: nil) //컨트롤러 닫기
  //       self.navigationController?.popViewController(animated: true)
     }
 
