@@ -14,7 +14,8 @@ class DiscussionRegisterViewController: UIViewController, UITextFieldDelegate,UI
     //db
   /* title 이름 변경 필요*/
    let db = Firestore.firestore()
-
+    
+    var storageRef: StorageReference!
     var ttitle: String? = ""
     var uuid: String = ""
     var name: String = ""
@@ -48,6 +49,12 @@ class DiscussionRegisterViewController: UIViewController, UITextFieldDelegate,UI
     @IBAction func registerBnt(_ sender: Any) {
         //수정
         print("success")
+        uuid = UUID().uuidString
+        storageRef = Storage.storage().reference()
+        self.sendFireStore()
+        self.moveToNewVC()
+//        dismiss(animated: true)
+        
     }
 
    
@@ -90,6 +97,17 @@ class DiscussionRegisterViewController: UIViewController, UITextFieldDelegate,UI
             }
         }
     }
+    func moveToNewVC() {
+        print("done")
+        let newVC = UIStoryboard(name: "DiscussionPost", bundle: nil).instantiateViewController(withIdentifier: "DiscussionPostViewController") as! DiscussionPostViewController
+  //      let newVC = UIStoryboard(name: "DiscussionBoardStoryboard", bundle: nil).instantiateViewController(withIdentifier: "DiscussionBoardViewController") as! DiscussionBoardViewController
+        newVC.modalPresentationStyle = .fullScreen
+        newVC.modalTransitionStyle = .crossDissolve
+
+        newVC.receiveId = self.uuid
+        self.present(newVC, animated: true, completion: nil)
+    }
+    
     // textField 글자 수 제한
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
