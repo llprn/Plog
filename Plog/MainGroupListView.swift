@@ -48,7 +48,7 @@ struct MainGroupListView: View {
                                 Image(systemName: "plus.circle.fill")
                                     .font(.largeTitle)
                                     .foregroundColor(.green)
-                            }.fullScreenCover(isPresented: $sheetPresented) {
+                            }.sheet(isPresented: $sheetPresented) {
                                 ComposeGroupView(userId: userId)
                                     .navigationBarHidden(true)
                                     .onDisappear{

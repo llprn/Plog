@@ -3,32 +3,34 @@
 import UIKit
 import KakaoSDKUser
 import FirebaseFirestore
-
-struct DComment: Codable, Hashable {
-    var name: String
-    var comment: String
-    
-    var firestoreData: [String: Any] {
-        return [
-            "name": name,
-            "comment": comment
-        ]
-    }
-}
-
-struct DPost: Codable {
-    var title: String
-    var name: String
-    var image: String
-    var content: String
-    var comments: Array<DComment>
-}
+import FirebaseStorage
 
 class DiscussionPostViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, UIScrollViewDelegate{
     
+    struct DPost: Codable {
+        var ttitle: String
+        var name: String
+        var image: String
+        var content: String
+        var comments: Array<DComment>
+    }
+    
+    struct DComment: Codable, Hashable {
+        var name: String
+        var comment: String
+        
+        var firestoreData: [String: Any] {
+            return [
+                "name": name,
+                "comment": comment
+            ]
+        }
+    }
+    
     let db: Firestore = Firestore.firestore()
     var receiveId = ""
-    var post: DPost = DPost(title: "", name: "", image: "", content: "", comments: [])
+    var downloadedImage = UIImage(systemName: "x.square")
+    var post: DPost = DPost(ttitle: "", name: "", image: "", content: "", comments: [])
     
     func setData(){
         db.collection("discussion").document(self.receiveId).addSnapshotListener { documentSnapshot, error in
@@ -40,11 +42,20 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
             do {
                 let dPost = try document.data(as: DPost.self)
                 
-                self.post.title = dPost.title
+                self.post.ttitle = dPost.ttitle
                 self.post.name = dPost.name
                 self.post.image = dPost.image
                 self.post.content = dPost.content
                 self.post.comments = dPost.comments
+                
+                StorageManager.shared.downloadURL(for: dPost.image) { [weak self] result in
+                    switch result {
+                    case .success(let url):
+                        self?.downloadImage(url: url)
+                    case .failure(let error):
+                        print("Failed to get download url:\(error)")
+                    }
+                }
             }
             catch {
               print(error)
@@ -72,31 +83,9 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
             let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! customDPostCell
             
             let target = post
-            cell.dTitleLabel?.text = target.title
+            cell.dTitleLabel?.text = target.ttitle
             cell.dUserLabel?.text = target.name
-            
-            let url = URL(string: target.image)
-            if url == nil {
-                cell.dPostImage?.image = UIImage(systemName: "x.square")
-            } else {
-                do {
-                    let data = try Data(contentsOf: url!)
-                    let image = UIImage(data: data)!
-                    
-                    let scale = 350 / image.size.width
-                    let height = image.size.height * scale
-                    UIGraphicsBeginImageContext(CGSize(width: 350, height: height))
-                    image.draw(in: CGRect(x: 0, y: 0, width: 350, height: height))
-                    let newImage = UIGraphicsGetImageFromCurrentImageContext()
-                    UIGraphicsEndImageContext()
-                    
-                    cell.dPostImage?.image = newImage
-                } catch {
-                    //로드 실패 시 x모양 아이콘 띄움
-                    cell.dPostImage?.image = UIImage(systemName: "x.square")
-                }
-            }
-            
+            cell.dPostImage?.image = self.downloadedImage
             cell.dContentLabel?.text = target.content
             
             cell.countIcon?.image = UIImage(systemName: "bubble.right")
@@ -123,7 +112,7 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     //하단 툴바
-    @IBOutlet weak var toolBar: UIToolbar!
+    @IBOutlet weak var toolBar: UIView!
     
     //하단 툴바 댓글 입력창
     @IBOutlet weak var commentTextView: UITextView!
@@ -186,25 +175,61 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
         commentTextView.layer.borderWidth = 1
         commentTextView.layer.borderColor = UIColor.gray.cgColor
         
-        CommentTableView.keyboardDismissMode = .onDrag
+        //CommentTableView.keyboardDismissMode = .onDrag
         addButton.isEnabled = false
     }
     
+    @IBOutlet weak var toolBarBottomMargin: NSLayoutConstraint!
+    
     @objc func keyboardWillShow(notification: NSNotification) {
-                
-        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
-               return
-            }
-          
-        self.view.frame.origin.y = 0 - keyboardSize.height
+        let notiInfo = notification.userInfo!
+        // 키보드 높이를 가져옴
+        let keyboardFrame = notiInfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+        let height = keyboardFrame.size.height - self.view.safeAreaInsets.bottom
+        toolBarBottomMargin.constant = height + 39
+
+        //애니메이션 효과를 키보드 애니메이션 시간과 동일하게
+        let animationDuration = notiInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
+        UIView.animate(withDuration: animationDuration) {
+            self.view.layoutIfNeeded()
+        }
     }
 
     @objc func keyboardWillHide(notification: NSNotification) {
-        self.view.frame.origin.y = 0
+        let notiInfo = notification.userInfo!
+        let animationDuration = notiInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
+        self.toolBarBottomMargin.constant = 39
+
+        //애니메이션 효과를 키보드 애니메이션 시간과 동일하게
+        UIView.animate(withDuration: animationDuration) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    //이미지 설정
+    func downloadImage(url: URL) {
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            DispatchQueue.main.async {
+                let image = UIImage(data: data) ?? UIImage(systemName: "x.square")
+                
+                let scale = 350 / image!.size.width
+                let height = image!.size.height * scale
+                UIGraphicsBeginImageContext(CGSize(width: 350, height: height))
+                image!.draw(in: CGRect(x: 0, y: 0, width: 350, height: height))
+                let newImage = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext()
+                
+                self.downloadedImage = newImage
+                self.CommentTableView.reloadData()
+            }
+        }.resume()
     }
 }
 
@@ -247,4 +272,24 @@ class customDPostCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+}
+
+final class StorageManager {
+    private let storage = Storage.storage().reference()
+    static let shared = StorageManager()
+    
+    public enum StorageErrors: Error {
+        case failedToGetDownloadUrl
+    }
+
+    public func downloadURL(for path: String, completion: @escaping (Result<URL, Error>) -> Void) {
+        let reference = storage.child(path)
+        reference.downloadURL { url, error in
+            guard let url = url, error == nil else {
+                completion(.failure(StorageErrors.failedToGetDownloadUrl))
+                return
+            }
+            completion(.success(url))
+        }
+    }
 }
