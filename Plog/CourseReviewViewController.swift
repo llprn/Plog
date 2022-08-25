@@ -30,9 +30,14 @@ class CourseReviewViewController: UIViewController, UITextFieldDelegate, UITextV
         return true
     }
     
+    
     // 플로깅 전/후 사진
     @IBOutlet var beforePlogging: UIImageView!
     @IBOutlet var afterPlogging: UIImageView!
+    @IBOutlet var beforeLogo: UIImageView!
+    @IBOutlet var afterLogo: UIImageView!
+    
+    
 
     
     var imgPickerController = UIImagePickerController()
@@ -127,6 +132,7 @@ class CourseReviewViewController: UIViewController, UITextFieldDelegate, UITextV
     
     // 달리기 후기
     @IBOutlet var joggingReview: UITextView!
+
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if (text == "\n") {
@@ -137,7 +143,7 @@ class CourseReviewViewController: UIViewController, UITextFieldDelegate, UITextV
     
     func placeholderSetting() {
         joggingReview.delegate = self
-        joggingReview.text = "10~100자 이내로 코스가 어땠는지 설명해주세요"
+        joggingReview.text = "최소 10자 이상"
         joggingReview.textColor = UIColor.lightGray
     }
     
@@ -150,8 +156,14 @@ class CourseReviewViewController: UIViewController, UITextFieldDelegate, UITextV
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "10~100자 이내로 코스가 어땠는지 설명해주세요"
+            textView.text = "최소 10자 이상"
             textView.textColor = UIColor.lightGray
+        }
+        if textView.text.count >= 10 {
+            self.toggleUploadBtn()
+        } else {
+            uploadBtn.isUserInteractionEnabled = false
+            uploadBtn.alpha = 0.5
         }
     }
     
@@ -160,6 +172,7 @@ class CourseReviewViewController: UIViewController, UITextFieldDelegate, UITextV
             textView.deleteBackward()
         }
     }
+    
     
     
     let db = Firestore.firestore()
@@ -172,10 +185,10 @@ class CourseReviewViewController: UIViewController, UITextFieldDelegate, UITextV
     var path3: String = ""
     var imgDataList: Array<Data> = []
     
-
-    
     // 등록 버튼
+    @IBOutlet var uploadBtn: UIButton!
     @IBAction func uploadReviewBtn(_ sender: Any) {
+        
         // 등록 날짜 생성
         let formatter1 = DateFormatter()
         formatter1.dateFormat = "yyyy-MM-dd"
@@ -281,7 +294,8 @@ class CourseReviewViewController: UIViewController, UITextFieldDelegate, UITextV
         
         // 시작/종료 지점 좌표 db에 저장
         if (startPoint != nil && endPoint != nil) {
-//            self.db.collection("startAndEndPoints").addDocument(data: [  //DB Success 3번씩 돼서 이렇게 하면 3개가 들어감
+//            DB Success 3번씩 돼서 이렇게 하면 3개가 따로따로 들어감
+//            self.db.collection("startAndEndPoints").addDocument(data: [
             self.db.collection("startAndEndPoints").document(self.uuid).setData([
                 "startPoint" : GeoPoint(latitude: startPoint!.latitude, longitude: startPoint!.longitude),
                 "endPoint" : GeoPoint(latitude: endPoint!.latitude, longitude: endPoint!.longitude)
@@ -312,15 +326,44 @@ class CourseReviewViewController: UIViewController, UITextFieldDelegate, UITextV
         self.present(newVC, animated: true, completion: nil)
     }
     
+    
+    // 등록 버튼 활성화
+    private func toggleUploadBtn() {
+        if
+            !routeText.text!.isEmpty,
+            joggingReview.text.count >= 10,
+            !beforePlogging.isEqual(afterPlogging)
+        {
+            uploadBtn.isUserInteractionEnabled = true
+            uploadBtn.alpha = 1.0
+        } else {
+            uploadBtn.isUserInteractionEnabled = false
+        }
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.text!.count > 0 {
+            self.toggleUploadBtn()
+        } else {
+            uploadBtn.isUserInteractionEnabled = false
+            uploadBtn.alpha = 0.5
+        }
+    }
+
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        uploadBtn.isUserInteractionEnabled = false
+        uploadBtn.alpha = 0.5
+        
         routeImage.image = routeImageSent
         ploggingTime.text = ploggingTimeSent
         ploggingDist.text = ploggingDistSent
         
         routeText.delegate = self
+        
         
         joggingReview.delegate = self
         placeholderSetting()
@@ -351,7 +394,14 @@ extension CourseReviewViewController: UIImagePickerControllerDelegate,  UINaviga
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             (selectedView as? UIImageView)?.image = info[.originalImage] as? UIImage
-            dismiss(animated: true)
+        dismiss(animated: true)
+        if beforePlogging.image != nil {
+            beforeLogo.image = nil
+        }
+        if afterPlogging.image != nil {
+            afterLogo.image = nil
+        }
+        self.toggleUploadBtn()
         }
         
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
