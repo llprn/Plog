@@ -199,14 +199,16 @@ class CourseReviewViewController: UIViewController, UITextFieldDelegate, UITextV
         
         uploadImgToStorage {
             // do your next work here
-            self.uploadDataToDB()
-            self.moveToNewVC()
+            self.uploadDataToDB {
+                self.moveToNewVC()
+            }
         }
     }
     
     func uploadImgToStorage(completion:@escaping () -> Void ) {
 //        uuid = UUID().uuidString
 //        let storageRef = Storage.storage().reference()
+        
         
         guard let imageData1 = routeImage.image!.jpegData(compressionQuality: 0.8) else {
             completion() ; return }
@@ -272,7 +274,7 @@ class CourseReviewViewController: UIViewController, UITextFieldDelegate, UITextV
     }
 
     
-    func uploadDataToDB() {
+    func uploadDataToDB(completion: @escaping () -> Void ) {
         self.db.collection("review").document(self.uuid).setData([
             "routeImage" : path1,
             "ploggingTime" : self.ploggingTimeSent!,
@@ -288,8 +290,9 @@ class CourseReviewViewController: UIViewController, UITextFieldDelegate, UITextV
             if let err = err {
                 print(err)
             } else {
-                print("DB Success")
+                print("Data: DB Success")
             }
+            completion()
         }
         
         // 시작/종료 지점 좌표 db에 저장
@@ -303,14 +306,12 @@ class CourseReviewViewController: UIViewController, UITextFieldDelegate, UITextV
                 if let err = err {
                     print(err)
                 } else {
-                    print("DB Success")
+                    print("Point: DB Success")
                 }
             }
         } else {
             print("pointss is empty! Will not pass startAndEndPoints to DB")
         }
-        
-        
     }
     
     func moveToNewVC() {
@@ -332,7 +333,8 @@ class CourseReviewViewController: UIViewController, UITextFieldDelegate, UITextV
         if
             !routeText.text!.isEmpty,
             joggingReview.text.count >= 10,
-            !beforePlogging.isEqual(afterPlogging)
+            beforePlogging.image != nil,
+            afterPlogging.image != nil
         {
             uploadBtn.isUserInteractionEnabled = true
             uploadBtn.alpha = 1.0

@@ -108,18 +108,13 @@ class PloggingViewController: UIViewController {
     func displayMapSnapshot(completion: @escaping () -> Void ) { //이미지 로드 문제 때문에
         let option: MKMapSnapshotter.Options = MKMapSnapshotter.Options()
         
-        //###################영역 값 받아오는 부분 수정 필요######################
+        
         if pointss.isEmpty {
             // 숙명여자대학교 좌표
             option.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.546475, longitude: 126.9646916), span: MKCoordinateSpan())
         } else {
-            //               option.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: pointss[pointss.count-1].latitude, longitude: pointss[pointss.count-1].longitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             
             option.region = MKCoordinateRegion.init(coordinates: pointss)!
-            
-            //               option.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: pointss[pointss.count/2].latitude, longitude: pointss[pointss.count/2].longitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-            //               print("*******")
-            //               print(pointss.count)
             
         }
         option.size = CGSize(width: 374, height: 200)
