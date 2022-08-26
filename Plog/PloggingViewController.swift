@@ -21,6 +21,24 @@ class PloggingViewController: UIViewController {
     @IBAction func backToCurrentLocBtn(_ sender: Any) {
         myMap.setUserTrackingMode(.follow, animated: true)
     }
+    
+    //test
+    func getCoordinate( addressString : String,
+              completionHandler: @escaping(CLLocationCoordinate2D, NSError?) -> Void ) {
+          let geocoder = CLGeocoder()
+          geocoder.geocodeAddressString(addressString) { (placemarks, error) in
+              if error == nil {
+                  if let placemark = placemarks?[0] {
+                      let location = placemark.location!
+                          
+                      completionHandler(location.coordinate, nil)
+                      return
+                  }
+              }
+                  
+              completionHandler(kCLLocationCoordinate2DInvalid, error as NSError?)
+          }
+      }
        
     // locationManager 생성
     lazy var locationManager: CLLocationManager = {
@@ -210,6 +228,7 @@ class PloggingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         toggleButton.setBackgroundImage(UIImage(named: "play"), for: .normal)
         myMap.delegate = self
         // customizeButtonNotSelected()
@@ -270,8 +289,42 @@ class PloggingViewController: UIViewController {
                     print(error)
                 }
             }.resume()
-        }
+        } // end of calling api
+        
+        
+        // 대구 달서구
+        if let rUrl_dalseo = URL(string: "https://api.odcloud.kr/api/15041694/v1/uddi:5d9e2400-2988-4b22-a59f-ad26bbef35cb?page=1&perPage=30&serviceKey=%2FBi97g7YPpwIHFiw7c8ShM4w%2FjsqM4UgRyXZp3LTg%2FGhuQWKrM3n6599Kt4xBNRllW7D103kd6EnQugucwa1hw%3D%3D") {
+            let request = URLRequest.init(url: rUrl_dalseo)
+            
+            URLSession.shared.dataTask(with: request) {
+                (data, response, error) in guard let data = data else {return}
+                let decoder = JSONDecoder()
+                print(response as Any)
+                
+                do{ let rJson = try decoder.decode(recyclingData_dalseo.self , from: data)
+                    //가져온 정보 출력(확인용)
+                    // print(rJson)
+                    
+                    //재활용인 것만 지도에 마커 표시
+                    //for recycleSpot in rJson.data {
+                    rJson.data?.forEach{ recycleSpot in
+                        //위도, 경도 값이 있음을 먼저 확인
+                        if recycleSpot.수거쓰레기종류 == "재활용품 수거용" && recycleSpot.위도 != nil && recycleSpot.경도 != nil {
+                            //확인한 뒤이므로 nil값이 없음. 따라서 !로 강제함
+                            let mark = rMarker(coordinate: CLLocationCoordinate2D(latitude: Double(recycleSpot.위도!)!, longitude: Double(recycleSpot.경도!)!), subtitle: recycleSpot.설치주소!)
+                            self.myMap.addAnnotation(mark)
+                        }
+                    }
+                }
+                catch{
+                    print(error)
+                }
+            }.resume()
+        } // end of calling api
+        
     }
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
