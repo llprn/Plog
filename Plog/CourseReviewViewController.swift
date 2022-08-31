@@ -300,8 +300,8 @@ class CourseReviewViewController: UIViewController, UITextFieldDelegate, UITextV
     
     func moveToNewVC() {
         print("I am moving!")
-        
-        let newVC = UIStoryboard(name: "dbTest", bundle: nil).instantiateViewController(withIdentifier: "dbTestViewController") as! dbTestViewController
+        let newVC = UIStoryboard(name: "ApostDetail", bundle: nil).instantiateViewController(withIdentifier: "ApostDetailViewController") as! ApostDetailViewController
+     //   let newVC = UIStoryboard(name: "dbTest", bundle: nil).instantiateViewController(withIdentifier: "dbTestViewController") as! dbTestViewController
         newVC.modalPresentationStyle = .fullScreen
         newVC.modalTransitionStyle = .crossDissolve
 
