@@ -55,7 +55,7 @@ class PloggingViewController: UIViewController {
     // 이동 시간, 이동 거리
     var mainTimer: Timer?
     var timeCount = 0
-    var toggleButtonChecked = false
+    var toggleButtonChecked = false // status : stop
     var distance: Double = 0.00
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var distanceLabel: UILabel!
@@ -65,7 +65,7 @@ class PloggingViewController: UIViewController {
             toggleButtonChecked = true
             customizeButtonSelected()
         }
-        else {
+        else { // 스톱워치 일시정지 버튼 눌렀을 때
             toggleButtonChecked = false
             customizeButtonNotSelected()
         }
@@ -94,13 +94,18 @@ class PloggingViewController: UIViewController {
         //           myMap.delegate = self
     }
     
-    
-    // (스톱워치 시작 전,) 스톱워치 일시정지 버튼 눌렀을 때
+    var arrayCountStoppedLastIndex: [Int] = []
+    // 스톱워치 일시정지 버튼 눌렀을 때
     func customizeButtonNotSelected() {
         toggleButton.setBackgroundImage(UIImage(named: "play"), for: .normal)
         mainTimer?.invalidate()
         mainTimer = nil
-        //*****************************************
+
+        previousCoordinate = nil
+        arrayCountStoppedLastIndex.append(pointss.count-1)
+        print("**********")
+        print(arrayCountStoppedLastIndex)
+        print("**********")
         locationManager.delegate = nil
         // myMap.delegate = nil
         
@@ -123,6 +128,7 @@ class PloggingViewController: UIViewController {
     var pointss: [CLLocationCoordinate2D] = []
     var coordinates: [CLLocationCoordinate2D] = []
     
+    // 경로 포함된 지도 이미지 획득
     func displayMapSnapshot(completion: @escaping () -> Void ) { //이미지 로드 문제 때문에
         let option: MKMapSnapshotter.Options = MKMapSnapshotter.Options()
         
@@ -136,8 +142,7 @@ class PloggingViewController: UIViewController {
             
         }
         option.size = CGSize(width: 374, height: 200)
-        //        option.size = snapshotImage.bounds.size
-        MKMapSnapshotter(options: option).start() { snapshot, error in
+        MKMapSnapshotter(options: option).start() { [self] snapshot, error in
             guard let snapshot = snapshot else { return }
             
             let mapImage = snapshot.image
@@ -150,13 +155,46 @@ class PloggingViewController: UIViewController {
                 let points = self.coordinates.map { coordinate in
                     snapshot.point(for: coordinate)
                 }
+                
                 // build a bezier path using that `[CGPoint]`
                 let path = UIBezierPath()
                 path.move(to: points[0])
-                for point in points.dropFirst() {
-                    path.addLine(to: point)
+                if self.arrayCountStoppedLastIndex.count == 0 { // 한번도 안 멈췄을 때
+                    for point in points.dropFirst() {
+                        path.addLine(to: point)
+                    }
+                } else {                                        // 멈춘 기록이 있을 때
+                    print("I have stopped!")
+                    var i: Int = 0
+                    print("@@@@@@@")
+                    print(points)
+                    print("@@@@@@@")
+                    while i < self.arrayCountStoppedLastIndex.count { //count만큼 반복. 3이면 3번 멈췄다는 뜻
+                        if i == 0 { // 첫 번째 묶음
+                            for point in points.dropLast(points.count - (self.arrayCountStoppedLastIndex[i]+1)) {
+                                path.addLine(to: point)
+                            }
+                            print("arrayCountStoppedLastIndex : \(self.arrayCountStoppedLastIndex[i])")
+                        }
+                        else { // 나머지 묶음
+                            path.move(to: points[self.arrayCountStoppedLastIndex[i-1]+1])
+                            let sequenceRemoved = points.dropFirst(self.arrayCountStoppedLastIndex[i-1]+1)
+                            for point in sequenceRemoved.dropLast(points.count - (self.arrayCountStoppedLastIndex[i]+1)) {
+                                path.addLine(to: point)
+                            }
+                        }
+                        i += 1
+                    }
+                    // 마지막 묶음 남아 있는 경우 (일시정지 버튼 안 누르고 기록 버튼 눌렀을 때)
+                    print("Didn't press pause button at the end.")
+                    if (points.count-1) != self.arrayCountStoppedLastIndex[i-1] {
+                        path.move(to: points[self.arrayCountStoppedLastIndex[i-1]+1])
+                        let sequencedRemoved = points.dropFirst(self.arrayCountStoppedLastIndex[i-1]+1)
+                        for point in sequencedRemoved.dropFirst() {
+                            path.addLine(to: point)
+                        }
+                    }
                 }
-                
                 // stroke it
                 path.lineWidth = 2.0
                 UIColor.blue.setStroke()
@@ -176,25 +214,6 @@ class PloggingViewController: UIViewController {
         self.locationManager.stopUpdatingLocation()
         self.locationManager.delegate = nil
         
-        
-        //           // '등록' 버튼 누른 뒤에 저장되도록 자리 변경
-        //           // 시작/종료 지점 좌표 db에 저장
-        //           if !(pointss.isEmpty) {
-        //               let startPoint = pointss[0]
-        //               let endPoint = pointss[pointss.count-1]
-        //               db.collection("startAndEndPoints").addDocument(data: [
-        //                "startPoint" : GeoPoint(latitude: startPoint.latitude, longitude: startPoint.longitude),
-        //                "endPoint" : GeoPoint(latitude: endPoint.latitude, longitude: endPoint.longitude)
-        //               ]) { err in
-        //                   if let err = err {
-        //                       print(err)
-        //                   } else {
-        //                       print("DB Success")
-        //                   }
-        //               }
-        //           } else {
-        //               print("pointss is empty! Will not pass startAndEndPoints to DB")
-        //           }
         
         displayMapSnapshot {
             
@@ -221,13 +240,13 @@ class PloggingViewController: UIViewController {
             }
             lineDraw = nil
             allLineDraw = []
+            self.arrayCountStoppedLastIndex = []
         }
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         toggleButton.setBackgroundImage(UIImage(named: "play"), for: .normal)
         myMap.delegate = self
@@ -239,6 +258,7 @@ class PloggingViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         // 위치 업데이트 시작
         locationManager.startUpdatingLocation()
+        locationManager.allowsBackgroundLocationUpdates = true
         
         // 사용자 위치 보기 설정
         // 위 세 줄 zoom 관련인데 적용이 안 되는 듯하다
@@ -361,32 +381,41 @@ var allLineDraw: [MKPolyline] = []
 extension PloggingViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        
+       
         guard let location = locations.last
         else {return}
         let latitude = location.coordinate.latitude
-        let longtitude = location.coordinate.longitude
+        let longitude = location.coordinate.longitude
         
-        //        self.labelLocationInfo1?.text
-        //        = "위도: \(latitude) / 경도: \(longtitude)"
+        print("latitude : \(latitude)")
+        print("longitude: \(longitude)")
+        print("var previous coordinate : \(String(describing: previousCoordinate))")
         
-        if let previousCoordinate = self.previousCoordinate {
-            // var pointss: [CLLocationCoordinate2D] = [] 밖으로 뺄 예정
+        if let previousCoordinate = self.previousCoordinate { // not nil
+            var partPoints: [CLLocationCoordinate2D] = []
+            
             let point1 = CLLocationCoordinate2DMake(previousCoordinate.latitude, previousCoordinate.longitude)
-            let point2: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longtitude)
+            let point2: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+            partPoints.append(point1)
+            partPoints.append(point2)
             pointss.append(point1)
             pointss.append(point2)
+    
+            
+            print("point1 : \(point1)")
+            print("point2 : \(point2)")
             
             distance = distance + (point1.getDistanceInMeters(from: point2)/1000)
             print("distance: \(distance)")
             
-            lineDraw = MKPolyline(coordinates: pointss, count:pointss.count)
+//            lineDraw = MKPolyline(coordinates: pointss, count:pointss.count)
+            lineDraw = MKPolyline(coordinates: partPoints, count: partPoints.count)
             allLineDraw.append(lineDraw)
             self.myMap.addOverlay(lineDraw)
         }
         
         self.previousCoordinate = location.coordinate
-        
+
     }
 }
 
