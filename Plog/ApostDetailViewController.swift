@@ -12,7 +12,7 @@ class ApostDetailViewController: UIViewController {
     //db
     var documentIDString: String!
     let db = Firestore.firestore()
-    var uuid: String = "DDE03054-D606-4D53-BE4E-492A5526020B" //""로 수정하기
+    var uuid: String = "" 
  
     @IBOutlet weak var routeImage: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
@@ -43,8 +43,8 @@ class ApostDetailViewController: UIViewController {
         guard let data = snapshot?.data(), error == nil else {
             return
         }
-            self.ploggingTime.text = data["ploggingTime"] as? String
-            self.ploggingDist.text = data["ploggingDist"] as? String
+        self.ploggingTime.text = data["ploggingTime"] as? String
+        self.ploggingDist.text = data["ploggingDist"] as? String
         self.trashAmount.text = data["trashAmount"] as? String
         self.theMostTrash.text = data["theMostTrash"] as? String
         self.joggingReview.text = data["joggingReview"] as? String
