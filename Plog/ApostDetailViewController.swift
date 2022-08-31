@@ -4,7 +4,6 @@
 
 
 import UIKit
-import Firebase
 import FirebaseFirestore
 import FirebaseStorage
 import FirebaseFirestoreSwift
@@ -13,8 +12,8 @@ class ApostDetailViewController: UIViewController {
     //db
     var documentIDString: String!
     let db = Firestore.firestore()
-    var uuid: String = ""
-
+    var uuid: String = "DDE03054-D606-4D53-BE4E-492A5526020B" //""로 수정하기
+ 
     @IBOutlet weak var routeImage: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     
@@ -30,10 +29,7 @@ class ApostDetailViewController: UIViewController {
  
     
     @IBAction func backBnt(_ sender: Any) {
-//        print("hi")
         let nextVC = UIStoryboard(name: "CourseBoard", bundle: nil).instantiateViewController(withIdentifier: "CourseBoardViewController") as! CourseBoardViewController
-        
-     
         nextVC.modalTransitionStyle = .coverVertical
         nextVC.modalPresentationStyle = .fullScreen
         self.present(nextVC, animated: true, completion: nil)
@@ -43,10 +39,12 @@ class ApostDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-     /*   db.collection("review").document(uuid).getDocument { [self] snapshot, error in
+        db.collection("review").document(uuid).getDocument { [self] snapshot, error in
         guard let data = snapshot?.data(), error == nil else {
             return
         }
+            self.ploggingTime.text = data["ploggingTime"] as? String
+            self.ploggingDist.text = data["ploggingDist"] as? String
         self.trashAmount.text = data["trashAmount"] as? String
         self.theMostTrash.text = data["theMostTrash"] as? String
         self.joggingReview.text = data["joggingReview"] as? String
@@ -81,7 +79,7 @@ class ApostDetailViewController: UIViewController {
                 self.afterPlogging.image = UIImage(data: data!)
             }
         }
-    }*/
+    }
 }
 
 }

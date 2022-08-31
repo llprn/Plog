@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     var name: String?
     @IBOutlet weak var testt: UILabel!
 
+    @IBOutlet weak var test: UILabel! //del
     
     @IBOutlet weak var weatherDescription: UILabel!
     //   var locationManager = CLLocationManager()
@@ -64,23 +65,25 @@ class ViewController: UIViewController {
         default:
             break
         }
-        
+        test.text = ("\(longitude ?? 0)")
+
         //weather
+        
         WeatherService().getWeather{ result in
-            switch result{
-            case .success(let weatherResponse): DispatchQueue.main.async {
-                self.weather = weatherResponse.weather.first
-                self.main = weatherResponse.main
-                self.name = weatherResponse.name
-                self.setWeather()
-                
-            }
-            case .failure(_ ):
-                print("error")
-                
-            }
-           
-        }
+                    switch result{
+                    case .success(let weatherResponse): DispatchQueue.main.async {
+                        self.weather = weatherResponse.weather.first
+                        self.main = weatherResponse.main
+                        self.name = weatherResponse.name
+                        self.setWeather()
+                        
+                    }
+                    case .failure(_ ):
+                        print("error")
+                        
+                    }
+                   
+                }
         
     /*    locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -92,18 +95,21 @@ class ViewController: UIViewController {
         default:
             break
         }*/
+ //   }
     }
-    
 }
+
 //주석처리
 class LocationService {
     static var shared = LocationService()
     var longitude: Double!
     var latitude: Double!
+
 }
 //
 extension ViewController: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+       
         if let location = locations.first {
             print("위치 업데이트!")
             print("위도 : \(location.coordinate.latitude)")
