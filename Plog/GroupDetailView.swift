@@ -54,8 +54,14 @@ struct GroupDetailView: View {
                             Text("참여인원")
                                 .font(.headline)
                                 .padding([.top, .leading, .trailing])
-                            Text(String(group.member.count)+"/"+String(group.capacity))
-                                .padding(.top)
+                            if group.capacity == 21 {
+                                Text(String(group.member.count)+"/제한 없음")
+                                    .padding(.top)
+                            } else {
+                                Text(String(group.member.count)+"/"+String(group.capacity))
+                                    .padding(.top)
+                                    .foregroundColor((group.member.count == group.capacity) ? .red : .black)
+                            }
                             Spacer()
                         }
                         
