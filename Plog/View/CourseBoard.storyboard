@@ -39,6 +39,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="titleLabel" destination="O7L-Me-mC4" id="dil-02-wC4"/>
+                                            <segue destination="Yrx-LQ-Buw" kind="showDetail" id="PvJ-mo-YOH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -72,6 +73,9 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="reviewTableView" destination="Pbs-PT-jgA" id="BrA-ej-xqf"/>
+                    </connections>
                     <navigationItem key="navigationItem" title="Title" id="OVh-3y-5cR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -79,12 +83,12 @@
             <point key="canvasLocation" x="131.8840579710145" y="68.973214285714278"/>
         </scene>
         <!--ApostDetail-->
-        <scene sceneID="isB-Io-hIL">
+        <scene sceneID="nzU-1v-dgS">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="ApostDetailViewController" storyboardName="ApostDetail" id="L21-Ij-BTG" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="X4f-Bv-XBn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="ApostDetailViewController" storyboardName="ApostDetail" id="Yrx-LQ-Buw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cus-71-rxV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="619" y="-17"/>
+            <point key="canvasLocation" x="672" y="11"/>
         </scene>
     </scenes>
     <resources>
