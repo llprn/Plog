@@ -12,7 +12,6 @@ import KakaoSDKUser
 class DiscussionRegisterViewController: UIViewController, UITextFieldDelegate,UITextViewDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
     
     //db
-  /* title 이름 변경 필요*/
    let db = Firestore.firestore()
     
     var storageRef: StorageReference!
@@ -21,8 +20,7 @@ class DiscussionRegisterViewController: UIViewController, UITextFieldDelegate,UI
     var name: String = ""
     var image: String = ""
     var content: String = ""
-    //
-    
+ 
     let imagePickerController = UIImagePickerController()
 
     @IBOutlet weak var imgView: UIImageView!
@@ -47,49 +45,44 @@ class DiscussionRegisterViewController: UIViewController, UITextFieldDelegate,UI
     @IBOutlet weak var registerBnt: UIButton!
     //데이터 전송
     @IBAction func registerBnt(_ sender: Any) {
-        //수정
-        print("success")
         uuid = UUID().uuidString
-        storageRef = Storage.storage().reference()
+        storageRef = Storage.storage().reference() //img
         self.sendFireStore()
-        self.moveToNewVC()
-//        dismiss(animated: true)
-        
+  //      self.moveToNewVC()
+        print("success")
+        dismiss(animated: true)
     }
 
-   
-   
     override func viewDidLoad() {
         super.viewDidLoad()
       
         self.titleTF.layer.borderWidth=0.5
-        self.titleTF.layer.borderColor=UIColor.black.cgColor
+        self.titleTF.layer.borderColor=UIColor.darkGray.cgColor
         
         self.contentTV.layer.borderWidth=0.5
-        self.contentTV.layer.borderColor=UIColor.black.cgColor
+        self.contentTV.layer.borderColor=UIColor.darkGray.cgColor
         
         contentTV.delegate = self
         titleTF.delegate = self
         imagePickerController.delegate = self
         
-        registerBnt.layer.borderColor = UIColor.systemGreen.cgColor
+        registerBnt.layer.borderColor = UIColor.black.cgColor
         registerBnt.layer.cornerRadius = 14
         registerBnt.layer.borderWidth = 2
         
         cancelBnt.layer.borderWidth = 2
         cancelBnt.layer.cornerRadius = 14
-        cancelBnt.layer.borderColor = UIColor.systemGreen.cgColor
-        
+        cancelBnt.layer.borderColor = UIColor.black.cgColor
     }
     
     // 데이터 전송
+        
     private func sendFireStore(){
-        db.collection("discussion").document(self.uuid).setData([
+        self.db.collection("discussion").document(self.uuid).setData([
             "ttitle" : self.ttitle,
             "name" : self.name,
-            "image" : self.image,
-            "content" : self.content]){
-            err in
+            "content" : self.content,
+            "image" : self.image]){ err in
             if let err = err{
                 print("Error writing document: \(err)")
             }else{
@@ -97,6 +90,7 @@ class DiscussionRegisterViewController: UIViewController, UITextFieldDelegate,UI
             }
         }
     }
+    
     func moveToNewVC() {
         print("done")
         let nextVC = UIStoryboard(name: "DiscussionPost", bundle: nil).instantiateViewController(withIdentifier: "DiscussionPostViewController") as! DiscussionPostViewController

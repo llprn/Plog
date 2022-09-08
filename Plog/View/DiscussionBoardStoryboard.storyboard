@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zcW-Z0-497">
-                                <rect key="frame" x="0.0" y="34" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="32" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" systemColor="secondarySystemBackgroundColor"/>
                                 <items>
@@ -62,14 +62,14 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="토론 게시판" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eOK-eo-bUw">
-                                <rect key="frame" x="14" y="85" width="414" height="36"/>
+                                <rect key="frame" x="14" y="84" width="414" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EMJ-cS-YH1">
-                                <rect key="frame" x="318" y="87" width="79" height="31"/>
+                                <rect key="frame" x="316" y="87" width="79" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="글 작성"/>
@@ -83,7 +83,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <segue destination="fAw-Hp-HaT" kind="presentation" identifier="showDetail" modalPresentationStyle="fullScreen" id="GaF-X1-Asb"/>
+                        <outlet property="discussionTableView" destination="uIe-1b-NJE" id="vYS-nH-d3J"/>
+                        <segue destination="UEN-e9-J2l" kind="showDetail" identifier="DiscussionPostViewController" id="LmK-z2-8vE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -101,14 +102,12 @@
             <point key="canvasLocation" x="630" y="-152"/>
         </scene>
         <!--DiscussionPost-->
-        <scene sceneID="MBY-IQ-cp6">
+        <scene sceneID="SRB-Hj-hX9">
             <objects>
-                <viewControllerPlaceholder storyboardName="DiscussionPost" id="fAw-Hp-HaT" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="vGr-0q-Iua"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tpA-Cx-oJN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="DiscussionPostViewController" storyboardName="DiscussionPost" id="UEN-e9-J2l" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AOg-ld-EQb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="605" y="77"/>
+            <point key="canvasLocation" x="707" y="84"/>
         </scene>
     </scenes>
     <resources>
