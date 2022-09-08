@@ -9,12 +9,37 @@ import SwiftUI
 import KakaoSDKAuth
 import KakaoSDKUser
 
-class ViewController: UIViewController {
+import FirebaseFirestore
+
+//marker class
+class Marker:NSObject,MKAnnotation{
+    let title:String?
+    let coordinate:CLLocationCoordinate2D
+    init(title:String?,
+         coordinate:CLLocationCoordinate2D){
+        self.title = title
+        self.coordinate = coordinate
+        super.init()
+    }
+}
+class ViewController: UIViewController,MKMapViewDelegate {
+    //db
+    var documentIDString: String!
+    let db = Firestore.firestore()
+    var uuid: String = ""
+    
     @IBOutlet weak var location: UILabel!
     //날씨
     @IBOutlet weak var currentTemp: UILabel!
     @IBOutlet weak var minTemp: UILabel!
     @IBOutlet weak var maxTemp: UILabel!
+    
+    //지도
+    @IBOutlet weak var mapView: MKMapView!
+    let mark = Marker(
+        title: "숙명여대",
+        coordinate:CLLocationCoordinate2D(latitude:37.54638593013086,longitude: 126.96369838218818))
+    
     
     @IBOutlet weak var weatherImg: UIImageView!
     var weather: Weather?
@@ -48,6 +73,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.addAnnotation(mark) //지도
         locationManager = CLLocationManager()
         locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
@@ -66,9 +92,21 @@ class ViewController: UIViewController {
             break
         }
         test.text = ("\(longitude ?? 0)")
+        
+       //map marker 수정필요
+ /*       db.collection("startAndEndPoints").document(self.uuid).getDocument { [self] snapshot, error in
+        guard let data = snapshot?.data(), error == nil else {
+                return
+            }
+            print("hi")
+      //      self.startPoint.text = data["startPoint"] as? String
+      //      self.endPoint.text = data["endPoint"] as? String
+                
+         
+            }*/
+      //map marker
 
         //weather
-        
         WeatherService().getWeather{ result in
                     switch result{
                     case .success(let weatherResponse): DispatchQueue.main.async {

@@ -57,7 +57,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="환경 정화 지역" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89h-3j-XuB">
-                                <rect key="frame" x="32" y="436" width="135" height="29"/>
+                                <rect key="frame" x="32" y="438" width="135" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                 <nil key="textColor"/>
@@ -103,7 +103,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BnC-wq-jyA">
-                                <rect key="frame" x="27" y="223" width="166" height="140"/>
+                                <rect key="frame" x="26" y="218" width="166" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="현재 지역" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEq-8t-WW7">
@@ -143,6 +143,7 @@
                     <connections>
                         <outlet property="currentTemp" destination="jjp-bf-tSD" id="HrB-tb-ljx"/>
                         <outlet property="location" destination="aEq-8t-WW7" id="0bt-Zd-HNn"/>
+                        <outlet property="mapView" destination="3iN-kw-OQS" id="48a-XK-L1q"/>
                         <outlet property="maxTemp" destination="mHM-dm-8cc" id="tR7-T9-cSJ"/>
                         <outlet property="minTemp" destination="5av-80-Imt" id="OVs-ux-WhQ"/>
                         <outlet property="test" destination="oU0-Ma-5LF" id="3SF-5D-LDw"/>

@@ -1,8 +1,5 @@
-
 //  WeatherService.swift
 //  Plog
-
-
 import Foundation
 import CoreLocation
 
@@ -12,20 +9,27 @@ enum NetworkError: Error {
     case noData
     case decodingError
 }
-/*
-func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    
-    
-    guard let location = locations.first
-    else {return}
-    let latitude = location.coordinate.latitude
-    let longtitude = location.coordinate.longitude
-        
-}*/
 
+
+
+/*class Mark{
+    let coordinate:CLLocationCoordinate2D
+    init(
+         coordinate:CLLocationCoordinate2D){
+        self.coordinate = coordinate
+    }
+}*/
+/*
+class LocationService {
+    static var shared = LocationService()
+    var longitude:Double!
+    var latitude:Double!
+}*/
 class WeatherService {
     // API 호출을 위한 URL
     let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=seoul&appid=6cb03060feeddc6a874d4e5aabfe15f9")
+  
+//                "Latitude: \(locationCoordinate.latitude),
   //  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
  /*   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation],completion:@escaping (Result<WeatherResponse, NetworkError>) -> Void) {
         if let location = locations.first {
@@ -52,8 +56,13 @@ class WeatherService {
       //  test.text = ("\(longitude ?? 0)")
 
    //     guard let url = "\(wurl)&lat=\(latitude)&lon=\(longitude)" else{
-          
-           
+/*핸드폰으로 돌려보기  "\(details.rate)"
+    let longitude = LocationService.shared.longitude! as? Int
+     let latitude = LocationService.shared.latitude! as? Int
+
+    let url = URL(string:
+                    "https://api.openweathermap.org/data/2.5/weather?appid=6cb03060feeddc6a874d4e5aabfe15f9&lat=\(LocationService.shared.longitude!)&lon=\(LocationService.shared.latitude!)")*/
+ 
     func getWeather(completion: @escaping (Result<WeatherResponse, NetworkError>) -> Void) {
         guard let url = url else {
             return completion(.failure(.badUrl))
@@ -76,5 +85,5 @@ class WeatherService {
            }
        }.resume() // 이 dataTask 시작
     }
-
+   
 }
