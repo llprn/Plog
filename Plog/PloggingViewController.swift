@@ -248,6 +248,14 @@ class PloggingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 플로깅 전/후 사진 필요하다는 알림창
+        let alert = UIAlertController(title:"플로깅 후기를 기록하기 위해서는 플로깅 전/후 비교 사진을 각각 1장씩 필수로 첨부하여야 합니다. 플로깅 하면서 사진 찍는 것도 잊지 마세요!",
+            message: "",
+            preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert,animated: true)
+        
+        
         toggleButton.setBackgroundImage(UIImage(named: "play"), for: .normal)
         myMap.delegate = self
         // customizeButtonNotSelected()
