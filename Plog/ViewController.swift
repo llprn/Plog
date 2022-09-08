@@ -9,12 +9,15 @@ import SwiftUI
 import KakaoSDKAuth
 import KakaoSDKUser
 
+import FirebaseFirestore
+
 class ViewController: UIViewController {
  //   var locationManager = CLLocationManager()
     var locationManager: CLLocationManager!
     var currentLocation: String?
+    let db = Firestore.firestore()
    
-
+    @IBOutlet var myMap: MKMapView!
     
     @IBAction func logout(_ sender: Any) {
         UserApi.shared.logout {(error) in
@@ -33,6 +36,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        myMap.delegate = self
+        
         locationManager = CLLocationManager()
         locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
@@ -58,6 +63,32 @@ class ViewController: UIViewController {
             break
         }*/
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        db.collection("startAndEndPoints").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print(err)
+            } else {
+                for document in querySnapshot!.documents {
+                    // 시작 지점
+                    let startPoint = document.data() ["startPoint"] as! GeoPoint
+                    print(startPoint)
+                    let startAnnotation = MKPointAnnotation()
+                    startAnnotation.coordinate = CLLocationCoordinate2DMake(startPoint.latitude, startPoint.longitude)
+                    self.myMap.addAnnotation(startAnnotation)
+                    
+                    // 종료 지점
+                    let endPoint = document.data() ["endPoint"] as! GeoPoint
+                    print(endPoint)
+                    print("==============")
+                    let endAnnotation = MKPointAnnotation()
+                    endAnnotation.coordinate = CLLocationCoordinate2DMake(endPoint.latitude, endPoint.longitude)
+                    self.myMap.addAnnotation(endAnnotation)
+                }
+            }
+        }
+    }
+    
 }
 
 extension ViewController: CLLocationManagerDelegate{
@@ -67,6 +98,38 @@ extension ViewController: CLLocationManagerDelegate{
     }
     
     
+}
+
+extension ViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        guard !annotation.isKind(of: MKUserLocation.self) else {
+            return nil
+        }
+        
+        let annotationIdentifier = "AnnotationIdentifier"
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            annotationView!.canShowCallout = true
+        }
+        else {
+            annotationView!.annotation = annotation
+        }
+        
+        // resize image
+        let pinImage = UIImage(named: "sprout.png")
+        let size = CGSize(width: 25, height: 25)
+        UIGraphicsBeginImageContext(size)
+        pinImage!.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+
+        annotationView!.image = resizedImage
+       
+        return annotationView
+    }
 }
 
 /*class LocationService {
