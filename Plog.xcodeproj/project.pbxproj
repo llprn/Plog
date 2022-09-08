@@ -46,6 +46,7 @@
 		D9A073E428A0988F00A2E023 /* Plogging.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9A073E328A0988F00A2E023 /* Plogging.storyboard */; };
 		D9A073E828A09DFD00A2E023 /* PloggingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A073E728A09DFD00A2E023 /* PloggingViewController.swift */; };
 		D9A073EC28A0A60E00A2E023 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9A073EB28A0A60E00A2E023 /* TabBar.storyboard */; };
+		D9DA400928B7717700E134D3 /* recyclingData_dalseo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DA400828B7717700E134D3 /* recyclingData_dalseo.swift */; };
 		DA336421288C4F6500166C6C /* Community.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA336420288C4F6500166C6C /* Community.storyboard */; };
 		DA336423288C4FFA00166C6C /* ApostDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA336422288C4FFA00166C6C /* ApostDetail.storyboard */; };
 		DA336427288C506100166C6C /* CourseBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA336426288C506100166C6C /* CourseBoard.storyboard */; };
@@ -127,6 +128,7 @@
 		D9A073E328A0988F00A2E023 /* Plogging.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Plogging.storyboard; sourceTree = "<group>"; };
 		D9A073E728A09DFD00A2E023 /* PloggingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingViewController.swift; sourceTree = "<group>"; };
 		D9A073EB28A0A60E00A2E023 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		D9DA400828B7717700E134D3 /* recyclingData_dalseo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recyclingData_dalseo.swift; sourceTree = "<group>"; };
 		DA336420288C4F6500166C6C /* Community.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Community.storyboard; sourceTree = "<group>"; };
 		DA336422288C4FFA00166C6C /* ApostDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ApostDetail.storyboard; sourceTree = "<group>"; };
 		DA336426288C506100166C6C /* CourseBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CourseBoard.storyboard; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 				DA9E860D28AFF24200F08DA3 /* GoogleService-Info.plist */,
 				D9A073E128A0915500A2E023 /* LoginViewController.swift */,
 				937CDB8428A4A1EA00716FB0 /* recyclingData.swift */,
+				D9DA400828B7717700E134D3 /* recyclingData_dalseo.swift */,
 				D9A073E728A09DFD00A2E023 /* PloggingViewController.swift */,
 				D91B22C728A0C06100E96664 /* RecyclingStationViewController.swift */,
 				D91B22CB28A0CD7B00E96664 /* CourseReviewViewController.swift */,
@@ -586,6 +589,7 @@
 				DA33642E288C56D300166C6C /* ApostDetailViewController.swift in Sources */,
 				DA33642C288C56A000166C6C /* CommunityViewController.swift in Sources */,
 				DA8AD6782885ADC8005D6CDB /* ViewController.swift in Sources */,
+				D9DA400928B7717700E134D3 /* recyclingData_dalseo.swift in Sources */,
 				DA8AD6742885ADC8005D6CDB /* AppDelegate.swift in Sources */,
 				DAA139C128959684007D03F8 /* DiscussionRegisterViewController.swift in Sources */,
 				937C8F90288FF2B500E0D145 /* AllGroupListView.swift in Sources */,

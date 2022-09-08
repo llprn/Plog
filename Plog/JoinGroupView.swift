@@ -42,9 +42,14 @@ struct JoinGroupView: View {
                             Text("참여인원")
                                 .font(.headline)
                                 .padding([.top, .leading, .trailing])
-                            Text(String(group.member.count)+"/"+String(group.capacity))
-                                .padding([.top, .leading])
-                                .foregroundColor((group.member.count == group.capacity) ? .red : .black)
+                            if group.capacity == 21 {
+                                Text(String(group.member.count)+"/제한 없음")
+                                    .padding([.top, .leading])
+                            } else {
+                                Text(String(group.member.count)+"/"+String(group.capacity))
+                                    .padding([.top, .leading])
+                                    .foregroundColor((group.member.count == group.capacity) ? .red : .black)
+                            }
                             Spacer()
                         }
                         
@@ -141,7 +146,7 @@ struct JoinGroupView: View {
                 Spacer()
                 
                 Button{
-                    if(group.capacity == group.member.count){
+                    if (group.capacity != 21) && (group.capacity == group.member.count) {
                         showingAlert = true
                     } else {
                         //카카오계정 아이디 불러옴
@@ -189,7 +194,7 @@ struct JoinGroupView: View {
     var disableJ: Bool {
         var check = true
         
-        //장소 입력, 요일 1개 이상 선택, 인원 입력, 목록 1개 이상 선택, 설명 입력
+        //목록 선택
         if (cans || papers || bags || plastics || etcs) {
             check = false
         }

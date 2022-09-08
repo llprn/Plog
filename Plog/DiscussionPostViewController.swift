@@ -12,7 +12,7 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
         var name: String
         var image: String
         var content: String
-        var comments: Array<DComment>
+        var comments: Array<DComment>?
     }
     
     struct DComment: Codable, Hashable {
@@ -74,7 +74,7 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var CommentTableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return post.comments.count + 1
+        return (post.comments?.count ?? 0) + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -89,7 +89,7 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
             cell.dContentLabel?.text = target.content
             
             cell.countIcon?.image = UIImage(systemName: "bubble.right")
-            cell.countLabel?.text = String(target.comments.count)
+            cell.countLabel?.text = String(target.comments?.count ?? 0)
             
             cell.selectionStyle = .none
             
@@ -99,9 +99,9 @@ class DiscussionPostViewController: UIViewController, UITableViewDataSource, UIT
         //댓글
         let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! customCommentCell
 
-        let target = post.comments[indexPath.row - 1]
-        cell.cUserLabel?.text = target.name
-        cell.commentLabel?.text = target.comment
+        let target = post.comments?[indexPath.row - 1]
+        cell.cUserLabel?.text = target?.name
+        cell.commentLabel?.text = target?.comment
         cell.selectionStyle = .none
 
         return cell

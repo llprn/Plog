@@ -58,22 +58,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPI-dR-Ge4">
-                                <rect key="frame" x="148" y="710" width="94" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="KBD-YE-tZZ"/>
-                                    <constraint firstAttribute="width" constant="94" id="Yze-Vb-f0j"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="기록" cornerStyle="medium">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" red="0.20784313730000001" green="0.40784313729999999" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </backgroundConfiguration>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="writeReviewBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="y7K-eu-cmJ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0e-Uf-u0w">
                                 <rect key="frame" x="305.66666666666669" y="593" width="39" height="39"/>
                                 <constraints>
@@ -98,6 +82,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPI-dR-Ge4">
+                                <rect key="frame" x="136" y="710" width="118" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="KBD-YE-tZZ"/>
+                                    <constraint firstAttribute="width" constant="118" id="Yze-Vb-f0j"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="기록" cornerStyle="medium">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="0.20784313730000001" green="0.40784313729999999" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="writeReviewBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="y7K-eu-cmJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

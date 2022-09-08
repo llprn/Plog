@@ -187,9 +187,14 @@ struct ComposeGroupView: View {
                     .onTapGesture {
                         UIApplication.shared.endEditing()
                     }
-                Stepper(value: $capacity, in: 0...20) {
-                    Text("\t\t"+String(capacity))
+                Stepper(value: $capacity, in: 0...21) {
+                    if(capacity == 21) {
+                        Text("\t제한 없음")
+                            .foregroundColor(.gray)
+                    } else {
+                        Text("\t\t"+String(capacity))
                         .foregroundColor((capacity == 0) ? .gray : Color(hue: 0.397, saturation: 0.87, brightness: 0.509))
+                    }
                 }
                 .padding(.horizontal)
             }
