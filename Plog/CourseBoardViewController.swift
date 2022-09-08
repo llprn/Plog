@@ -50,7 +50,6 @@ class CourseBoardViewController: UIViewController,UITableViewDataSource,UITableV
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
-
 //            if segue.identifier == "cell"{
                 let nextVC = segue.destination as! ApostDetailViewController
                 nextVC.modalPresentationStyle = .fullScreen
@@ -76,6 +75,5 @@ class CourseBoardViewController: UIViewController,UITableViewDataSource,UITableV
 class CustomCell: UITableViewCell{
     var uuid:String = ""
     var documentIDString: String!
- //   var board = ""
     @IBOutlet weak var titleLabel:UILabel!
 }
