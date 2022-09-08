@@ -12,11 +12,13 @@ class ApostDetailViewController: UIViewController {
     //db
     var documentIDString: String!
     let db = Firestore.firestore()
+    var receiveId = ""
+
     var uuid: String = "" 
  
     @IBOutlet weak var routeImage: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
-    
+
     @IBOutlet weak var routeText: UILabel!
     @IBOutlet weak var ploggingTime: UILabel!
     @IBOutlet weak var ploggingDist: UILabel!
@@ -27,7 +29,6 @@ class ApostDetailViewController: UIViewController {
     @IBOutlet weak var theMostTrash: UITextView!
     @IBOutlet weak var joggingReview: UITextView!
  
-    
     @IBAction func backBnt(_ sender: Any) {
         let nextVC = UIStoryboard(name: "CourseBoard", bundle: nil).instantiateViewController(withIdentifier: "CourseBoardViewController") as! CourseBoardViewController
         nextVC.modalTransitionStyle = .coverVertical
@@ -39,7 +40,7 @@ class ApostDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        db.collection("review").document(uuid).getDocument { [self] snapshot, error in
+        db.collection("review").document(self.uuid).getDocument { [self] snapshot, error in
         guard let data = snapshot?.data(), error == nil else {
             return
         }
@@ -77,9 +78,9 @@ class ApostDetailViewController: UIViewController {
                 print(_error)
             } else {
                 self.afterPlogging.image = UIImage(data: data!)
+                }
             }
         }
     }
-}
 
 }
