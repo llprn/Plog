@@ -342,6 +342,8 @@ class PloggingViewController: UIViewController {
             }.resume()
         } // end of calling api
         
+        //서울 양천구, 대전 동구
+        fetchGCPlace()
     }
     
     
@@ -371,7 +373,60 @@ class PloggingViewController: UIViewController {
         }
     }
     
+    //주소를 좌표로 변환해야 하는 API들 불러오기
+    func fetchGCPlace () {
+        //서울 양천구
+        if let gURL = URL(string: "https://api.odcloud.kr/api/15038096/v1/uddi:8a39d135-4298-4746-b8a3-aa6d8edbfe37?page=1&perPage=30&serviceKey=jRo9ks5lOcTxnKBxC3JFHFpLGuTFE%2BsxohnnPlmZCKc7qNW5ULaBHYhXvOBVuvq5grPTs0scPuwmTlbXX6dsKw%3D%3D") {
+            let request = URLRequest.init(url: gURL)
+            URLSession.shared.dataTask(with: request) {
+                (data, response, error) in guard let data = data else {return}
+                let decoder = JSONDecoder()
+                //print(response as Any)
+                do{ let rJson = try decoder.decode(recycleSeoulYC.self , from: data)
+                    //재활용인 것만 지도에 마커 표시
+                    rJson.data?.forEach{ recycleSpot in
+                        if recycleSpot.type.contains("재활용") && recycleSpot.place != "" {
+                            self.doGeoCoding(targetPlace: "서울 양천구 " + recycleSpot.place)
+                        }
+                    }
+                } catch{ print(error) }
+            }.resume()
+        }
+        //대전 동구
+        if let gURL = URL(string: "https://api.odcloud.kr/api/15087731/v1/uddi:9b511773-7947-46ec-9639-ab72cdc0f3db?page=1&perPage=30&serviceKey=jRo9ks5lOcTxnKBxC3JFHFpLGuTFE%2BsxohnnPlmZCKc7qNW5ULaBHYhXvOBVuvq5grPTs0scPuwmTlbXX6dsKw%3D%3D") {
+            let request = URLRequest.init(url: gURL)
+            URLSession.shared.dataTask(with: request) {
+                (data, response, error) in guard let data = data else {return}
+                let decoder = JSONDecoder()
+                //print(response as Any)
+                do{ let rJson = try decoder.decode(recycleSeoulYC.self , from: data)
+                    //재활용인 것만 지도에 마커 표시
+                    rJson.data?.forEach{ recycleSpot in
+                        if recycleSpot.type.contains("재활용") && recycleSpot.place != "" {
+                            self.doGeoCoding(targetPlace: "대전 동구 " + recycleSpot.place)
+                        }
+                    }
+                } catch{ print(error) }
+            }.resume()
+        }
+    }
     
+    //주소를 받아 좌표로 변환 후 지도에 마커를 표시하는 함수
+    func doGeoCoding(targetPlace: String) {
+        //지오코딩 변환: 주소를 좌표로
+        CLGeocoder().geocodeAddressString(targetPlace, completionHandler: {(placemarks, error) in
+            if error != nil {
+                //애플 지도 문제로 발생. 요청 시간 혹은 검색 실패
+                //print("지오코딩 에러 발생: \(error!.localizedDescription)" + targetPlace)
+            } else if placemarks!.count > 0 {
+                //검색 결과가 여럿 있을 때 첫번째만 적용됨.
+                let placemark = placemarks![0]
+                //지도에 마커 생성
+                let mark = rMarker(coordinate: placemark.location!.coordinate, subtitle: targetPlace)
+                self.myMap.addAnnotation(mark)
+            }
+        })
+    }
 }
 
 var lineDraw: MKPolyline!
