@@ -25,3 +25,16 @@ struct rData: Decodable{
     //var 관리기관전화번호: String
     //var 데이터기준일자: String
 }
+
+//서울 양천구, 대전 동구
+struct recycleSeoulYC: Decodable {
+    let data: [rdSeoulYC]?
+}
+struct rdSeoulYC: Decodable {
+    var place: String = ""
+    var type: String = ""
+    enum CodingKeys: String, CodingKey {
+        case place = "도로(가로)명"
+        case type = "수거 쓰레기 종류"
+    }
+}

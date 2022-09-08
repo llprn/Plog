@@ -21,9 +21,15 @@ struct GroupCell: View {
                 
                 Spacer()
                 
-                Text(String(group.member.count)+" / "+String(group.capacity))
-                    .font(.caption)
-                    .foregroundColor((group.member.count == group.capacity) ? .red : .black)
+                if(group.capacity == 21) {
+                    Text(String(group.member.count)+" / 제한 없음")
+                        .font(.caption)
+                        .foregroundColor((group.member.count == group.capacity) ? .red : .black)
+                } else {
+                    Text(String(group.member.count)+" / "+String(group.capacity))
+                        .font(.caption)
+                        .foregroundColor((group.member.count == group.capacity) ? .red : .black)
+                }
             }
         }
         .padding(10)
