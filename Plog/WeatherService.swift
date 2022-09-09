@@ -54,12 +54,10 @@ class WeatherService {
 //        let latitude = location.coordinate.latitude
 //        let longitude = location.coordinate.longitude
       //  test.text = ("\(longitude ?? 0)")
-
    //     guard let url = "\(wurl)&lat=\(latitude)&lon=\(longitude)" else{
 /*핸드폰으로 돌려보기  "\(details.rate)"
     let longitude = LocationService.shared.longitude! as? Int
      let latitude = LocationService.shared.latitude! as? Int
-
     let url = URL(string:
                     "https://api.openweathermap.org/data/2.5/weather?appid=6cb03060feeddc6a874d4e5aabfe15f9&lat=\(LocationService.shared.longitude!)&lon=\(LocationService.shared.latitude!)")*/
  

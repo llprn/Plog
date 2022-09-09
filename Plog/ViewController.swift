@@ -1,6 +1,5 @@
 //  ViewController.swift
 
-
 import UIKit
 import CoreLocation
 import MapKit //지도
@@ -11,14 +10,49 @@ import KakaoSDKUser
 
 import FirebaseFirestore
 
-class ViewController: UIViewController {
- //   var locationManager = CLLocationManager()
+//marker class
+class Marker:NSObject,MKAnnotation{
+    let title:String?
+    let coordinate:CLLocationCoordinate2D
+    init(title:String?,
+         coordinate:CLLocationCoordinate2D){
+        self.title = title
+        self.coordinate = coordinate
+        super.init()
+    }
+}
+class ViewController: UIViewController,MKMapViewDelegate {
+    //db
+    var documentIDString: String!
+    let db = Firestore.firestore()
+    var uuid: String = ""
+    
+    @IBOutlet weak var location: UILabel!
+    //날씨
+    @IBOutlet weak var currentTemp: UILabel!
+    @IBOutlet weak var minTemp: UILabel!
+    @IBOutlet weak var maxTemp: UILabel!
+    
+    //지도
+    @IBOutlet weak var mapView: MKMapView!
+    let mark = Marker(
+        title: "숙명여대",
+        coordinate:CLLocationCoordinate2D(latitude:37.54638593013086,longitude: 126.96369838218818))
+    
+    
+    @IBOutlet weak var weatherImg: UIImageView!
+    var weather: Weather?
+    var main: Main?
+    var name: String?
+
+    
+    @IBOutlet weak var weatherDescription: UILabel!
+    //   var locationManager = CLLocationManager()
     var locationManager: CLLocationManager!
     var currentLocation: String?
-    let db = Firestore.firestore()
-   
-    @IBOutlet var myMap: MKMapView!
-    
+
+    var longitude: Double!
+    var latitude: Double!
     @IBAction func logout(_ sender: Any) {
         UserApi.shared.logout {(error) in
             if let error = error {
@@ -36,13 +70,16 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        myMap.delegate = self
-        
+        mapView.addAnnotation(mark) //지도
         locationManager = CLLocationManager()
         locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        //
+        //위도,경도 정보
+        let coor = locationManager.location?.coordinate
+                latitude = coor?.latitude
+                longitude = coor?.longitude
+        
         switch locationManager.authorizationStatus{
             case .denied:
             print("위치 비허용")
@@ -51,6 +88,36 @@ class ViewController: UIViewController {
         default:
             break
         }
+ //       test.text = ("\(longitude ?? 0)")
+        
+       //map marker 수정필요
+ /*       db.collection("startAndEndPoints").document(self.uuid).getDocument { [self] snapshot, error in
+        guard let data = snapshot?.data(), error == nil else {
+                return
+            }
+            print("hi")
+      //      self.startPoint.text = data["startPoint"] as? String
+      //      self.endPoint.text = data["endPoint"] as? String
+                
+         
+            }*/
+      //map marker
+        //weather
+        WeatherService().getWeather{ result in
+                    switch result{
+                    case .success(let weatherResponse): DispatchQueue.main.async {
+                        self.weather = weatherResponse.weather.first
+                        self.main = weatherResponse.main
+                        self.name = weatherResponse.name
+                        self.setWeather()
+                        
+                    }
+                    case .failure(_ ):
+                        print("error")
+                        
+                    }
+                   
+                }
         
     /*    locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -62,43 +129,18 @@ class ViewController: UIViewController {
         default:
             break
         }*/
+ //   }
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        db.collection("startAndEndPoints").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print(err)
-            } else {
-                for document in querySnapshot!.documents {
-                    // 시작 지점
-                    let startPoint = document.data() ["startPoint"] as! GeoPoint
-                    print(startPoint)
-                    let startAnnotation = MKPointAnnotation()
-                    startAnnotation.coordinate = CLLocationCoordinate2DMake(startPoint.latitude, startPoint.longitude)
-                    self.myMap.addAnnotation(startAnnotation)
-                    
-                    // 종료 지점
-                    let endPoint = document.data() ["endPoint"] as! GeoPoint
-                    print(endPoint)
-                    print("==============")
-                    let endAnnotation = MKPointAnnotation()
-                    endAnnotation.coordinate = CLLocationCoordinate2DMake(endPoint.latitude, endPoint.longitude)
-                    self.myMap.addAnnotation(endAnnotation)
-                }
-            }
-        }
-    }
-    
 }
 
-//주석처리
+/*주석처리
 class LocationService {
     static var shared = LocationService()
     var longitude: Double!
     var latitude: Double!
 
-}
-//
+}*/
+
 extension ViewController: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
        
@@ -118,7 +160,6 @@ extension ViewController: CLLocationManagerDelegate{
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         currentLocation = "\(locValue.latitude),\(locValue.longitude)"
         testt.text = currentLocation
-
     }*/
 
     private func setWeather(){
@@ -133,45 +174,4 @@ extension ViewController: CLLocationManagerDelegate{
         maxTemp.text = "\(Int(main!.temp_max-273))"
         minTemp.text = "\(Int(main!.temp_min-273))"
     }
-    
-    
 }
-
-extension ViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
-        guard !annotation.isKind(of: MKUserLocation.self) else {
-            return nil
-        }
-        
-        let annotationIdentifier = "AnnotationIdentifier"
-        
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
-        if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
-            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-            annotationView!.canShowCallout = true
-        }
-        else {
-            annotationView!.annotation = annotation
-        }
-        
-        // resize image
-        let pinImage = UIImage(named: "sprout.png")
-        let size = CGSize(width: 25, height: 25)
-        UIGraphicsBeginImageContext(size)
-        pinImage!.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
-
-        annotationView!.image = resizedImage
-       
-        return annotationView
-    }
-}
-
-/*class LocationService {
-    static var shared = LocationService()
-    var longitude:Double!
-    var latitude:Double!
-}
-*/
