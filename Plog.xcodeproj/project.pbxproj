@@ -33,7 +33,6 @@
 		D91B22C828A0C06100E96664 /* RecyclingStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B22C728A0C06100E96664 /* RecyclingStationViewController.swift */; };
 		D91B22CA28A0CD4900E96664 /* CourseReview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D91B22C928A0CD4900E96664 /* CourseReview.storyboard */; };
 		D91B22CC28A0CD7B00E96664 /* CourseReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B22CB28A0CD7B00E96664 /* CourseReviewViewController.swift */; };
-		D94F6E5A28AA301F00668AEA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D94F6E5928AA301F00668AEA /* GoogleService-Info.plist */; };
 		D94F6E5D28AB3CE800668AEA /* dbTest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D94F6E5C28AB3CE800668AEA /* dbTest.storyboard */; };
 		D94F6E5F28AB403500668AEA /* dbTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94F6E5E28AB403500668AEA /* dbTestViewController.swift */; };
 		D94F6E6228AB69D400668AEA /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D94F6E6128AB69D400668AEA /* FirebaseAnalytics */; };
@@ -62,10 +61,13 @@
 		DA8AD68B2885ADC9005D6CDB /* PlogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8AD68A2885ADC9005D6CDB /* PlogTests.swift */; };
 		DA8AD6952885ADC9005D6CDB /* PlogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8AD6942885ADC9005D6CDB /* PlogUITests.swift */; };
 		DA8AD6972885ADC9005D6CDB /* PlogUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8AD6962885ADC9005D6CDB /* PlogUITestsLaunchTests.swift */; };
+		DA9E860E28AFF24200F08DA3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA9E860D28AFF24200F08DA3 /* GoogleService-Info.plist */; };
 		DAA139BB28958AD4007D03F8 /* DiscussionBoardStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAA139BA28958AD4007D03F8 /* DiscussionBoardStoryboard.storyboard */; };
 		DAA139BD28958AF6007D03F8 /* DiscussionBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA139BC28958AF6007D03F8 /* DiscussionBoardViewController.swift */; };
 		DAA139BF28959672007D03F8 /* DiscussionRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAA139BE28959672007D03F8 /* DiscussionRegister.storyboard */; };
 		DAA139C128959684007D03F8 /* DiscussionRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA139C028959684007D03F8 /* DiscussionRegisterViewController.swift */; };
+		DADAFC8428B1465A00016F7B /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADAFC8328B1465A00016F7B /* Weather.swift */; };
+		DADAFC8628B146F400016F7B /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADAFC8528B146F400016F7B /* WeatherService.swift */; };
 		E9AF9627418F6254EC6028BE /* Pods_Plog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E89DE3870356537BAE4474 /* Pods_Plog.framework */; };
 /* End PBXBuildFile section */
 
@@ -118,8 +120,6 @@
 		D91B22C728A0C06100E96664 /* RecyclingStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecyclingStationViewController.swift; sourceTree = "<group>"; };
 		D91B22C928A0CD4900E96664 /* CourseReview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CourseReview.storyboard; sourceTree = "<group>"; };
 		D91B22CB28A0CD7B00E96664 /* CourseReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseReviewViewController.swift; sourceTree = "<group>"; };
-		D94F6E5928AA301F00668AEA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D94F6E5B28AA302200668AEA /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "View/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D94F6E5C28AB3CE800668AEA /* dbTest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = dbTest.storyboard; sourceTree = "<group>"; };
 		D94F6E5E28AB403500668AEA /* dbTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dbTestViewController.swift; sourceTree = "<group>"; };
 		D9822B3928A0F1A7002CB5EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -147,10 +147,13 @@
 		DA8AD6902885ADC9005D6CDB /* PlogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8AD6942885ADC9005D6CDB /* PlogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlogUITests.swift; sourceTree = "<group>"; };
 		DA8AD6962885ADC9005D6CDB /* PlogUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlogUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DA9E860D28AFF24200F08DA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DAA139BA28958AD4007D03F8 /* DiscussionBoardStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiscussionBoardStoryboard.storyboard; sourceTree = "<group>"; };
 		DAA139BC28958AF6007D03F8 /* DiscussionBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionBoardViewController.swift; sourceTree = "<group>"; };
 		DAA139BE28959672007D03F8 /* DiscussionRegister.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiscussionRegister.storyboard; sourceTree = "<group>"; };
 		DAA139C028959684007D03F8 /* DiscussionRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionRegisterViewController.swift; sourceTree = "<group>"; };
+		DADAFC8328B1465A00016F7B /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		DADAFC8528B146F400016F7B /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,7 +261,6 @@
 		DA8AD6722885ADC8005D6CDB /* Plog */ = {
 			isa = PBXGroup;
 			children = (
-				D94F6E5928AA301F00668AEA /* GoogleService-Info.plist */,
 				DA8AD6732885ADC8005D6CDB /* AppDelegate.swift */,
 				DA8AD6752885ADC8005D6CDB /* SceneDelegate.swift */,
 				DA8AD6772885ADC8005D6CDB /* ViewController.swift */,
@@ -274,6 +276,7 @@
 				937C8F9D288FF49600E0D145 /* TextLimiter.swift */,
 				93C8B1D4289372DF00B196F7 /* KeyboardHandler.swift */,
 				937C8F9F288FF4A700E0D145 /* ConvertDayList.swift */,
+				DADAFC8528B146F400016F7B /* WeatherService.swift */,
 				937C8FA1288FF4B300E0D145 /* ConvertTrashList.swift */,
 				937C8F9B288FF46B00E0D145 /* SideOfTheForce.swift */,
 				937C8FA3288FF53000E0D145 /* ChosenGroup.swift */,
@@ -282,10 +285,11 @@
 				937C8F91288FF30900E0D145 /* MyGroupListView.swift */,
 				937C8F93288FF31D00E0D145 /* GroupCell.swift */,
 				937C8F95288FF32B00E0D145 /* ComposeGroupView.swift */,
+				DADAFC8328B1465A00016F7B /* Weather.swift */,
 				937C8F97288FF33700E0D145 /* JoinGroupView.swift */,
 				937C8F99288FF34600E0D145 /* GroupDetailView.swift */,
 				DA8AD6812885ADC9005D6CDB /* Info.plist */,
-				D94F6E5B28AA302200668AEA /* GoogleService-Info.plist */,
+				DA9E860D28AFF24200F08DA3 /* GoogleService-Info.plist */,
 				D9A073E128A0915500A2E023 /* LoginViewController.swift */,
 				937CDB8428A4A1EA00716FB0 /* recyclingData.swift */,
 				D9DA400828B7717700E134D3 /* recyclingData_dalseo.swift */,
@@ -445,9 +449,9 @@
 				DA336427288C506100166C6C /* CourseBoard.storyboard in Resources */,
 				93B4903828980126009BAFED /* DiscussionPost.storyboard in Resources */,
 				D91B22CA28A0CD4900E96664 /* CourseReview.storyboard in Resources */,
-				D94F6E5A28AA301F00668AEA /* GoogleService-Info.plist in Resources */,
 				D9A073EC28A0A60E00A2E023 /* TabBar.storyboard in Resources */,
 				D9822B3A28A0F1A7002CB5EB /* Main.storyboard in Resources */,
+				DA9E860E28AFF24200F08DA3 /* GoogleService-Info.plist in Resources */,
 				93045253289F945F0094FE7E /* MainGroupListScreen.storyboard in Resources */,
 				D9A073E428A0988F00A2E023 /* Plogging.storyboard in Resources */,
 				DA336421288C4F6500166C6C /* Community.storyboard in Resources */,
@@ -593,6 +597,7 @@
 				937C8F96288FF32B00E0D145 /* ComposeGroupView.swift in Sources */,
 				937C8FA2288FF4B300E0D145 /* ConvertTrashList.swift in Sources */,
 				D91B22C828A0C06100E96664 /* RecyclingStationViewController.swift in Sources */,
+				DADAFC8628B146F400016F7B /* WeatherService.swift in Sources */,
 				937C8F9A288FF34600E0D145 /* GroupDetailView.swift in Sources */,
 				937C8F8E288FF28B00E0D145 /* MainGroupListView.swift in Sources */,
 				937C8F98288FF33700E0D145 /* JoinGroupView.swift in Sources */,
@@ -604,6 +609,7 @@
 				937C8FA0288FF4A700E0D145 /* ConvertDayList.swift in Sources */,
 				937C8F92288FF30900E0D145 /* MyGroupListView.swift in Sources */,
 				937C8F9C288FF46B00E0D145 /* SideOfTheForce.swift in Sources */,
+				DADAFC8428B1465A00016F7B /* Weather.swift in Sources */,
 				937CDB8528A4A1EA00716FB0 /* recyclingData.swift in Sources */,
 				DA8AD6782885ADC8005D6CDB /* ViewController.swift in Sources */,
 				DA8AD6742885ADC8005D6CDB /* AppDelegate.swift in Sources */,

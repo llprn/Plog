@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,74 +17,74 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T6n-m6-tfZ">
-                                <rect key="frame" x="10" y="44" width="394" height="842"/>
+                                <rect key="frame" x="0.0" y="44" width="409" height="917"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z8R-G3-7zz">
-                                        <rect key="frame" x="8" y="8" width="377" height="1500"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="391.5" height="1500"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="숙대입구-효창공원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FF7-bl-9cE">
-                                                <rect key="frame" x="6" y="31" width="192" height="32"/>
+                                                <rect key="frame" x="18" y="42" width="192" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2022-07-07" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJt-kl-SC5">
-                                                <rect key="frame" x="6" y="64" width="105" height="23"/>
+                                                <rect key="frame" x="22" y="81" width="130" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="이동 동선" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHX-7m-a0g">
-                                                <rect key="frame" x="10" y="124" width="78" height="26"/>
+                                                <rect key="frame" x="24" y="137" width="78" height="26"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="플로깅 전/후" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXc-Ax-fd5">
-                                                <rect key="frame" x="10" y="328" width="102" height="26"/>
+                                                <rect key="frame" x="26" y="485" width="102" height="26"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="쓰레기 양" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcY-C2-c3e">
-                                                <rect key="frame" x="10" y="544" width="78" height="26"/>
+                                                <rect key="frame" x="27" y="743" width="78" height="26"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="가장 많은 쓰레기 종류" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZb-de-MdV">
-                                                <rect key="frame" x="10" y="610" width="178" height="26"/>
+                                                <rect key="frame" x="27" y="819" width="178" height="26"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Js1-dN-T05">
-                                                <rect key="frame" x="10" y="156" width="330" height="144"/>
+                                                <rect key="frame" x="24" y="169" width="342" height="176"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TLz-Fs-fOA">
-                                                <rect key="frame" x="186" y="359" width="154" height="144"/>
+                                                <rect key="frame" x="200" y="526" width="166" height="180"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wtH-eQ-k5F">
-                                                <rect key="frame" x="10" y="359" width="154" height="144"/>
+                                                <rect key="frame" x="24" y="526" width="168" height="180"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="코스 한 줄 평" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84L-a6-0CY">
-                                                <rect key="frame" x="10" y="675" width="105" height="26"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="코스 후기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84L-a6-0CY">
+                                                <rect key="frame" x="28" y="892" width="78" height="26"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="많음" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hJQ-j6-tDH">
-                                                <rect key="frame" x="121" y="536" width="208" height="40"/>
+                                                <rect key="frame" x="135" y="735" width="208" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="textColor" systemColor="labelColor"/>
@@ -93,7 +92,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="플라스틱" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mvq-me-tOz">
-                                                <rect key="frame" x="205" y="602" width="124" height="40"/>
+                                                <rect key="frame" x="219" y="811" width="124" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="textColor" systemColor="labelColor"/>
@@ -101,7 +100,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="언덕 길이 많은 코스" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="iKw-Z7-zXa">
-                                                <rect key="frame" x="4" y="704" width="336" height="40"/>
+                                                <rect key="frame" x="22" y="928" width="355" height="122"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="textColor" systemColor="labelColor"/>
@@ -109,16 +108,44 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3m4-P4-gVY">
-                                                <rect key="frame" x="-21" y="-11" width="88" height="31"/>
+                                                <rect key="frame" x="-4" y="-1" width="88" height="31"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="&lt; Back">
-                                                    <color key="titleColor" name="AccentColor"/>
+                                                    <color key="titleColor" systemColor="tintColor"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="backBnt:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Q1j-UG-hlq"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="이동 거리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PdC-Qf-E8H">
+                                                <rect key="frame" x="228" y="368" width="78" height="26"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbH-p7-ob8">
+                                                <rect key="frame" x="33" y="404" width="125" height="26"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mT-Je-xbo">
+                                                <rect key="frame" x="201" y="404" width="127" height="26"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="소요 시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYw-6v-D7B">
+                                                <rect key="frame" x="60" y="368" width="78" height="26"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -128,10 +155,10 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="z8R-G3-7zz" firstAttribute="width" secondItem="qFf-Ej-c4v" secondAttribute="width" multiplier="0.957219" priority="250" id="UyY-Ur-usR"/>
-                                    <constraint firstItem="z8R-G3-7zz" firstAttribute="trailing" secondItem="UT2-de-36e" secondAttribute="trailing" constant="366" id="V1j-sv-P4J"/>
-                                    <constraint firstItem="z8R-G3-7zz" firstAttribute="bottom" secondItem="UT2-de-36e" secondAttribute="bottom" constant="792" id="bW7-Kv-Wce"/>
-                                    <constraint firstItem="z8R-G3-7zz" firstAttribute="leading" secondItem="UT2-de-36e" secondAttribute="leading" constant="8" id="etb-41-tGG"/>
-                                    <constraint firstItem="z8R-G3-7zz" firstAttribute="top" secondItem="UT2-de-36e" secondAttribute="top" constant="8" id="ihc-cV-89O"/>
+                                    <constraint firstItem="z8R-G3-7zz" firstAttribute="trailing" secondItem="UT2-de-36e" secondAttribute="trailing" id="V1j-sv-P4J"/>
+                                    <constraint firstItem="z8R-G3-7zz" firstAttribute="bottom" secondItem="UT2-de-36e" secondAttribute="bottom" id="bW7-Kv-Wce"/>
+                                    <constraint firstItem="z8R-G3-7zz" firstAttribute="leading" secondItem="UT2-de-36e" secondAttribute="leading" id="etb-41-tGG"/>
+                                    <constraint firstItem="z8R-G3-7zz" firstAttribute="top" secondItem="UT2-de-36e" secondAttribute="top" id="ihc-cV-89O"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="UT2-de-36e"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="qFf-Ej-c4v"/>
@@ -140,22 +167,24 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="T6n-m6-tfZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="Jzw-B5-xGK"/>
+                            <constraint firstItem="T6n-m6-tfZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Jzw-B5-xGK"/>
                             <constraint firstItem="T6n-m6-tfZ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Yuz-zl-q4e"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="T6n-m6-tfZ" secondAttribute="trailing" constant="10" id="iG8-1R-94C"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="T6n-m6-tfZ" secondAttribute="bottom" constant="80" id="mZF-j8-vNc"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="T6n-m6-tfZ" secondAttribute="trailing" constant="5" id="iG8-1R-94C"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="T6n-m6-tfZ" secondAttribute="bottom" constant="5" id="mZF-j8-vNc"/>
                         </constraints>
                     </view>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
-                        <outlet property="afterImg" destination="TLz-Fs-fOA" id="b4A-Vh-sQn"/>
-                        <outlet property="beforeImg" destination="wtH-eQ-k5F" id="bPh-do-Ndg"/>
-                        <outlet property="dateLabel" destination="AJt-kl-SC5" id="0RR-gf-5YU"/>
-                        <outlet property="firstImg" destination="Js1-dN-T05" id="Zf7-N0-Y04"/>
-                        <outlet property="review" destination="iKw-Z7-zXa" id="ieh-uQ-DGW"/>
-                        <outlet property="ttleLabel" destination="FF7-bl-9cE" id="Kp4-PT-Ppo"/>
-                        <outlet property="type" destination="mvq-me-tOz" id="ADY-Vr-XAh"/>
-                        <outlet property="volume" destination="hJQ-j6-tDH" id="TFI-Ce-H9N"/>
+                        <outlet property="afterPlogging" destination="TLz-Fs-fOA" id="Bir-Fb-uWX"/>
+                        <outlet property="beforePlogging" destination="wtH-eQ-k5F" id="3M4-Tb-n3I"/>
+                        <outlet property="dateLabel" destination="AJt-kl-SC5" id="GsE-du-pWn"/>
+                        <outlet property="joggingReview" destination="iKw-Z7-zXa" id="lvw-23-Nbc"/>
+                        <outlet property="ploggingDist" destination="6mT-Je-xbo" id="wvP-1F-jOe"/>
+                        <outlet property="ploggingTime" destination="EbH-p7-ob8" id="Wfu-3f-be9"/>
+                        <outlet property="routeImage" destination="Js1-dN-T05" id="NFu-Iw-ytZ"/>
+                        <outlet property="routeText" destination="FF7-bl-9cE" id="TE6-MM-hfc"/>
+                        <outlet property="theMostTrash" destination="mvq-me-tOz" id="afZ-pc-eL1"/>
+                        <outlet property="trashAmount" destination="hJQ-j6-tDH" id="FUV-6f-NZ5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -164,14 +193,14 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
