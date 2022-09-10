@@ -799,6 +799,7 @@
 				DEVELOPMENT_TEAM = CJ24NGBAVA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Plog/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = pLog;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 권한 설정";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "위치 권한 요청";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 권한 설정(사용 중에만 허용)";
@@ -834,6 +835,7 @@
 				DEVELOPMENT_TEAM = CJ24NGBAVA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Plog/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = pLog;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 권한 설정";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "위치 권한 요청";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 권한 설정(사용 중에만 허용)";

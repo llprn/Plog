@@ -308,6 +308,8 @@ class CourseReviewViewController: UIViewController, UITextFieldDelegate, UITextV
                 } else {
                     print("Point: DB Success")
                 }
+                //***
+                completion()
             }
         } else {
             print("pointss is empty! Will not pass startAndEndPoints to DB")
