@@ -17,17 +17,13 @@ class WeatherService:NSObject, CLLocationManagerDelegate{
     func getWeather(lat:Double,lon:Double,completion: @escaping (Result<WeatherResponse, NetworkError>) -> Void) {
         let lati = "lat=\(lat)&"
         let longi = "lon=\(lon)"
-        
         guard let url:URL = URL(string:uurl+lati+longi+aid) else{
             return completion(.failure(.badUrl))
         }
-       
-        
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
                 return completion(.failure(.noData))
             }
-           
            // Data 타입으로 받은 리턴을 디코드
             let weatherResponse = try? JSONDecoder().decode(WeatherResponse.self, from: data)
 
@@ -37,7 +33,7 @@ class WeatherService:NSObject, CLLocationManagerDelegate{
                completion(.success(weatherResponse)) //데이터 저장
             } else {
                 print(url)
-               completion(.failure(.decodingError))
+                completion(.failure(.decodingError))
            }
        }.resume()
     }
