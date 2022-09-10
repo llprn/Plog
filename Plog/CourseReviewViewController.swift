@@ -199,10 +199,10 @@ class CourseReviewViewController: UIViewController, UITextFieldDelegate, UITextV
         
         uploadImgToStorage {
             // do your next work here
-            self.uploadDataToDB {
-                self.moveToNewVC()
+            self.uploadDataToDB { }
+            self.moveToNewVC()
             }
-        }
+        
     }
     
     func uploadImgToStorage(completion:@escaping () -> Void ) {
