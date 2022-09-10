@@ -201,7 +201,7 @@ class CourseReviewViewController: UIViewController, UITextFieldDelegate, UITextV
             // do your next work here
             self.uploadDataToDB { }
             self.moveToNewVC()
-            }
+        }
         
     }
     
