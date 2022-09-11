@@ -199,10 +199,10 @@ class CourseReviewViewController: UIViewController, UITextFieldDelegate, UITextV
         
         uploadImgToStorage {
             // do your next work here
-            self.uploadDataToDB {
-                self.moveToNewVC()
-            }
+            self.uploadDataToDB { }
+            self.moveToNewVC()
         }
+        
     }
     
     func uploadImgToStorage(completion:@escaping () -> Void ) {
@@ -308,6 +308,8 @@ class CourseReviewViewController: UIViewController, UITextFieldDelegate, UITextV
                 } else {
                     print("Point: DB Success")
                 }
+                //***
+                completion()
             }
         } else {
             print("pointss is empty! Will not pass startAndEndPoints to DB")

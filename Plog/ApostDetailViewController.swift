@@ -40,47 +40,60 @@ class ApostDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         db.collection("review").document(self.uuid).getDocument { [self] snapshot, error in
         guard let data = snapshot?.data(), error == nil else {
             return
         }
+            
         self.ploggingTime.text = data["ploggingTime"] as? String
         self.ploggingDist.text = data["ploggingDist"] as? String
+        self.routeText.text = data["routeText"] as? String
+            
         self.trashAmount.text = data["trashAmount"] as? String
         self.theMostTrash.text = data["theMostTrash"] as? String
         self.joggingReview.text = data["joggingReview"] as? String
         self.dateLabel.text = data["date"] as? String
-            
-        let pathURL1 = data["routeImage"] as! String
-        let reference1 = Storage.storage().reference().child(pathURL1)
-        reference1.getData(maxSize: 15 * 1024 * 1024) { (data, error) in
-            if let _error = error {
-                print(_error)
-            } else {
-                self.routeImage.image = UIImage(data: data!)
-            }
-        }
-            
-        let pathURL2 = data["beforePlogging"] as! String
-        let reference2 = Storage.storage().reference().child(pathURL2)
-        reference2.getData(maxSize: 15 * 1024 * 1024) { (data, error) in
-            if let _error = error {
-                print(_error)
-            } else {
-                self.beforePlogging.image = UIImage(data: data!)
-            }
-        }
-            
-        let pathURL3 = data["afterPlogging"] as! String
-        let reference3 = Storage.storage().reference().child(pathURL3)
-        reference3.getData(maxSize: 15 * 1024 * 1024) { (data, error) in
-            if let _error = error {
-                print(_error)
-            } else {
-                self.afterPlogging.image = UIImage(data: data!)
-                }
-            }
         }
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        db.collection("review").document(self.uuid).getDocument { [self] snapshot, error in
+            guard let data = snapshot?.data(), error == nil else {
+                return
+            }
+            
+            let pathURL1 = data["routeImage"] as! String
+            let reference1 = Storage.storage().reference().child(pathURL1)
+            reference1.getData(maxSize: 15 * 1024 * 1024) { (data, error) in
+                if let _error = error {
+                    print(_error)
+                } else {
+                    self.routeImage.image = UIImage(data: data!)
+                }
+            }
+            
+            let pathURL2 = data["beforePlogging"] as! String
+            let reference2 = Storage.storage().reference().child(pathURL2)
+            reference2.getData(maxSize: 15 * 1024 * 1024) { (data, error) in
+                if let _error = error {
+                    print(_error)
+                } else {
+                    self.beforePlogging.image = UIImage(data: data!)
+                }
+            }
+            
+            let pathURL3 = data["afterPlogging"] as! String
+            let reference3 = Storage.storage().reference().child(pathURL3)
+            reference3.getData(maxSize: 15 * 1024 * 1024) { (data, error) in
+                if let _error = error {
+                    print(_error)
+                } else {
+                    self.afterPlogging.image = UIImage(data: data!)
+                }
+            }
+            
+        }
+    }
+    
 }
