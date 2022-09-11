@@ -66,6 +66,8 @@ class DiscussionBoardViewController: UIViewController,UITableViewDataSource,UITa
     }
     
     func setDiscussionData(){
+        //게시글 작성하고 새로 목록 불러올 때 배열 비우고 받아옴
+        self.boardTitle = []
         let db = Firestore.firestore()
         db.collection("discussion").getDocuments(){(querySnapshot, err) in
             if let err = err {
