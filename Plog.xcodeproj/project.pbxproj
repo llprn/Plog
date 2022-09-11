@@ -29,7 +29,6 @@
 		937CDB9928A9360F00716FB0 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 937CDB9828A9360F00716FB0 /* FirebaseFirestoreSwift */; };
 		93B4903828980126009BAFED /* DiscussionPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93B4903728980126009BAFED /* DiscussionPost.storyboard */; };
 		93C8B1D5289372DF00B196F7 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C8B1D4289372DF00B196F7 /* KeyboardHandler.swift */; };
-		D918559828CC1E1A0033BB08 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D918559728CC1E1A0033BB08 /* GoogleService-Info.plist */; };
 		D91B22C628A0C03D00E96664 /* RecyclingStation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D91B22C528A0C03D00E96664 /* RecyclingStation.storyboard */; };
 		D91B22C828A0C06100E96664 /* RecyclingStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B22C728A0C06100E96664 /* RecyclingStationViewController.swift */; };
 		D91B22CA28A0CD4900E96664 /* CourseReview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D91B22C928A0CD4900E96664 /* CourseReview.storyboard */; };
@@ -66,6 +65,7 @@
 		DAA139BD28958AF6007D03F8 /* DiscussionBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA139BC28958AF6007D03F8 /* DiscussionBoardViewController.swift */; };
 		DAA139BF28959672007D03F8 /* DiscussionRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAA139BE28959672007D03F8 /* DiscussionRegister.storyboard */; };
 		DAA139C128959684007D03F8 /* DiscussionRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA139C028959684007D03F8 /* DiscussionRegisterViewController.swift */; };
+		DAAD66C828CDCF8F00743B5C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAAD66C728CDCF8F00743B5C /* GoogleService-Info.plist */; };
 		DADAFC8428B1465A00016F7B /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADAFC8328B1465A00016F7B /* Weather.swift */; };
 		DADAFC8628B146F400016F7B /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADAFC8528B146F400016F7B /* WeatherService.swift */; };
 		E9AF9627418F6254EC6028BE /* Pods_Plog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E89DE3870356537BAE4474 /* Pods_Plog.framework */; };
@@ -116,7 +116,6 @@
 		93B4903728980126009BAFED /* DiscussionPost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiscussionPost.storyboard; sourceTree = "<group>"; };
 		93C8B1D4289372DF00B196F7 /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		9C96160A7619FAD32B3252CB /* Pods-Plog-PlogUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plog-PlogUITests.debug.xcconfig"; path = "Target Support Files/Pods-Plog-PlogUITests/Pods-Plog-PlogUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		D918559728CC1E1A0033BB08 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D91B22C528A0C03D00E96664 /* RecyclingStation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecyclingStation.storyboard; sourceTree = "<group>"; };
 		D91B22C728A0C06100E96664 /* RecyclingStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecyclingStationViewController.swift; sourceTree = "<group>"; };
 		D91B22C928A0CD4900E96664 /* CourseReview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CourseReview.storyboard; sourceTree = "<group>"; };
@@ -152,6 +151,7 @@
 		DAA139BC28958AF6007D03F8 /* DiscussionBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionBoardViewController.swift; sourceTree = "<group>"; };
 		DAA139BE28959672007D03F8 /* DiscussionRegister.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiscussionRegister.storyboard; sourceTree = "<group>"; };
 		DAA139C028959684007D03F8 /* DiscussionRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionRegisterViewController.swift; sourceTree = "<group>"; };
+		DAAD66C728CDCF8F00743B5C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DADAFC8328B1465A00016F7B /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		DADAFC8528B146F400016F7B /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -261,12 +261,12 @@
 		DA8AD6722885ADC8005D6CDB /* Plog */ = {
 			isa = PBXGroup;
 			children = (
-				D918559728CC1E1A0033BB08 /* GoogleService-Info.plist */,
 				DA8AD6732885ADC8005D6CDB /* AppDelegate.swift */,
 				DA8AD6752885ADC8005D6CDB /* SceneDelegate.swift */,
 				DA8AD6772885ADC8005D6CDB /* ViewController.swift */,
 				DA33642B288C56A000166C6C /* CommunityViewController.swift */,
 				DAA139BC28958AF6007D03F8 /* DiscussionBoardViewController.swift */,
+				DAAD66C728CDCF8F00743B5C /* GoogleService-Info.plist */,
 				DA33642D288C56D300166C6C /* ApostDetailViewController.swift */,
 				DA336431288C56F800166C6C /* CourseBoardViewController.swift */,
 				DAA139C028959684007D03F8 /* DiscussionRegisterViewController.swift */,
@@ -450,8 +450,8 @@
 				93B4903828980126009BAFED /* DiscussionPost.storyboard in Resources */,
 				D91B22CA28A0CD4900E96664 /* CourseReview.storyboard in Resources */,
 				D9A073EC28A0A60E00A2E023 /* TabBar.storyboard in Resources */,
+				DAAD66C828CDCF8F00743B5C /* GoogleService-Info.plist in Resources */,
 				D9822B3A28A0F1A7002CB5EB /* Main.storyboard in Resources */,
-				D918559828CC1E1A0033BB08 /* GoogleService-Info.plist in Resources */,
 				93045253289F945F0094FE7E /* MainGroupListScreen.storyboard in Resources */,
 				D9A073E428A0988F00A2E023 /* Plogging.storyboard in Resources */,
 				DA336421288C4F6500166C6C /* Community.storyboard in Resources */,

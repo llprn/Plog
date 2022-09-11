@@ -10,11 +10,11 @@ import FirebaseFirestoreSwift
 
 class ApostDetailViewController: UIViewController {
     //db
-    var documentIDString: String!
+//    var documentIDString: String!
     let db = Firestore.firestore()
-    var receiveId = ""
+ //   var receiveId = ""
 
-    var uuid: String = "" 
+    var uuid = ""
  
     @IBOutlet weak var routeImage: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
@@ -34,7 +34,7 @@ class ApostDetailViewController: UIViewController {
         nextVC.modalTransitionStyle = .coverVertical
         nextVC.modalPresentationStyle = .fullScreen
         self.present(nextVC, animated: true, completion: nil)
-        //dismiss(animated: true, completion: nil) //컨트롤러 닫기
+    //    dismiss(animated: true, completion: nil) //컨트롤러 닫기
  //       self.navigationController?.popViewController(animated: true)
     }
 

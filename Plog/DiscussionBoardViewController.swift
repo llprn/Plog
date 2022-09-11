@@ -56,18 +56,15 @@ class DiscussionBoardViewController: UIViewController,UITableViewDataSource,UITa
         performSegue(withIdentifier: "DiscussionPostViewController", sender: nil)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetail" {
-            let nextVC = segue.destination as! DiscussionPostViewController
-     //       nextVC.receiveId = MyCell().uuid
-            //문서 아이디 전달: 변경 필요
-     //       nextVC.receiveId = "qPKLJSL6swUUzdrHGlPC"
-      //      nextVC.receiveId = discussionBoard(dId: document.documentID)
-          
-            nextVC.modalPresentationStyle = .fullScreen
-        }
-        
-        
+        if segue.identifier == "DiscussionPostViewController" {
+                  let nextVC = segue.destination as! DiscussionPostViewController
+                  if let clickedIndex = discussionTableView.indexPathForSelectedRow?.row {
+                      nextVC.receiveId = boardTitle[clickedIndex].dId
+                  }
+                  nextVC.modalPresentationStyle = .fullScreen
+              }
     }
+    
     func setDiscussionData(){
         let db = Firestore.firestore()
         db.collection("discussion").getDocuments(){(querySnapshot, err) in
@@ -83,7 +80,6 @@ class DiscussionBoardViewController: UIViewController,UITableViewDataSource,UITa
     }
 }
 class MyCell:UITableViewCell{
- //   var uuid:String = ""
     var documentIDString: String!
     @IBOutlet weak var labelTitle:UILabel!
 }
