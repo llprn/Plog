@@ -83,7 +83,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="많음" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hJQ-j6-tDH">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="많음" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJQ-j6-tDH">
                                                 <rect key="frame" x="135" y="732" width="208" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -91,7 +91,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="플라스틱" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mvq-me-tOz">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="플라스틱" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvq-me-tOz">
                                                 <rect key="frame" x="219" y="804" width="124" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -99,7 +99,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="언덕 길이 많은 코스" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="iKw-Z7-zXa">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="언덕 길이 많은 코스" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKw-Z7-zXa">
                                                 <rect key="frame" x="22" y="921" width="355" height="122"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
