@@ -31,7 +31,6 @@ class CourseBoardViewController: UIViewController,UITableViewDataSource,UITableV
         }
         let board = boardTitle[indexPath.row]
         cell.titleLabel.text = board.rTitle as? String
-
         return cell
     }
 
@@ -41,20 +40,22 @@ class CourseBoardViewController: UIViewController,UITableViewDataSource,UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         setRData()
-
         self.view.backgroundColor = .systemGray6
-
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "cell", sender: nil)
+        performSegue(withIdentifier: "ApostDetailViewController", sender: nil)
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetail" {
-//            if segue.identifier == "cell"{
-                let nextVC = segue.destination as! ApostDetailViewController
-                nextVC.modalPresentationStyle = .fullScreen
+        if segue.identifier == "ApostDetailViewController" {
+            let nextVC = segue.destination as! ApostDetailViewController
+            if let clickedIndex = reviewTableView.indexPathForSelectedRow?.row {
+                nextVC.uuid = boardTitle[clickedIndex].rId
             }
+            nextVC.modalPresentationStyle = .fullScreen
         }
+    }
 
     func setRData(){
         let db = Firestore.firestore()
@@ -73,7 +74,6 @@ class CourseBoardViewController: UIViewController,UITableViewDataSource,UITableV
 }
 
 class CustomCell: UITableViewCell{
-    var uuid:String = ""
     var documentIDString: String!
     @IBOutlet weak var titleLabel:UILabel!
 }
