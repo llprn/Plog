@@ -8,6 +8,7 @@ struct GroupDetailView: View {
     var userId: Int64
     
     @Environment(\.dismiss) var dismiss
+    @State private var showingAlert = false
 
     var body: some View {
         VStack {
@@ -23,7 +24,7 @@ struct GroupDetailView: View {
                         //탈퇴: 그룹에서 사용자 정보 삭제
                         Firestore.firestore().collection("group").document(group.id).collection("member").document(String(userId)).delete()
                     }
-                    dismiss()
+                    showingAlert = true
                 } label: {
                     Text("탈퇴")
                         .padding(5)
@@ -31,6 +32,9 @@ struct GroupDetailView: View {
                 .foregroundColor(Color(hue: 0.397, saturation: 0.87, brightness: 0.509))
                 .overlay(RoundedRectangle(cornerRadius: 5).stroke(.green, lineWidth: 2))
                 .padding()
+                .alert("그룹에서 탈퇴하였습니다.", isPresented: $showingAlert) {
+                    Button("확인") { dismiss() }
+                }
             }
             ScrollView {
                 VStack(alignment: .leading) {

@@ -48,9 +48,9 @@ class DiscussionRegisterViewController: UIViewController, UITextFieldDelegate,UI
         uuid = UUID().uuidString
         storageRef = Storage.storage().reference() //img
         self.sendFireStore()
-  //      self.moveToNewVC()
+        self.moveToNewVC()
         print("success")
-        dismiss(animated: true)
+        //dismiss(animated: true)
     }
 
     override func viewDidLoad() {
@@ -92,16 +92,23 @@ class DiscussionRegisterViewController: UIViewController, UITextFieldDelegate,UI
     }
     
     func moveToNewVC() {
-        print("done")
-        let nextVC = UIStoryboard(name: "DiscussionPost", bundle: nil).instantiateViewController(withIdentifier: "DiscussionPostViewController") as! DiscussionPostViewController
-        
-        //토론 게시판으로 이동하는 코드
-  //      let newVC = UIStoryboard(name: "DiscussionBoardStoryboard", bundle: nil).instantiateViewController(withIdentifier: "DiscussionBoardViewController") as! DiscussionBoardViewController
-        nextVC.modalPresentationStyle = .fullScreen
-        nextVC.modalTransitionStyle = .crossDissolve
+        //이전 화면
+        guard let pvc = self.presentingViewController else {return}
+        //현재 화면 dismiss
+        self.dismiss(animated: true){
+            //다음 화면 설정
+            let nextVC = UIStoryboard(name: "DiscussionPost", bundle: nil).instantiateViewController(withIdentifier: "DiscussionPostViewController") as! DiscussionPostViewController
 
-        nextVC.receiveId = self.uuid
-        self.present(nextVC, animated: true, completion: nil)
+            nextVC.modalPresentationStyle = .fullScreen
+            nextVC.modalTransitionStyle = .crossDissolve
+
+            nextVC.receiveId = self.uuid
+            
+            //(현재화면은 사라진 상태이므로) 이전화면에서 present 해야함
+            pvc.present(nextVC, animated: true, completion: nil)
+            //이전화면 viewdidload로 갱신
+            pvc.viewDidLoad()
+        }
     }
     
     // textField 글자 수 제한
